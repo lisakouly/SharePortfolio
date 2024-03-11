@@ -37,8 +37,8 @@ limitations under the License.
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <maven.compiler.source>17</maven.compiler.source>
         <maven.compiler.target>17</maven.compiler.target>
-        <sonar.organization>GroupeTP1IndusDev</sonar.organization>
-        <sonar.projectKey>groupetp1indusdev</sonar.projectKey>
+        <sonar.organization>groupetp1indusdev</sonar.organization>
+        <sonar.projectKey>lisakouly_SharePortfolio</sonar.projectKey>
         <sonar.host.url>https://sonarcloud.io</sonar.host.url>
         <sonar.java.libraries></sonar.java.libraries>
     </properties>
