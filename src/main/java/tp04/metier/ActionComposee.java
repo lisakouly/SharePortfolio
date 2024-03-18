@@ -33,6 +33,22 @@ public class ActionComposee extends Action {
         this.mapPanier.put(as, pourcentage);
     }
     
+    public int getQuantite() {
+            return quantite;
+    }
+
+    public void setQuantite(int quantite) {
+            this.quantite = quantite;
+    }
+
+    public double getPrix() {
+            return prix;
+    }
+
+    public void setPrix(double prix) {
+            this.prix = prix;
+    }
+    
     /**
     *
     * function pour connaitre toutes les actions composées disponibles

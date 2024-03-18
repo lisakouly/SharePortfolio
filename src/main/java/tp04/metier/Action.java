@@ -14,6 +14,11 @@ import java.util.Objects;
 public abstract class Action {
 
     private String libelle;
+    public abstract float valeur(Jour j);
+    
+    public Action(String libelle) {
+        this.libelle = libelle;
+    }
 
     /**
      * Get the value of libelle
@@ -23,12 +28,6 @@ public abstract class Action {
     public String getLibelle() {
         return libelle;
     }
-
-    public Action(String libelle) {
-        this.libelle = libelle;
-    }
-
-    public abstract float valeur(Jour j);
 
     @Override
     public int hashCode() {

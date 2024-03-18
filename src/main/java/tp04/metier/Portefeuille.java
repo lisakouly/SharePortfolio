@@ -10,10 +10,12 @@ import java.util.Map;
 
 /**
  *
- * @author somebody
+ * @author maZhuo
  */
 public class Portefeuille {
-
+    
+    private String nomPortefeuille;
+    
     Map<Action, LignePortefeuille> mapLignes;
 
     private class LignePortefeuille {
@@ -43,10 +45,15 @@ public class Portefeuille {
             return Integer.toString(qte);
         }
     }
-
+     public Portefeuille(String nomPortefeuille) {
+        this.mapLignes = new HashMap();
+        this.nomPortefeuille = nomPortefeuille;
+    }
+    
     public Portefeuille() {
         this.mapLignes = new HashMap();
     }
+    
 
     public void acheter(Action a, int q) {
         if (this.mapLignes.containsKey(a) == false) {
@@ -77,8 +84,32 @@ public class Portefeuille {
         }
         return total;
     }
-    
-    public void vendrePortefeuille(){
+    public Map<Action, LignePortefeuille> getMapLignes() {
+		return mapLignes;
+    }
+
+    public void setMapLignes(Map<Action, LignePortefeuille> mapLignes) {
+            this.mapLignes = mapLignes;
+    }
+    /**
+    * Function pour vendre la totalité de portefeuille
+    * 
+    * @param nomPortefeuille Nom du portefeuille à vendre
+    */
+    public void vendrePortefeuille(String nomPortefeuille){
         
+        for (LignePortefeuille lp : this.mapLignes.values()){
+            Action action = lp.getAction();
+            int quantite = lp.getQte();
+            if (action instanceof ActionSimple) {
+                int quantiteNewSimple= ((ActionSimple) action).getQuantite()+ quantite;
+                ((ActionSimple) action).setQuantite(quantiteNewSimple);
+            } else if (action instanceof ActionComposee){
+                int quantiteNewComposee = ((ActionComposee) action).getQuantite()+ quantite;
+                ((ActionComposee) action).setQuantite(quantiteNewComposee);
+            }
+                 
+        }
+        mapLignes.clear();
     }
 }

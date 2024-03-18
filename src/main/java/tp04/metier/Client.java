@@ -23,14 +23,23 @@ import java.util.*;
  */
 public class Client {
       private List<Portefeuille> portefeuilles;
+      private Float capital;
 
 
      public Client() {
         this.portefeuilles = new ArrayList<>();
     }
      
+    public Float getCapital() {
+            return capital;
+        }
+
+    public void setCapital(Float capital) {
+        this.capital = capital;
+    }
      
-     public void addPortefeuille(Portefeuille portefeuille) {
+     
+    public void addPortefeuille(Portefeuille portefeuille) {
     this.portefeuilles.add(portefeuille);}
 
     public float getTotalPortfolioValue(Jour j) {
@@ -42,6 +51,14 @@ public class Client {
     }
      public List<Portefeuille> getPortefeuilles() {
         return portefeuilles;
+    }
+     
+    public Float getAccountBalance(Jour j) {
+        float totalPortfolioValue = 0;
+        for (Portefeuille portefeuille : portefeuilles) {
+            totalPortfolioValue += portefeuille.valeur(j); 
+        }
+        return capital - totalPortfolioValue; 
     }
     
     

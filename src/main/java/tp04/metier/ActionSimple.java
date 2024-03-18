@@ -34,7 +34,23 @@ public class ActionSimple extends Action {
             this.mapCours.put(j, new Cours(j, v));
         }
     }
+    
+     public int getQuantite() {
+            return quantite;
+    }
 
+    public void setQuantite(int quantite) {
+            this.quantite = quantite;
+    }
+
+    public double getPrix() {
+            return prix;
+    }
+
+    public void setPrix(double prix) {
+            this.prix = prix;
+    }
+    
     @Override
     public float valeur(Jour j) {
         if (this.mapCours.containsKey(j) == true) {
