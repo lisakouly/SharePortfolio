@@ -49,8 +49,9 @@ public class ActionComposee extends Action {
     }
 
     @Override
-    public void soustraireQuantite(int quantite) {
+    public int soustraireQuantite(int quantite) {
         throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
     }
+
 
 }

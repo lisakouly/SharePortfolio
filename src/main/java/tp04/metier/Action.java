@@ -35,7 +35,7 @@ public abstract class Action {
     }
 
     // Méthode pour soustraire la quantité achetée de la quantité disponible IMANE
-    public abstract void soustraireQuantite(int quantite);
+    public abstract int soustraireQuantite(int quantite);
     public abstract float valeur(Jour j);
 
     @Override

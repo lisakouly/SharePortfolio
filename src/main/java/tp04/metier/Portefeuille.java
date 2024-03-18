@@ -6,6 +6,7 @@
 package tp04.metier;
 
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 /**
@@ -15,6 +16,8 @@ import java.util.Map;
 public class Portefeuille {
 
     Map<Action, LignePortefeuille> mapLignes;
+    private List<Action> availableActions;
+
 
     public Portefeuille() {
         this.mapLignes = new HashMap();
@@ -58,4 +61,13 @@ public class Portefeuille {
     public Map<Action, LignePortefeuille> getMapLignes() {
         return mapLignes;
     }
+    
+      public List<Action> getAvailableActions() {
+        return availableActions;
+    }
+    
+     public void setAvailableActions(List<Action> availableActions) {
+        this.availableActions = availableActions;
+    }
 }
+

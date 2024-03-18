@@ -5,7 +5,9 @@
  */
 package tp04.metier;
 
+import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 /**
@@ -18,6 +20,10 @@ public class ActionSimple extends Action {
     private Map<Jour, Cours> mapCours;
     private int quantite;
     private double prix;
+    private List<Action> availableActions;
+    private Portefeuille portfolio;
+
+
     
 
     /**
@@ -26,6 +32,7 @@ public class ActionSimple extends Action {
      * @param quantite
      * @param prix 
      */
+
     public ActionSimple(String libelle, int quantite, double prix) {
         // Action simple initialisée comme 1 action
         super(libelle);
@@ -33,6 +40,11 @@ public class ActionSimple extends Action {
         this.prix = prix;
         // init spécifique
         this.mapCours = new HashMap();
+        this.availableActions = new ArrayList<>();
+    }
+    
+        public ActionSimple() {
+        super(null);
     }
     
     /**
@@ -46,8 +58,9 @@ public class ActionSimple extends Action {
  
     // Implémentation de la méthode soustraireQuantite IMANE
     @Override
-    public void soustraireQuantite(int quantite) {
+    public int soustraireQuantite(int quantite) {
         this.quantite -= quantite;
+        return quantite;
     }
     
      // Méthode pour ajouter une quantité à l'action après vente WIDAD
@@ -77,4 +90,48 @@ public class ActionSimple extends Action {
             return 0; // definition d'une constante possible
         }
     }
+    
+    /**
+     * Méthode pour afficher les actions disponibles.
+     */
+    public void afficherActionsSimples( List<Action> availableActions) {
+        System.out.println("Actions disponibles :");
+        for (Action action : availableActions) {
+            System.out.println(action);
+        }
+    }
+    
+    /**
+     * Méthode pour acheter une action.
+     * @param selectedAction
+     * @param quantity 
+     */
+      public void acheterActionSimple(Action selectedAction, int quantity) {
+        if (availableActions.contains(selectedAction)) {
+            portfolio.acheter(selectedAction, quantity);
+            selectedAction.soustraireQuantite(quantity);
+            portfolio.setAvailableActions(availableActions);
+
+            System.out.println("Vous avez acheté " + quantity + " actions de " + selectedAction.getLibelle());
+        } else {
+            System.out.println("Action non disponible.");
+        }
+    }
+     
+      /**
+       *  Méthode pour mettre à jour la quantité disponible d'une action.
+       * @param action
+       * @param quantiteVendue 
+       */
+     public void updateQuantiteDisponible(ActionSimple action, int quantiteVendue) {
+        if (availableActions.contains(action)) {
+            action.ajouterQuantite(quantiteVendue);
+            System.out.println("Quantité de " + action.getLibelle() + " mise à jour : " + action.getQuantite());
+        } else {
+            System.out.println("Action non disponible.");
+        }
+    }
+     
+   
 }
+
