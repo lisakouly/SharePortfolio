@@ -1,6 +1,7 @@
 tp04\metier\ActionSimple.class
 tp04\metier\Client.class
 tp04\metier\Action.class
+tp04\Interfaces\PortefeuilleInterface$1.class
 tp04\Interfaces\ActionsSimplesInterface$1.class
 tp04\Interfaces\ActionsSimplesInterface.class
 tp04\metier\LignePortefeuille.class
@@ -11,3 +12,4 @@ tp04\Interfaces\ActionsSimplesInterface$2.class
 tp04\metier\Jour.class
 tp04\metier\Portefeuille.class
 tp04\metier\Gestionnaire.class
+tp04\Interfaces\PortefeuilleInterface$2.class

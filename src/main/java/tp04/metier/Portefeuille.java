@@ -50,6 +50,11 @@ public class Portefeuille {
         return total;
     }
     
+     public int getQuantite(Action action) {
+        return mapLignes.containsKey(action) ? mapLignes.get(action).getQte() : 0;
+    }
+
+    
     public Map<Action, LignePortefeuille> getMapLignes() {
         return mapLignes;
     }

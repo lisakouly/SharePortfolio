@@ -49,6 +49,11 @@ public class ActionSimple extends Action {
     public void soustraireQuantite(int quantite) {
         this.quantite -= quantite;
     }
+    
+     // Méthode pour ajouter une quantité à l'action après vente WIDAD
+    public void ajouterQuantite(int quantite) {
+        this.quantite += quantite;
+    }
     /**
      * Redéfinition de la méthode pour obtenir le prix de l'action simple
      * @return 

@@ -38,6 +38,7 @@ public class ActionsSimplesInterface extends JFrame {
     private DefaultTableModel tableModel;
     private List<Action> actionsDisponibles;
     private Portefeuille portefeuille;
+    ActionsSimplesInterface actionSimpleInterface=this;
 
     /**
      * Constructeur de la classe ActionsSimplesInterface.
@@ -52,7 +53,13 @@ public class ActionsSimplesInterface extends JFrame {
 
         // Initialisation du portefeuille
         portefeuille = new Portefeuille();
+        
+       
 
+    // Afficher la fenêtre du portefeuille avec l'action achetée en plus
+           PortefeuilleInterface portefeuilleInterface = new PortefeuilleInterface(portefeuille,actionSimpleInterface);
+           portefeuilleInterface.setVisible(true);
+           
         // Création de la table
         tableModel = new DefaultTableModel();
         tableModel.addColumn("Libellé");
@@ -85,10 +92,10 @@ acheterButton.addActionListener(new ActionListener() {
                 actionSelectionnee.soustraireQuantite(quantite);
 
                 // Mettre à jour le modèle de la table avec les données du portefeuille
-                updateTableModel();
+                updateTableModel(portefeuille);
 
                 // Afficher la fenêtre du portefeuille avec l'action achetée en plus
-                PortefeuilleInterface portefeuilleInterface = new PortefeuilleInterface(portefeuille);
+                PortefeuilleInterface portefeuilleInterface = new PortefeuilleInterface(portefeuille,actionSimpleInterface);
                 portefeuilleInterface.setVisible(true);
             } else {
                 System.out.println("Quantité invalide.");
@@ -120,10 +127,22 @@ acheterButton.addActionListener(new ActionListener() {
     /**
      * Met à jour le modèle de la table avec les données du portefeuille.
      */
-    private void updateTableModel() {
-        tableModel.setRowCount(0); // Effacer les lignes existantes de la table
-        for (Action action : actionsDisponibles) {
-            tableModel.addRow(new Object[]{action.getLibelle(), action.getQuantite(), action.getPrixAction()});
+    // Méthode pour mettre à jour le modèle de la table avec les données du portefeuille
+    private void updateTableModel(Portefeuille portefeuille) {
+        for (int i = 0; i < tableModel.getRowCount(); i++) {
+            Action action = actionsDisponibles.get(i);
+            tableModel.setValueAt(action.getQuantite(), i, 1); // Mettre à jour la quantité dans la table
+        }
+    }
+    
+    public void updateQuantiteDisponible(ActionSimple action, int quantiteVendue) {
+        for (int i = 0; i < tableModel.getRowCount(); i++) {
+            Action a = actionsDisponibles.get(i);
+            if (a instanceof ActionSimple && a.equals(action)) {
+                ((ActionSimple) a).ajouterQuantite(quantiteVendue);
+                tableModel.setValueAt(a.getQuantite(), i, 1); // Mettre à jour la quantité dans le modèle de la table
+                break;
+            }
         }
     }
 
