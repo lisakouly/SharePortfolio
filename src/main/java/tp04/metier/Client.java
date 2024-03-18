@@ -35,31 +35,59 @@ public class Client {
      * Constructeur de client, retourne un client avec comme attribut une date de naissance
      */
    public Client(int year, int month, int day) {
-       LocalDate todayDate = LocalDate.now();
-       
-       if ((month > 12) || (month < 1)) {
-            try {
-                this.birthDate = LocalDate.of(year, month, day); 
-            }
-            catch(Exception e1) {
-                System.out.println("Le client doit avoir un mois de naissance valide : "+e1);
-            }
+       if (dateNaissanceConforme(year,month,day) == true) {
+           LocalDate birthdate = LocalDate.of(year, month, day); 
+           if (estMajeur(birthdate) == true) {
+               this.birthDate = birthdate;
+           }
+       }
+    }
+   
+    /**
+     * Fonction pour vérifier si le client est majeur ou non
+     * @param birthDate
+     * @return 
+     */
+    public boolean estMajeur(LocalDate birthDate) {
+        LocalDate todayDate = LocalDate.now();
+        
+        // Calcul de l'âge en années
+        int age = todayDate.getYear() - birthDate.getYear();
+        
+        if ((birthDate.getMonthValue() > todayDate.getMonthValue()) || 
+           ((birthDate.getMonthValue() == todayDate.getMonthValue()) && 
+            (birthDate.getDayOfMonth() > todayDate.getDayOfMonth()))) {
+            age--;
+        }
+        
+        if (age >= 18) {
+            return true;
+        }
+        else {
+            return false;
+        }
+    }
+    
+    /**
+     * Fonction pour vérifier si la date de naissance est valide ou non
+     * @param year
+     * @param month
+     * @param day
+     * @return true si la date de naissance est valide et false si invalide
+     */
+    public boolean dateNaissanceConforme(int year, int month, int day) {
+        if ((month > 12) || (month < 1)) {
+            System.out.println("Le client doit avoir un mois de naissance valide");
+            return false;
         }
         if ((day > 31) || (day < 1)) {
-            try {
-                this.birthDate = LocalDate.of(year, month, day); 
-            }
-            catch(Exception e2) {
-                System.out.println("Le client doit avoir un jour de naissance valide : "+e2);
-            }
+            System.out.println("Le client doit avoir un jour de naissance valide");
+            return false;
         }
         if (year < 1900) {
-            try {
-                this.birthDate = LocalDate.of(year, month, day); 
-            }
-            catch(Exception e3) {
-                System.out.println("Le client doit avoir une année de naissance valide : "+e3);
-            }
+            System.out.println("Le client doit avoir une année de naissance valide");
+            return false;
         }
+        return true;
     }
 }
