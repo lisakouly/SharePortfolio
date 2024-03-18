@@ -7,6 +7,8 @@ package tp04.metier;
 
 import java.util.HashMap;
 import java.util.Map;
+import java.util.List;
+import java.util.ArrayList;
 
 /**
  *
@@ -16,14 +18,26 @@ public class ActionComposee extends Action {
 
     // attribut lien
     Map<ActionSimple, Float> mapPanier;
+    
+    private static final List<ActionComposee> allActionsComposees = new ArrayList<>();
 
     public ActionComposee(String libelle) {
         super(libelle);
         this.mapPanier = new HashMap();
+        allActionsComposees.add(this);
     }
 
     public void enrgComposition(ActionSimple as, float pourcentage) {
         this.mapPanier.put(as, pourcentage);
+    }
+    
+    /**
+    *
+    * function pour connaitre toutes les actions composées disponibles
+    * @return une list de toutes Les Actions Composees
+    */
+    public static List<ActionComposee> getAllActionsComposees() {
+        return allActionsComposees;
     }
 
     @Override
