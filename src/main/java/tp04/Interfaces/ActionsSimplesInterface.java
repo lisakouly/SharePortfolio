@@ -15,10 +15,60 @@
  */
 package tp04.Interfaces;
 
+import javax.swing.*;
+import javax.swing.table.DefaultTableModel;
+import java.awt.*;
+import java.util.ArrayList;
+import java.util.List;
+import tp04.metier.ActionSimple;
+import tp04.metier.Action;
+
+
 /**
  *
  * @author Imane
  */
-public class ActionsSimplesInterface {
+public class ActionsSimplesInterface extends JFrame{
     
+    private JTable tableView;
+    private DefaultTableModel tableModel;
+    private List<Action> actionsDisponibles;
+  
+    public ActionsSimplesInterface() {
+        // Création d'une liste d'actions disponibles
+        actionsDisponibles = new ArrayList<>();
+        actionsDisponibles.add(new ActionSimple("Action 1", 10, 100.00)); 
+        actionsDisponibles.add(new ActionSimple("Action 2", 20, 250.00)); 
+        actionsDisponibles.add(new ActionSimple("Action 3", 30, 320.00)); 
+        
+        // Création de la table
+        tableModel = new DefaultTableModel();
+        tableModel.addColumn("Libellé");
+        tableModel.addColumn("Quantité disponible"); 
+        tableModel.addColumn("Prix d'une action"); 
+        for (Action action : actionsDisponibles) {
+            tableModel.addRow(new Object[]{action.getLibelle(), action.getQuantite(), action.getPrixAction()});
+        }
+        tableView = new JTable(tableModel);
+        
+        // Création du conteneur principal
+        JPanel panel = new JPanel(new BorderLayout());
+        panel.add(new JScrollPane(tableView), BorderLayout.CENTER);
+
+        // Configuration de la fenêtre
+        setTitle("Actions Simples");
+        setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        setContentPane(panel);
+        pack();
+        setLocationRelativeTo(null); // Centrer la fenêtre sur l'écran
+    }
+    
+    public static void main(String[] args) {
+        SwingUtilities.invokeLater(new Runnable() {
+            @Override
+            public void run() {
+                new ActionsSimplesInterface().setVisible(true);
+            }
+        });
+    }
 }

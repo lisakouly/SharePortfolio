@@ -42,10 +42,13 @@ public class ActionSimple extends Action {
     public int getQuantite() {
         return quantite;
     }
-    
-    // Redéfinition de la méthode pour obtenir le prix de l'action simple 
+ 
+    /**
+     * Redéfinition de la méthode pour obtenir le prix de l'action simple
+     * @return 
+     */
     @Override
-    public double getPrix() {
+    public double getPrixAction() {
         return prix;
     }
     // enrg possible si pas de cours pour ce jour
