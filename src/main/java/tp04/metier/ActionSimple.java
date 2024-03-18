@@ -21,10 +21,7 @@ public class ActionSimple extends Action {
     private int quantite;
     private double prix;
     private List<Action> availableActions;
-    private Portefeuille portfolio;
-
-
-    
+    private Portefeuille portfolio = new Portefeuille();
 
     /**
      * 
@@ -116,22 +113,62 @@ public class ActionSimple extends Action {
         } else {
             System.out.println("Action non disponible.");
         }
-    }
+      }
      
-      /**
-       *  Méthode pour mettre à jour la quantité disponible d'une action.
-       * @param action
-       * @param quantiteVendue 
-       */
-     public void updateQuantiteDisponible(ActionSimple action, int quantiteVendue) {
-        if (availableActions.contains(action)) {
-            action.ajouterQuantite(quantiteVendue);
-            System.out.println("Quantité de " + action.getLibelle() + " mise à jour : " + action.getQuantite());
+    /**
+     * 
+     * @param actionToSell
+     * @param quantityToSell 
+     */
+    public void vendreActionSimple(Portefeuille portefeuille, Action actionToSell, int quantityToSell) {
+        if (portefeuille != null && actionToSell != null && quantityToSell > 0) {
+            Action action = null;
+            for (Map.Entry<Action, LignePortefeuille> entry : portefeuille.getMapLignes().entrySet()) {
+                if (entry.getKey().getLibelle().equals(actionToSell.getLibelle())) {
+                    action = entry.getKey();
+                    break;
+                }
+            }
+
+            if (action != null) {
+                int totalQuantity = portefeuille.getQuantite(action);
+                if (quantityToSell <= totalQuantity) {
+                    portefeuille.vendre(action, quantityToSell);
+                    System.out.println("Vente réussie : " + quantityToSell + " actions de " + actionToSell.getLibelle() + " vendues.");
+                    portfolio.setAvailableActions(availableActions);
+
+                    // Mettre à jour les actions disponibles
+                    updateQuantiteDisponible(action, quantityToSell);
+                } else {
+                    System.out.println("La quantité à vendre dépasse la quantité disponible dans le portefeuille.");
+                }
+            } else {
+                System.out.println("Action non trouvée dans le portefeuille.");
+            }
         } else {
+            System.out.println("Paramètres invalides pour la vente d'une action.");
+        }
+        
+
+    }
+
+    /**
+     * Méthode pour mettre à jour la quantité disponible d'une action.
+     */
+    private void updateQuantiteDisponible(Action action, int quantitySold) {
+        // Assurez-vous que l'action est une instance d'ActionSimple
+        if (action instanceof ActionSimple) {
+            // Cast l'action en ActionSimple
+            ActionSimple actionSimple = (ActionSimple) action;
+            
+            // Mettre à jour la quantité disponible en ajoutant la quantité vendue
+            actionSimple.ajouterQuantite(quantitySold);
+            
+            // Affichez un message pour indiquer que la quantité disponible a été mise à jour
+            System.out.println("Quantité de " + actionSimple.getLibelle() + " mise à jour : " + actionSimple.getQuantite());
+        } else {
+            // Si l'action n'est pas une instance d'ActionSimple, affichez un message d'erreur
             System.out.println("Action non disponible.");
         }
     }
-     
-   
 }
-

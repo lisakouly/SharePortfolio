@@ -31,11 +31,12 @@ public class Portefeuille {
         }
     }
 
-    public void vendre(Action a, int q) {
-        if (this.mapLignes.containsKey(a) == true) {
-            if (this.mapLignes.get(a).getQte() > q) {
-                this.mapLignes.get(a).setQte(this.mapLignes.get(a).getQte() - q);
-            } else if (this.mapLignes.get(a).getQte() == q) {
+public void vendre(Action a, int q) {
+    if (this.mapLignes.containsKey(a)) {
+        int currentQuantity = this.mapLignes.get(a).getQte();
+        if (currentQuantity >= q) {
+            this.mapLignes.get(a).setQte(currentQuantity - q);
+        } else  if (this.mapLignes.get(a).getQte() == q) {
                 this.mapLignes.remove(a);
             }
         }
