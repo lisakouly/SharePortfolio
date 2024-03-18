@@ -7,6 +7,7 @@ package tp04.metier;
 
 import java.util.Objects;
 
+
 /**
  *
  * @author somebody
@@ -20,6 +21,12 @@ public abstract class Action {
      *
      * @return the value of libelle
      */
+    
+    public abstract int getQuantite();
+    
+    public abstract double getPrixAction();
+
+
     public String getLibelle() {
         return libelle;
     }
