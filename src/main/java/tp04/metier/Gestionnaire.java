@@ -15,10 +15,25 @@
  */
 package tp04.metier;
 
+import java.util.ArrayList;
+import java.util.List;
+
 /**
  *
  * @author mazhu
  */
 public class Gestionnaire {
     
+   //function pour connaitre toutes les actions composées disponibles
+   public List<ActionComposee> getAvailableComposedActions(List<Action> actions) {
+        List<ActionComposee> composedActions = new ArrayList<>();
+
+        // Interroger la liste afficher tous les actions combinées
+        for (Action action : actions) {
+            if (action instanceof ActionComposee) {
+                composedActions.add((ActionComposee) action);
+            }
+        }
+        return composedActions;
+    }
 }
