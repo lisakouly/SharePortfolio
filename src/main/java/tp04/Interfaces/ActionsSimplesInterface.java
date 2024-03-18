@@ -53,10 +53,8 @@ public class ActionsSimplesInterface extends JFrame {
 
         // Initialisation du portefeuille
         portfolio  = new Portefeuille();
-        
-       
 
-    // Afficher la fenêtre du portefeuille avec l'action achetée en plus
+        // Afficher la fenêtre du portefeuille avec l'action achetée en plus
            PortefeuilleInterface portefeuilleInterface = new PortefeuilleInterface(portfolio ,actionSimpleInterface);
            portefeuilleInterface.setVisible(true);
            
@@ -97,8 +95,12 @@ acheterButton.addActionListener(new ActionListener() {
                 // Afficher la fenêtre du portefeuille avec l'action achetée en plus
                 PortefeuilleInterface portefeuilleInterface = new PortefeuilleInterface(portfolio,actionSimpleInterface);
                 portefeuilleInterface.setVisible(true);
-            } else {
-                System.out.println("Quantité invalide.");
+                    } else {
+                        System.out.println("Quantité invalide.");
+                    }
+                } else {
+                    System.out.println("Aucune action séléctionnée.");
+                }
             }
         });
 
@@ -158,3 +160,6 @@ acheterButton.addActionListener(new ActionListener() {
         });
     }
 }
+ 
+        
+
