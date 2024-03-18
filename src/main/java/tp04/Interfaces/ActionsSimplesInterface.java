@@ -36,8 +36,8 @@ public class ActionsSimplesInterface extends JFrame {
 
     private JTable tableView;
     private DefaultTableModel tableModel;
-    private List<Action> actionsDisponibles;
-    private Portefeuille portefeuille;
+    private List<Action> availableActions;
+    private Portefeuille portfolio;
     ActionsSimplesInterface actionSimpleInterface=this;
 
     /**
@@ -46,18 +46,18 @@ public class ActionsSimplesInterface extends JFrame {
     public ActionsSimplesInterface() {
 
         // Création d'une liste d'actions disponibles
-        actionsDisponibles = new ArrayList<>();
-        actionsDisponibles.add(new ActionSimple("Action 1", 10, 100.00));
-        actionsDisponibles.add(new ActionSimple("Action 2", 20, 250.00));
-        actionsDisponibles.add(new ActionSimple("Action 3", 30, 320.00));
+        availableActions  = new ArrayList<>();
+        availableActions.add(new ActionSimple("Action 1", 10, 100.00));
+        availableActions.add(new ActionSimple("Action 2", 20, 250.00));
+        availableActions.add(new ActionSimple("Action 3", 30, 320.00));
 
         // Initialisation du portefeuille
-        portefeuille = new Portefeuille();
+        portfolio  = new Portefeuille();
         
        
 
     // Afficher la fenêtre du portefeuille avec l'action achetée en plus
-           PortefeuilleInterface portefeuilleInterface = new PortefeuilleInterface(portefeuille,actionSimpleInterface);
+           PortefeuilleInterface portefeuilleInterface = new PortefeuilleInterface(portfolio ,actionSimpleInterface);
            portefeuilleInterface.setVisible(true);
            
         // Création de la table
@@ -65,7 +65,7 @@ public class ActionsSimplesInterface extends JFrame {
         tableModel.addColumn("Libellé");
         tableModel.addColumn("Quantité disponible");
         tableModel.addColumn("Prix d'une action");
-        for (Action action : actionsDisponibles) {
+        for (Action action : availableActions) {
             tableModel.addRow(new Object[]{action.getLibelle(), action.getQuantite(), action.getPrixAction()});
         }
         tableView = new JTable(tableModel);
@@ -77,25 +77,25 @@ acheterButton.addActionListener(new ActionListener() {
     public void actionPerformed(ActionEvent e) {
         int selectedRow = tableView.getSelectedRow();
         if (selectedRow != -1) {
-            Action actionSelectionnee = actionsDisponibles.get(selectedRow);
-            System.out.println("Vous avez sélectionné l'action : " + actionSelectionnee.getLibelle());
+            Action selectedAction  = availableActions.get(selectedRow);
+            System.out.println("Vous avez sélectionné l'action : " + selectedAction.getLibelle());
 
             // Demander à l'utilisateur de saisir la quantité à acheter
-            String quantiteStr = JOptionPane.showInputDialog("Entrez la quantité à acheter : ");
-            if (quantiteStr != null && !quantiteStr.isEmpty()) {
-                int quantite = Integer.parseInt(quantiteStr);
+            String quantityStr = JOptionPane.showInputDialog("Entrez la quantité à acheter : ");
+            if (quantityStr  != null && !quantityStr .isEmpty()) {
+                int quantity = Integer.parseInt(quantityStr );
 
                 // Acheter l'action et mettre à jour le portefeuille
-                portefeuille.acheter(actionSelectionnee, quantite);
+                portfolio.acheter(selectedAction, quantity);
 
                 // Mettre à jour la quantité disponible de l'action achetée dans la liste des actions disponibles
-                actionSelectionnee.soustraireQuantite(quantite);
+                selectedAction.soustraireQuantite(quantity);
 
                 // Mettre à jour le modèle de la table avec les données du portefeuille
-                updateTableModel(portefeuille);
+                updateTableModel(portfolio);
 
                 // Afficher la fenêtre du portefeuille avec l'action achetée en plus
-                PortefeuilleInterface portefeuilleInterface = new PortefeuilleInterface(portefeuille,actionSimpleInterface);
+                PortefeuilleInterface portefeuilleInterface = new PortefeuilleInterface(portfolio,actionSimpleInterface);
                 portefeuilleInterface.setVisible(true);
             } else {
                 System.out.println("Quantité invalide.");
@@ -105,7 +105,6 @@ acheterButton.addActionListener(new ActionListener() {
         }
     }
 });
-
 
         // Création du conteneur pour les boutons d'action
         JPanel buttonsPanel = new JPanel(new BorderLayout());
@@ -130,14 +129,14 @@ acheterButton.addActionListener(new ActionListener() {
     // Méthode pour mettre à jour le modèle de la table avec les données du portefeuille
     private void updateTableModel(Portefeuille portefeuille) {
         for (int i = 0; i < tableModel.getRowCount(); i++) {
-            Action action = actionsDisponibles.get(i);
+            Action action = availableActions.get(i);
             tableModel.setValueAt(action.getQuantite(), i, 1); // Mettre à jour la quantité dans la table
         }
     }
     
     public void updateQuantiteDisponible(ActionSimple action, int quantiteVendue) {
         for (int i = 0; i < tableModel.getRowCount(); i++) {
-            Action a = actionsDisponibles.get(i);
+            Action a = availableActions.get(i);
             if (a instanceof ActionSimple && a.equals(action)) {
                 ((ActionSimple) a).ajouterQuantite(quantiteVendue);
                 tableModel.setValueAt(a.getQuantite(), i, 1); // Mettre à jour la quantité dans le modèle de la table
