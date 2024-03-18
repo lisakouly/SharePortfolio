@@ -100,22 +100,15 @@ acheterButton.addActionListener(new ActionListener() {
             } else {
                 System.out.println("Quantité invalide.");
             }
-        } else {
-            System.out.println("Aucune action sélectionnée.");
-        }
-    }
-});
+        });
 
-        // Création du conteneur pour les boutons d'action
         JPanel buttonsPanel = new JPanel(new BorderLayout());
         buttonsPanel.add(acheterButton, BorderLayout.NORTH);
 
-        // Création du conteneur principal
         JPanel panel = new JPanel(new BorderLayout());
         panel.add(new JScrollPane(tableView), BorderLayout.CENTER);
         panel.add(buttonsPanel, BorderLayout.SOUTH); // Ajout du panel des boutons en bas
 
-        // Configuration de la fenêtre
         setTitle("Actions Simples");
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         setContentPane(panel);
@@ -123,16 +116,24 @@ acheterButton.addActionListener(new ActionListener() {
         setLocationRelativeTo(null);
     }
 
+  
     /**
-     * Met à jour le modèle de la table avec les données du portefeuille.
+     * Méthode pour mettre à jour le modèle de la table avec les données du portefeuille
+     * @param portefeuille 
      */
-    // Méthode pour mettre à jour le modèle de la table avec les données du portefeuille
+    
     private void updateTableModel(Portefeuille portefeuille) {
         for (int i = 0; i < tableModel.getRowCount(); i++) {
             Action action = availableActions.get(i);
             tableModel.setValueAt(action.getQuantite(), i, 1); // Mettre à jour la quantité dans la table
         }
     }
+    
+    /**
+     * Mise à jour de la quantité disponible d'une action dans le modèle de la table
+     * @param action
+     * @param quantiteVendue 
+     */
     
     public void updateQuantiteDisponible(ActionSimple action, int quantiteVendue) {
         for (int i = 0; i < tableModel.getRowCount(); i++) {
