@@ -14,11 +14,52 @@
  * limitations under the License.
  */
 package tp04.metier;
+import java.time.LocalDate;
 
 /**
  *
  * @author mazhu
  */
 public class Client {
-    
+     /**
+    * @author Lisa, Nathan, Yassine
+    * Date de naissance du client
+    */
+   private LocalDate birthDate;
+
+    /**
+     * @author Lisa, Nathan, Yassine
+     * @param year
+     * @param month
+     * @param day 
+     * Constructeur de client, retourne un client avec comme attribut une date de naissance
+     */
+   public Client(int year, int month, int day) {
+       LocalDate todayDate = LocalDate.now();
+       
+       if ((month > 12) || (month < 1)) {
+            try {
+                this.birthDate = LocalDate.of(year, month, day); 
+            }
+            catch(Exception e1) {
+                System.out.println("Le client doit avoir un mois de naissance valide : "+e1);
+            }
+        }
+        if ((day > 31) || (day < 1)) {
+            try {
+                this.birthDate = LocalDate.of(year, month, day); 
+            }
+            catch(Exception e2) {
+                System.out.println("Le client doit avoir un jour de naissance valide : "+e2);
+            }
+        }
+        if (year < 1900) {
+            try {
+                this.birthDate = LocalDate.of(year, month, day); 
+            }
+            catch(Exception e3) {
+                System.out.println("Le client doit avoir une année de naissance valide : "+e3);
+            }
+        }
+    }
 }
