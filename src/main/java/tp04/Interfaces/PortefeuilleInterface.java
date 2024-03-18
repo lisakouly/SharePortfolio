@@ -67,24 +67,24 @@ public class PortefeuilleInterface extends JFrame {
         tableView = new JTable(tableModel);
 
         // Création du bouton "Vendre"
-        JButton vendreButton = new JButton("Vendre");
-        vendreButton.addActionListener(new ActionListener() {
+        JButton sellButton  = new JButton("Vendre");
+        sellButton .addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
                 int selectedRow = tableView.getSelectedRow();
                 if (selectedRow != -1) {
-                    Action actionSelectionnee = portefeuille.getMapLignes().keySet().toArray(new Action[0])[selectedRow];
-                    int quantiteTotale = portefeuille.getQuantite(actionSelectionnee);
+                    Action selectedAction  = portefeuille.getMapLignes().keySet().toArray(new Action[0])[selectedRow];
+                    int totalQuantity  = portefeuille.getQuantite(selectedAction );
 
                     // saisir la quantité à vendre
-                    String quantiteStr = JOptionPane.showInputDialog("Entrez la quantité à vendre : ");
-                    if (quantiteStr != null && !quantiteStr.isEmpty()) {
-                        int quantiteAVendre = Integer.parseInt(quantiteStr);
-                        if (quantiteAVendre > 0 && quantiteAVendre <= quantiteTotale) {
-                            portefeuille.vendre(actionSelectionnee, quantiteAVendre);
+                    String quantityStr  = JOptionPane.showInputDialog("Entrez la quantité à vendre : ");
+                    if (quantityStr  != null && !quantityStr.isEmpty()) {
+                        int quantityToSell  = Integer.parseInt(quantityStr);
+                        if (quantityToSell  > 0 && quantityToSell  <= totalQuantity ) {
+                            portefeuille.vendre(selectedAction , quantityToSell);
                             updateTableModel();
 
-                            updateQuantiteDisponible((ActionSimple) actionSelectionnee, quantiteAVendre);  // Mise à jour de la quantité des actions disponibles
+                            updateQuantiteDisponible((ActionSimple) selectedAction , quantityToSell);  // Mise à jour de la quantité des actions disponibles
                         } else {
                             JOptionPane.showMessageDialog(null, "La quantité à vendre est invalide ou dépasse la quantité disponible.");
                         }
@@ -98,8 +98,8 @@ public class PortefeuilleInterface extends JFrame {
         });
 
         // Création du bouton "Retour"
-        JButton retourButton = new JButton("Retour aux actions disponibles");
-        retourButton.addActionListener(new ActionListener() {
+        JButton backButton  = new JButton("Retour aux actions disponibles");
+        backButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
                 dispose(); 
@@ -108,15 +108,15 @@ public class PortefeuilleInterface extends JFrame {
         });
 
         setTitle("Portefeuille du client");
-        setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE); // Fermer uniquement cette fenêtre
+        setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE); 
         setLayout(new BorderLayout());
 
         JScrollPane scrollPane = new JScrollPane(tableView);
         add(scrollPane, BorderLayout.CENTER);
 
         JPanel buttonPanel = new JPanel();
-        buttonPanel.add(vendreButton);
-        buttonPanel.add(retourButton);
+        buttonPanel.add(sellButton);
+        buttonPanel.add(backButton);
 
         add(buttonPanel, BorderLayout.SOUTH);
 
