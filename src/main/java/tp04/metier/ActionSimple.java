@@ -16,15 +16,38 @@ public class ActionSimple extends Action {
 
     // attribut lien
     private Map<Jour, Cours> mapCours;
+    private int quantite;
+    private double prix;
 
-    // constructeur
-    public ActionSimple(String libelle) {
+    /**
+     * 
+     * @param libelle
+     * @param quantite
+     * @param prix 
+     */
+    public ActionSimple(String libelle, int quantite, double prix) {
         // Action simple initialisée comme 1 action
         super(libelle);
+        this.quantite = quantite;
+        this.prix = prix;
         // init spécifique
         this.mapCours = new HashMap();
     }
-
+    
+    /**
+     * Redéfinition de la méthode pour obtenir la quantité disponible 
+     * @return 
+     */
+    @Override
+    public int getQuantite() {
+        return quantite;
+    }
+    
+    // Redéfinition de la méthode pour obtenir le prix de l'action simple 
+    @Override
+    public double getPrix() {
+        return prix;
+    }
     // enrg possible si pas de cours pour ce jour
     public void enrgCours(Jour j, float v) {
         if (this.mapCours.containsKey(j) == false) {
