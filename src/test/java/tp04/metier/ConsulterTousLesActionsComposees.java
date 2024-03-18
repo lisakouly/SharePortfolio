@@ -43,7 +43,7 @@ public class ConsulterTousLesActionsComposees {
         
          // Act
         List<ActionComposee> composedActions = ActionComposee.getAllActionsComposees();
-         final String currentMessage = composedActions.get(0).getLibelle();
+        final String currentMessage = composedActions.get(0).getLibelle();
         
         // Assert
         Assertions.assertEquals(expectedMessage, currentMessage, "Error: Get Action composée");

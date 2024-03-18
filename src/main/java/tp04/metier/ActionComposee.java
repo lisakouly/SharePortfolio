@@ -19,7 +19,6 @@ public class ActionComposee extends Action {
     // attribut lien
     Map<ActionSimple, Float> mapPanier;
     private int quantite;
-    private double prix;
     
     private static final List<ActionComposee> allActionsComposees = new ArrayList<>();
 
@@ -41,13 +40,6 @@ public class ActionComposee extends Action {
             this.quantite = quantite;
     }
 
-    public double getPrix() {
-            return prix;
-    }
-
-    public void setPrix(double prix) {
-            this.prix = prix;
-    }
     
     /**
     *
@@ -57,7 +49,27 @@ public class ActionComposee extends Action {
     public static List<ActionComposee> getAllActionsComposees() {
         return allActionsComposees;
     }
-
+    
+    /**
+     * Fonction pour obtenir  la composition de la action composée.
+     * @author Zhuo,Yaning
+     * @param libelle d'une action composée
+     * @return la composition de la action composée,
+     * contenant les Action Simple et son pourcentage.
+     */
+    public static Map<String, Float> getComposition(String libelle) {
+        for (ActionComposee ac : allActionsComposees) {
+            if (ac.getLibelle().equals(libelle)) {
+                Map<String, Float> composition = new HashMap<>();
+                for (Map.Entry<ActionSimple, Float> entry : ac.mapPanier.entrySet()) {
+                    composition.put(entry.getKey().getLibelle(), entry.getValue());
+                }
+                return composition;
+            }
+        }
+        return null;
+    }
+    
     @Override
     public float valeur(Jour j) {
         float valeur;
