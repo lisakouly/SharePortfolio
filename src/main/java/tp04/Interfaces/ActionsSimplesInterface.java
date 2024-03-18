@@ -25,6 +25,8 @@ import tp04.metier.Action;
 
 
 /**
+ * Cette classe représente une interface utilisateur (avec JFrame) pour afficher les actions simples disponibles.
+ * Les actions simples sont affichées dans un tableau avec leurs quantités disponibles et leurs prix.
  *
  * @author Imane
  */
@@ -34,7 +36,11 @@ public class ActionsSimplesInterface extends JFrame{
     private DefaultTableModel tableModel;
     private List<Action> actionsDisponibles;
   
+    /**
+     * Constructeur de la classe ActionsSimplesInterface.
+     */
     public ActionsSimplesInterface() {
+        
         // Création d'une liste d'actions disponibles
         actionsDisponibles = new ArrayList<>();
         actionsDisponibles.add(new ActionSimple("Action 1", 10, 100.00)); 
@@ -60,9 +66,12 @@ public class ActionsSimplesInterface extends JFrame{
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         setContentPane(panel);
         pack();
-        setLocationRelativeTo(null); // Centrer la fenêtre sur l'écran
+        setLocationRelativeTo(null); 
     }
     
+    /**
+     * Test de l'interface
+     */
     public static void main(String[] args) {
         SwingUtilities.invokeLater(new Runnable() {
             @Override
