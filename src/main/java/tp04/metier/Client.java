@@ -20,7 +20,7 @@ import java.time.LocalDate;
 
 /**
  *
- * @author mazhuo
+ * @author Zhuo,Yaning
  */
 public class Client {
       private List<Portefeuille> portefeuilles;
@@ -62,9 +62,7 @@ public class Client {
         return capital - totalPortfolioValue; 
     }
     
-    
-    
-   
+
      /**
     * @author Lisa, Nathan, Yassine
     * Date de naissance du client

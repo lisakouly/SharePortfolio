@@ -12,7 +12,7 @@ import java.util.ArrayList;
 
 /**
  *
- * @author somebody
+ * @author Zhuo
  */
 public class ActionComposee extends Action {
 

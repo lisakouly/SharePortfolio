@@ -28,6 +28,12 @@ public class VendrePortefeuilleTest {
     ActionSimple a1 = new ActionSimple("pll");
     ActionComposee a2 = new ActionComposee("CJS");
     
+    /**
+    * Test la méthode vendrePortefeuille de la classe Portefeuille,
+    * qui vend toutes les actions d'un portefeuille spécifié et mise à jour la quantité vendue
+    * à chaque action correspondante.
+    * @author Zhuo,Yaning
+    */
     @Test
     protected void testVendrePortefeuille(){
         // Arrange
