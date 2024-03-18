@@ -1,5 +1,5 @@
 /*
- * Copyright 2024 mazhu.
+ * Copyright 2024 mazhuo.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -20,20 +20,8 @@ import java.util.List;
 
 /**
  *
- * @author mazhu
+ * @author mazhuo
  */
 public class Gestionnaire {
-    
-   //function pour connaitre toutes les actions composées disponibles
-   public List<ActionComposee> getAvailableComposedActions(List<Action> actions) {
-        List<ActionComposee> composedActions = new ArrayList<>();
-
-        // Interroger la liste afficher tous les actions combinées
-        for (Action action : actions) {
-            if (action instanceof ActionComposee) {
-                composedActions.add((ActionComposee) action);
-            }
-        }
-        return composedActions;
-    }
+   
 }
