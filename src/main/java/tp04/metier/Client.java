@@ -1,5 +1,5 @@
 /*
- * Copyright 2024 mazhu.
+ * Copyright 2024 mazhuo.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -14,11 +14,20 @@
  * limitations under the License.
  */
 package tp04.metier;
+import java.util.*;
 
 /**
  *
- * @author mazhu
+ * @author mazhuo
  */
 public class Client {
-    
+   
+    /**
+    * If a client wants to know all of the "Action Composee," 
+    * they should call the following method
+    * @return A list of all available "Action Composee" instances.
+    */
+    public List<ActionComposee> getAllComposedActions() {
+         return ActionComposee.getAllActionsComposees();
+    }
 }
