@@ -16,34 +16,6 @@ public class Portefeuille {
 
     Map<Action, LignePortefeuille> mapLignes;
 
-    private class LignePortefeuille {
-
-        private Action action;
-
-        private int qte;
-
-        public int getQte() {
-            return qte;
-        }
-
-        public void setQte(int qte) {
-            this.qte = qte;
-        }
-
-        public Action getAction() {
-            return this.action;
-        }
-
-        public LignePortefeuille(Action action, int qte) {
-            this.action = action;
-            this.qte = qte;
-        }
-
-        public String toString() {
-            return Integer.toString(qte);
-        }
-    }
-
     public Portefeuille() {
         this.mapLignes = new HashMap();
     }
@@ -76,5 +48,9 @@ public class Portefeuille {
             total = total + (lp.getQte() * lp.getAction().valeur(j));
         }
         return total;
+    }
+    
+    public Map<Action, LignePortefeuille> getMapLignes() {
+        return mapLignes;
     }
 }

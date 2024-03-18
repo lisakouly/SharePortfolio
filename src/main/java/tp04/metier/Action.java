@@ -7,7 +7,6 @@ package tp04.metier;
 
 import java.util.Objects;
 
-
 /**
  *
  * @author somebody
@@ -35,6 +34,8 @@ public abstract class Action {
         this.libelle = libelle;
     }
 
+    // Méthode pour soustraire la quantité achetée de la quantité disponible IMANE
+    public abstract void soustraireQuantite(int quantite);
     public abstract float valeur(Jour j);
 
     @Override

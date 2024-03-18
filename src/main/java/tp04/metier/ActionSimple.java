@@ -18,6 +18,7 @@ public class ActionSimple extends Action {
     private Map<Jour, Cours> mapCours;
     private int quantite;
     private double prix;
+    
 
     /**
      * 
@@ -43,6 +44,11 @@ public class ActionSimple extends Action {
         return quantite;
     }
  
+    // Implémentation de la méthode soustraireQuantite IMANE
+    @Override
+    public void soustraireQuantite(int quantite) {
+        this.quantite -= quantite;
+    }
     /**
      * Redéfinition de la méthode pour obtenir le prix de l'action simple
      * @return 
