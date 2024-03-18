@@ -14,17 +14,26 @@
  * limitations under the License.
  */
 package tp04.metier;
-import java.time.Clock;
 
-/**
- *
- * @author Yassine Alouini/Lis/Nathan
- */
+ /**
+  * @Test de la validité de la date de naissance d'un client à la creation d'un nouveau client
+  * @Author Lisa
+  * 
+  */
 public class ClientBirthTest {
-    /**
-     * @Test
-     * Variables de tests
+    /** @Test de la validité de la date de naissance :
+     * - le mois ou le jour n'est pas égale à zero
+     * - l'année est supérieur à 1900 (sinon faux âge)
      */
-     Client c1 = new Client(1900,13,35);
-     Client c2 = new Client(2025,12,11);
+    Client c1 = new Client(1900,00,00);
+    
+    /** @Test de la validité de la date de naissance :
+     * - le mois ne dépasse pas 12
+     * - le jour ne dépasse pas 31
+     * - l'année est en cours ou passée
+     */
+    Client c2 = new Client(2025,13,35);   
+    
+    /** @Test que le client est majeur */
+    Client c3 = new Client(2010,8,6);
 }
