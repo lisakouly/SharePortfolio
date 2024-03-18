@@ -16,18 +16,35 @@
 package tp04.metier;
 import java.util.*;
 
+
 /**
  *
  * @author mazhuo
  */
 public class Client {
-   
-    /**
-    * If a client wants to know all of the "Action Composee," 
-    * they should call the following method
-    * @return A list of all available "Action Composee" instances.
-    */
-    public List<ActionComposee> getAllComposedActions() {
-         return ActionComposee.getAllActionsComposees();
+      private List<Portefeuille> portefeuilles;
+
+
+     public Client() {
+        this.portefeuilles = new ArrayList<>();
     }
+     
+     
+     public void addPortefeuille(Portefeuille portefeuille) {
+    this.portefeuilles.add(portefeuille);}
+
+    public float getTotalPortfolioValue(Jour j) {
+        float totalValue = 0;
+        for (Portefeuille portefeuille : portefeuilles) {
+            totalValue += portefeuille.valeur(j);
+        }
+        return totalValue;
+    }
+     public List<Portefeuille> getPortefeuilles() {
+        return portefeuilles;
+    }
+    
+    
+    
+   
 }

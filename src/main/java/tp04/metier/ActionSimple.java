@@ -16,6 +16,9 @@ public class ActionSimple extends Action {
 
     // attribut lien
     private Map<Jour, Cours> mapCours;
+    
+    private int quantite;
+    private double prix;
 
     // constructeur
     public ActionSimple(String libelle) {

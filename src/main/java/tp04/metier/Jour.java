@@ -36,6 +36,7 @@ public class Jour {
         this.annee = annee;
         this.noJour = noJour;
     }
+    public Jour(){}
 
     @Override
     public int hashCode() {

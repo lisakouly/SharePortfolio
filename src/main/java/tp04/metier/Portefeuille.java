@@ -77,4 +77,8 @@ public class Portefeuille {
         }
         return total;
     }
+    
+    public void vendrePortefeuille(){
+        
+    }
 }

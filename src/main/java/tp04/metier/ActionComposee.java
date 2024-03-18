@@ -18,6 +18,8 @@ public class ActionComposee extends Action {
 
     // attribut lien
     Map<ActionSimple, Float> mapPanier;
+    private int quantite;
+    private double prix;
     
     private static final List<ActionComposee> allActionsComposees = new ArrayList<>();
 
