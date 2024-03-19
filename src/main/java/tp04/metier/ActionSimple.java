@@ -11,7 +11,7 @@ import java.util.List;
 import java.util.Map;
 
 /**
- *
+ * Cette classe représente une action simple, qui est un type spécifique d'action
  * @author somebody
  */
 public class ActionSimple extends Action {
@@ -23,7 +23,7 @@ public class ActionSimple extends Action {
     private Portefeuille portfolio = new Portefeuille();
 
     /**
-     * 
+     * Constructeur de la classe ActionSimple
      * @param libelle
      * @param quantite
      * @param prix 
@@ -43,22 +43,31 @@ public class ActionSimple extends Action {
         this.entreprise = entreprise;
     }
     
+    /**
+     * Constructeur par défaut de la classe ActionSimple
+     */
     public ActionSimple() {
         super(null);
     }
     
-
+    /**
+     * Méthode pour ajouter cette action à la liste des actions disponibles
+     */
     public void addToAvailableActions() {
         this.availableActions.add(this);
     }
 
+    /**
+     * Méthode pour obtenir la quantité disponible de cette action
+     * @return 
+     */
     @Override
     public int getQuantite() {
         return quantite;
     }
 
     /**
-     * 
+     * Méthode pour soustraire une quantité donnée de la quantité disponible de cette action
      * @param quantite
      * @return 
      */
@@ -69,20 +78,24 @@ public class ActionSimple extends Action {
     }
 
     /**
-     * 
+     * Méthode pour ajouter une quantité donnée à la quantité disponible de cette action
      * @param quantite 
      */
     public void ajouterQuantite(int quantite) {
         this.quantite += quantite;
     }
 
+    /**
+     * Méthode pour obtenir le prix d'une unité de cette action
+     * @return 
+     */
     @Override
     public double getPrixAction() {
         return prix;
     }
 
     /**
-     * 
+     * Méthode pour enregistrer un cours pour cette action pour un jour donné
      * @param j
      * @param v 
      */
@@ -93,7 +106,7 @@ public class ActionSimple extends Action {
     }
 
     /**
-     * 
+     * Méthode pour obtenir la valeur de cette action pour un jour donné
      * @param j
      * @return 
      */
@@ -107,7 +120,7 @@ public class ActionSimple extends Action {
     }
 
     /**
-     * 
+     * Méthode pour afficher les actions simples disponibles
      * @param availableActions 
      */
     public void afficherActionsSimples(List<Action> availableActions) {
@@ -118,7 +131,7 @@ public class ActionSimple extends Action {
     }
 
     /**
-     * 
+     * Méthode pour acheter une quantité donnée de cette action dans un portefeuille
      * @param portfolio
      * @param selectedAction
      * @param quantity 
@@ -142,7 +155,7 @@ public class ActionSimple extends Action {
     }
 
     /**
-     * 
+     * Méthode pour vendre une quantité donnée de cette action dans un portefeuille
      * @param portefeuille
      * @param actionToSell
      * @param quantityToSell 
@@ -178,7 +191,7 @@ public class ActionSimple extends Action {
     }
 
     /**
-     * 
+     * Méthode privée pour mettre à jour la quantité disponible de cette action après une vente
      * @param action
      * @param quantitySold 
      */
