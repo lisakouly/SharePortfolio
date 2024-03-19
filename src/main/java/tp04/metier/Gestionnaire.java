@@ -21,13 +21,21 @@ import java.util.Map;
  *
  * @author mazhu
  */
+
+
+
+ 
+
 public class Gestionnaire {
-    // Méthode pour consulter les actions achetées par les clients et les quantités détenues
+    
+    
+    /**
+     * Méthode pour consulter les actions achetées par les clients et les quantités détenues dans un portefeuille.
+     * @param portefeuille 
+     */
     public void consulterActionsAchetees(Portefeuille portefeuille) {
-        // Récupérer la map contenant les lignes du portefeuille
         Map<Action, LignePortefeuille> mapLignes = portefeuille.getMapLignes();
         
-        // Parcourir la map et afficher les informations pour chaque action
         for (Map.Entry<Action, LignePortefeuille> entry : mapLignes.entrySet()) {
             Action action = entry.getKey();
             LignePortefeuille lignePortefeuille = entry.getValue();
