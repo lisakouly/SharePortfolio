@@ -18,13 +18,9 @@ public class Portefeuille {
 
     private Map<Action, LignePortefeuille> mapLignes;
     private List<Action> availableActions;
-    private Map<ActionSimple, Map<Client, Integer>> actionsClient;
-
 
     public Portefeuille() {
         this.mapLignes = new HashMap<>();
-        this.actionsClient = new HashMap<>();
-
     }
 
     /**
@@ -39,17 +35,6 @@ public class Portefeuille {
             this.mapLignes.get(a).setQte(this.mapLignes.get(a).getQte() + q);
         }
     }
-    
-    public void acheter(ActionSimple action, int nombreActions, Client client) {
-         // Vérifier si l'action est déjà présente dans le portefeuille
-         if (!actionsClient.containsKey(action)) {
-             actionsClient.put(action, new HashMap<>());
-         }
-
-         // Ajouter l'achat au portefeuille
-         actionsClient.get(action).put(client, nombreActions);
-     }
-   
 
     /**
      * 
@@ -140,37 +125,4 @@ public class Portefeuille {
             ligne.setQte(ligne.getQte() + quantity);
         }
     }
-    
-    // Méthode IMANE +++
-    public Client actionnaireMajoritaire(ActionSimple action) {
-        if (!actionsClient.containsKey(action)) {
-            return null; // L'action n'est pas présente dans le portefeuille
-        }
-
-        Map<Client, Integer> ownership = actionsClient.get(action);
-        Client actionnaireMajoritaire = null;
-        int maxActions = 0;
-
-        for (Map.Entry<Client, Integer> entry : ownership.entrySet()) {
-            if (entry.getValue() > maxActions) {
-                maxActions = entry.getValue();
-                actionnaireMajoritaire = entry.getKey();
-            }
-        }
-
-        return actionnaireMajoritaire;
-    }
-
-    
-    // Méthode pour obtenir la quantité détenue par un client pour une action donnée
-    private int getQuantite(Action action, Client client) {
-        for (LignePortefeuille lignePortefeuille : mapLignes.values()) {
-            // Vérifier si la ligne de portefeuille concerne l'action spécifiée et si elle contient le client donné
-            if (lignePortefeuille.getAction().equals(action) && lignePortefeuille.getClients().contains(client)) {
-                return lignePortefeuille.getQte(); // Retourner la quantité détenue par le client
-            }
-        }
-        return 0; // Retourner 0 si le client n'est pas associé à cette action dans le portefeuille
-    }
-
 }

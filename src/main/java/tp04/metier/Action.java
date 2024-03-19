@@ -5,8 +5,6 @@
  */
 package tp04.metier;
 
-import java.util.ArrayList;
-import java.util.List;
 import java.util.Objects;
 
 /**
@@ -16,39 +14,24 @@ import java.util.Objects;
 public abstract class Action {
 
     private String libelle;
-    
-    //IMANE +++
-    private List<Client> clients;
-
-    public Action(String libelle) {
-        this.libelle = libelle;
-         this.clients = new ArrayList<>();
-
-    }
-    
-    public abstract int getQuantite();
-    
-    public abstract double getPrixAction();
-
-    
-    // Méthode pour ajouter un client à cette action 
-    public void addClient(Client client) {
-        clients.add(client);
-    }
-    
-    // Méthode pour récupérer la liste des clients associés à cette action
-    public List<Client> getClients() {
-        return clients;
-    }
 
     /**
      * Get the value of libelle
      *
      * @return the value of libelle
      */
+    
+    public abstract int getQuantite();
+    
+    public abstract double getPrixAction();
+
 
     public String getLibelle() {
         return libelle;
+    }
+
+    public Action(String libelle) {
+        this.libelle = libelle;
     }
 
     // Méthode pour soustraire la quantité achetée de la quantité disponible IMANE
