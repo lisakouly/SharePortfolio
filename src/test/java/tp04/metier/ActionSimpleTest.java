@@ -17,18 +17,43 @@ package tp04.metier;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 
+import java.util.Map;
+import java.util.HashMap;
+
 /**
  *Test class for the ActionSimple class.
- * @author zhuo
+ * @author zhuo,yaning
  */
 public class ActionSimpleTest {
-    ActionSimple france2 = new ActionSimple("France 2");
-    ActionSimple france3 = new ActionSimple("France 3");
-    ActionSimple france5 = new ActionSimple("France 5");
     
     @Test
     void testEnrgCours() {
-        /** */
-       Jour j1 = new Jour(2024,3);
+        /**Arrange*/
+        ActionSimple france2 = new ActionSimple("France 2");
+        Jour jour1 = new Jour(2024, 3); 
+        /**Enregistrer le premier prix pour le jour1*/
+        france2.enrgCours(jour1, 10.5f);
+        
+        /** Action and  Assert*/
+        /**Vérifie si la carte mapCours contient des prix enregistrés.*/
+        Assertions.assertTrue(france2.getMapCours().containsKey(jour1));
+        Assertions.assertEquals(10.5f, france2.getMapCours().get(jour1).getValeur(), "La valeur doit être 10.5f");
+        
+        /**Arrange*/
+        /**Essayez d’enregistrer à nouveau le prix pour la même date et il ne devrait pas être ajouté*/
+        france2.enrgCours(jour1, 15.0f);
+        
+        /** Action and  Assert*/
+        /**Vérifiez que la carte mapCours n’a toujours qu’une seule entrée et que le prix n’a pas changé */
+        Assertions.assertEquals(1, france2.getMapCours().size());
+        Assertions.assertEquals(10.5f, france2.getMapCours().get(jour1).getValeur());
+
+        Jour jour2 = new Jour(2024, 4); 
+
+        france2.enrgCours(jour2, 12.5f);
+
+        /**Vérifiez si la carte mapCours contient le prix du nouvel enregistrement*/
+        Assertions.assertTrue(france2.getMapCours().containsKey(jour2));
+        Assertions.assertEquals(12.5f, france2.getMapCours().get(jour2).getValeur(),"La valeur doit être 12.5f");
     }
 }

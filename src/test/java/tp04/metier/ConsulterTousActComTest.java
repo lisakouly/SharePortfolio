@@ -35,9 +35,13 @@ public class ConsulterTousActComTest {
     @Test
     void testGetAllActionsComposees() {
         // Arrange
-        franceTelevision.enrgComposition(ActionSimpleTest.france2, 0.35f);
-        franceTelevision.enrgComposition(ActionSimpleTest.france3, 0.50f);
-        franceTelevision.enrgComposition(ActionSimpleTest.france5, 0.15f);
+        ActionSimple france2 = new ActionSimple("France 2");
+        ActionSimple france3 = new ActionSimple("France 3");
+        ActionSimple france5 = new ActionSimple("France 5");
+        
+        franceTelevision.enrgComposition(france2, 0.35f);
+        franceTelevision.enrgComposition(france3, 0.50f);
+        franceTelevision.enrgComposition(france5, 0.15f);
        
         final String expectedMessage = "France télévision";
         

@@ -34,22 +34,22 @@ public class JourTest {
 
     @Test
     protected void testConstructorParametersAreCorrectSuccess() {
-        //Arrange
+        /**Arrange*/
         final Jour jour = new Jour(DEFAULT_YEAR, DEFAULT_DAY);
 
-        //Action
+         /** Action */
         final String expectedToString = "Jour{" + "annee=" + DEFAULT_YEAR + ", noJour=" + DEFAULT_DAY + '}';
         final String currentToString = jour.toString();
 
-        //Assert
+          /** Assert*/
         Assertions.assertEquals(expectedToString, currentToString, "Basic construction");
     }
 
     //@Test
     protected void testConstructorDayIncorrectShouldFail() {
-        //Arrange
+        /**Arrange*/
         final String expectedMessage = "0 must not be used as a valid Day";
-        //Action and asserts
+        /** Action and  Assert*/
         IllegalArgumentException assertThrowsExactly = Assertions.assertThrowsExactly(IllegalArgumentException.class, () -> {
             new Jour(DEFAULT_YEAR, INCORRECT_DAY);
         }, "0 must not be used as a valid Day");

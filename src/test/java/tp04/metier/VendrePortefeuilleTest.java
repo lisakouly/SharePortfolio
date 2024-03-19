@@ -42,7 +42,7 @@ public class VendrePortefeuilleTest {
         por.acheter(a1, 10); 
         por.acheter(a2, 20); 
         
-        /** Act */
+        /** Action */
         por.vendrePortefeuille("p1");
         int a1QteAfter = a1.getQuantite();
         int a2QteAfter = a2.getQuantite();

@@ -57,6 +57,15 @@ public class ActionSimple extends Action {
     }
     
     
+    
+    public Map<Jour, Cours> getMapCours() {
+            return mapCours;
+    }
+
+    public void setMapCours(Map<Jour, Cours> mapCours) {
+            this.mapCours = mapCours;
+    }
+
     @Override
     public float valeur(Jour j) {
         if (this.mapCours.containsKey(j) == true) {
