@@ -15,7 +15,48 @@
  */
 package tp04.metier;
 
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
+import java.util.ArrayList;
+import java.util.List;
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertNotNull;
 
 public class ActionnaireMajoritaireTest {
         
+    private ActionSimple action;
+    private Portefeuille portefeuille;
+    
+    @BeforeEach
+    public void setUp() {
+        // Création d'une action avec des clients associés
+        action = new ActionSimple("Action 1", 0, 0.0);
+        Client client1 = new Client("Client 1");
+        Client client2 = new Client("Client 2");
+        Client client3 = new Client("Client 3");
+        // Ajout des clients à l'action
+        action.addClient(client1);
+        action.addClient(client2);
+        action.addClient(client3);
+        // Création du portefeuille
+        portefeuille = new Portefeuille();
+        // Achat d'actions dans le portefeuille pour les clients
+        portefeuille.acheter(action, 10, client1);
+        portefeuille.acheter(action, 15, client2);
+        portefeuille.acheter(action, 5, client3);
+    }
+
+    @Test
+    public void testActionnaireMajoritaire() {
+        // Appel de la méthode à tester
+        Client actionnaireMajoritaire = portefeuille.actionnaireMajoritaire(action);
+
+        System.out.println("ActionnaireMajoritaire : "+ actionnaireMajoritaire.getNom());
+        
+        // Vérifier que le client retourné n'est pas null
+        assertNotNull(actionnaireMajoritaire, "Le client actionnaire majoritaire ne doit pas être null.");
+
+        // Vérifier que le client retourné est bien celui qui détient le maximum d'actions
+        assertEquals("Client 2", actionnaireMajoritaire.getNom());
+    }
 }
