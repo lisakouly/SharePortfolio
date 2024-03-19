@@ -10,7 +10,7 @@ import java.util.List;
 import java.util.Map;
 
 /**
- *
+ * Cette classe représente un portefeuille qui contient des lignes de portefeuille
  * @author somebody
  */
 
@@ -20,7 +20,9 @@ public class Portefeuille {
     private List<Action> availableActions;
     private Map<ActionSimple, Map<Client, Integer>> actionsClient;
 
-
+    /**
+     * Constructeur de la classe Portefeuille
+     */
     public Portefeuille() {
         this.mapLignes = new HashMap<>();
         this.actionsClient = new HashMap<>();
@@ -28,7 +30,7 @@ public class Portefeuille {
     }
 
     /**
-     * 
+     * Méthode pour acheter une certaine quantité d'une action donnée et l'ajouter au portefeuille
      * @param a
      * @param q 
      */
@@ -40,6 +42,11 @@ public class Portefeuille {
         }
     }
     
+    /**
+     * @param action
+     * @param nombreActions
+     * @param client 
+     */
     public void acheter(ActionSimple action, int nombreActions, Client client) {
          // Vérifier si l'action est déjà présente dans le portefeuille
          if (!actionsClient.containsKey(action)) {
@@ -52,7 +59,9 @@ public class Portefeuille {
    
 
     /**
-     * 
+     * Méthode pour vendre une certaine quantité d'une action donnée du portefeuille
+     * Si la quantité à vendre est supérieure à la quantité détenue dans le portefeuille,
+     * l'action est retirée du portefeuille.
      * @param a
      * @param q 
      */
@@ -162,7 +171,11 @@ public class Portefeuille {
         }
     }
     
-    // Méthode IMANE +++
+    /**
+     * 
+     * @param action
+     * @return 
+     */
     public Client actionnaireMajoritaire(ActionSimple action) {
         if (!actionsClient.containsKey(action)) {
             return null; // L'action n'est pas présente dans le portefeuille
@@ -183,7 +196,12 @@ public class Portefeuille {
     }
 
     
-    // Méthode pour obtenir la quantité détenue par un client pour une action donnée
+    /**
+     * Méthode pour obtenir la quantité détenue par un client pour une action donnée
+     * @param action
+     * @param client
+     * @return 
+     */
     private int getQuantite(Action action, Client client) {
         for (LignePortefeuille lignePortefeuille : mapLignes.values()) {
             // Vérifier si la ligne de portefeuille concerne l'action spécifiée et si elle contient le client donné
