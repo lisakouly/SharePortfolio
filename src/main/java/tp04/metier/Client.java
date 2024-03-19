@@ -39,9 +39,26 @@ public class Client {
         this.capital = capital;
     }
      
-     
-    public void addPortefeuille(Portefeuille portefeuille) {
-    this.portefeuilles.add(portefeuille);}
+    /**
+     * @Author Nathan / Lisa
+     * Fonction pour ajouter une action à une liste d'action (portefeuille client)
+     * @param portefeuille
+     * @param j 
+     */ 
+    public boolean addPortefeuille(Portefeuille portefeuille) {
+        LocalDate dateDuJour = LocalDate.now();
+        int noJour = dateDuJour.getDayOfYear();
+        int annee = dateDuJour.getYear();
+        System.out.println(noJour+" "+annee);
+        Jour j = new Jour(annee, noJour);
+        if (getTotalPortfolioValue(j) > 0) {
+            this.portefeuilles.add(portefeuille);
+            return false;
+        }
+        else {
+            return true;
+        }
+    }
 
     public float getTotalPortfolioValue(Jour j) {
         float totalValue = 0;
