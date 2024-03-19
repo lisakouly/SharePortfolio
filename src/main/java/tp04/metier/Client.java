@@ -103,9 +103,11 @@ public class Client {
         }
         
         if (age >= 18) {
+            System.out.println("Client majeur");
             return true;
         }
         else {
+            System.out.println("Client mineur");
             return false;
         }
     }
@@ -130,7 +132,7 @@ public class Client {
             System.out.println("Le client doit avoir un jour de naissance valide");
             return false;
         }
-        System.out.println("Client créé avec succès");
+        System.out.println("Synthaxe de la date de naissance valide");
         return true;
     }
     
