@@ -19,90 +19,95 @@ import java.util.ArrayList;
 import java.util.List;
 
 /**
- *
+ * Cette classe représente une ligne dans un portefeuille, associée à une action.
+ * Elle contient des informations sur la quantité de l'action détenue et son prix.
+ * Elle peut également contenir une liste de clients associés à cette ligne.
  * @author Imane
  */
 public class LignePortefeuille {
     
-        private Action action;
-        private int qte;
-        private double prix;
-        
-        private List<Client> clients;
+    // Variables d'instance
+    private Action action;
+    private int qte;
+    private double prix;
+    private List<Client> clients;
 
-        /**
-         * Constructeur de la classe LignePortefeuille
-         * @return 
-         */
-        public int getQte() {
-            return qte;
-        }
-
-        /**
-         * Méthode pour obtenir la quantité de l'action détenue dans le portefeuille
-         * @param qte 
-         */
-        public void setQte(int qte) {
-            this.qte = qte;
-        }
-        
-        /**
-         * Méthode pour définir la quantité de l'action détenue dans le portefeuille
-         * @return 
-         */
-        public double getPrix() {
-            return prix;
-        }
-
-        /**
-         * Méthode pour obtenir le prix associé à cette ligne de portefeuille
-         * @param prix 
-         */
-        public void setPrix(double prix) {
-            this.prix = prix;
-        }
-
-        /**
-         * Méthode pour obtenir l'action associée à cette ligne de portefeuille
-         * @return 
-         */
-        public Action getAction() {
-            return action;
-        }
-
-        /**
-         * 
-         * @param action
-         * @param qte 
-         */
-        public LignePortefeuille(Action action, int qte) {
-            this.action = action;
-            this.qte = qte;
-            this.clients = new ArrayList<>();
-
-        }
-          
+    // Constructeur
     /**
-     * Méthode pour ajouter un client à cette ligne de portefeuille
-     * @param client 
+     * Constructeur de la classe LignePortefeuille.
+     * @param action l'action associée à cette ligne
+     * @param qte la quantité de l'action détenue dans le portefeuille
      */
-        public void addClient(Client client) {
+    public LignePortefeuille(Action action, int qte) {
+        this.action = action;
+        this.qte = qte;
+        this.clients = new ArrayList<>();
+    }
+          
+    // Méthodes
+    
+    /**
+     * Méthode pour obtenir la quantité de l'action détenue dans le portefeuille.
+     * @return la quantité de l'action
+     */
+    public int getQte() {
+        return qte;
+    }
+
+    /**
+     * Méthode pour définir la quantité de l'action détenue dans le portefeuille.
+     * @param qte la quantité à définir
+     */
+    public void setQte(int qte) {
+        this.qte = qte;
+    }
+        
+    /**
+     * Méthode pour obtenir le prix associé à cette ligne de portefeuille.
+     * @return le prix
+     */
+    public double getPrix() {
+        return prix;
+    }
+
+    /**
+     * Méthode pour définir le prix associé à cette ligne de portefeuille.
+     * @param prix le prix à définir
+     */
+    public void setPrix(double prix) {
+        this.prix = prix;
+    }
+
+    /**
+     * Méthode pour obtenir l'action associée à cette ligne de portefeuille.
+     * @return l'action
+     */
+    public Action getAction() {
+        return action;
+    }
+
+    /**
+     * Méthode pour ajouter un client à cette ligne de portefeuille.
+     * @param client le client à ajouter
+     */
+    public void addClient(Client client) {
         clients.add(client);
     }
      
     /**
-     * Méthode pour récupérer la liste des clients associés à cette ligne de portefeuille
-     * @return 
+     * Méthode pour récupérer la liste des clients associés à cette ligne de portefeuille.
+     * @return la liste des clients
      */
-        public List<Client> getClients() {
+    public List<Client> getClients() {
         return clients;
     }
 
-
-        @Override
-        public String toString() {
-            return Integer.toString(qte);
-        }
-
-    
+    /**
+     * Redéfinition de la méthode toString pour afficher la quantité de l'action.
+     * @return une chaîne de caractères représentant la quantité
+     */
+    @Override
+    public String toString() {
+        return Integer.toString(qte);
+    }
 }

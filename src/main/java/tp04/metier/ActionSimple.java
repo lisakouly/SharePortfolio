@@ -11,22 +11,24 @@ import java.util.List;
 import java.util.Map;
 
 /**
- * Cette classe représente une action simple, qui est un type spécifique d'action
+ * Cette classe représente une action simple, qui est un type spécifique d'action.
  * @author somebody
  */
 public class ActionSimple extends Action {
 
+    // Variables d'instance
     private Map<Jour, Cours> mapCours;
     private int quantite;
     private double prix;
     private List<Action> availableActions;
     private Portefeuille portfolio = new Portefeuille();
 
+    // Constructeurs
     /**
-     * Constructeur de la classe ActionSimple
-     * @param libelle
-     * @param quantite
-     * @param prix 
+     * Constructeur de la classe ActionSimple.
+     * @param libelle le libellé de l'action simple
+     * @param quantite la quantité initiale de l'action simple
+     * @param prix le prix unitaire de l'action simple
      */
     public ActionSimple(String libelle, int quantite, double prix) {
         super(libelle);
@@ -36,30 +38,35 @@ public class ActionSimple extends Action {
         this.availableActions = new ArrayList<>();
     }
     
-      public ActionSimple(String libelle, int quantite, double prix, Entreprise entreprise) {
+    /**
+     * Constructeur de la classe ActionSimple avec entreprise.
+     * @param libelle le libellé de l'action simple
+     * @param quantite la quantité initiale de l'action simple
+     * @param prix le prix unitaire de l'action simple
+     * @param entreprise l'entreprise associée à l'action simple
+     */
+    public ActionSimple(String libelle, int quantite, double prix, Entreprise entreprise) {
         super(libelle);
         this.quantite = quantite;
         this.prix = prix;
         this.entreprise = entreprise;
     }
-    
-    /**
-     * Constructeur par défaut de la classe ActionSimple
-     */
+
     public ActionSimple() {
         super(null);
     }
     
+    // Méthodes
     /**
-     * Méthode pour ajouter cette action à la liste des actions disponibles
+     * Méthode pour ajouter cette action à la liste des actions disponibles.
      */
     public void addToAvailableActions() {
         this.availableActions.add(this);
     }
 
     /**
-     * Méthode pour obtenir la quantité disponible de cette action
-     * @return 
+     * Méthode pour obtenir la quantité disponible de cette action.
+     * @return la quantité disponible de l'action
      */
     @Override
     public int getQuantite() {
@@ -67,9 +74,9 @@ public class ActionSimple extends Action {
     }
 
     /**
-     * Méthode pour soustraire une quantité donnée de la quantité disponible de cette action
-     * @param quantite
-     * @return 
+     * Méthode pour soustraire une quantité donnée de la quantité disponible de cette action.
+     * @param quantite la quantité à soustraire
+     * @return la quantité restante
      */
     @Override
     public int soustraireQuantite(int quantite) {
@@ -78,16 +85,16 @@ public class ActionSimple extends Action {
     }
 
     /**
-     * Méthode pour ajouter une quantité donnée à la quantité disponible de cette action
-     * @param quantite 
+     * Méthode pour ajouter une quantité donnée à la quantité disponible de cette action.
+     * @param quantite la quantité à ajouter
      */
     public void ajouterQuantite(int quantite) {
         this.quantite += quantite;
     }
 
     /**
-     * Méthode pour obtenir le prix d'une unité de cette action
-     * @return 
+     * Méthode pour obtenir le prix d'une unité de cette action.
+     * @return le prix unitaire de l'action
      */
     @Override
     public double getPrixAction() {
@@ -95,9 +102,9 @@ public class ActionSimple extends Action {
     }
 
     /**
-     * Méthode pour enregistrer un cours pour cette action pour un jour donné
-     * @param j
-     * @param v 
+     * Méthode pour enregistrer un cours pour cette action pour un jour donné.
+     * @param j le jour pour lequel enregistrer le cours
+     * @param v la valeur du cours
      */
     public void enrgCours(Jour j, float v) {
         if (!this.mapCours.containsKey(j)) {
@@ -106,9 +113,9 @@ public class ActionSimple extends Action {
     }
 
     /**
-     * Méthode pour obtenir la valeur de cette action pour un jour donné
-     * @param j
-     * @return 
+     * Méthode pour obtenir la valeur de cette action pour un jour donné.
+     * @param j le jour pour lequel calculer la valeur
+     * @return la valeur de l'action pour le jour donné
      */
     @Override
     public float valeur(Jour j) {
@@ -120,8 +127,8 @@ public class ActionSimple extends Action {
     }
 
     /**
-     * Méthode pour afficher les actions simples disponibles
-     * @param availableActions 
+     * Méthode pour afficher les actions simples disponibles.
+     * @param availableActions la liste des actions disponibles
      */
     public void afficherActionsSimples(List<Action> availableActions) {
         System.out.println("Actions disponibles :");
@@ -131,10 +138,10 @@ public class ActionSimple extends Action {
     }
 
     /**
-     * Méthode pour acheter une quantité donnée de cette action dans un portefeuille
-     * @param portfolio
-     * @param selectedAction
-     * @param quantity 
+     * Méthode pour acheter une quantité donnée de cette action dans un portefeuille.
+     * @param portfolio le portefeuille dans lequel acheter l'action
+     * @param selectedAction l'action à acheter
+     * @param quantity la quantité à acheter
      */
     public void acheterActionSimple(Portefeuille portfolio, Action selectedAction, int quantity) {
         if (selectedAction instanceof ActionSimple) {
@@ -155,10 +162,10 @@ public class ActionSimple extends Action {
     }
 
     /**
-     * Méthode pour vendre une quantité donnée de cette action dans un portefeuille
-     * @param portefeuille
-     * @param actionToSell
-     * @param quantityToSell 
+     * Méthode pour vendre une quantité donnée de cette action dans un portefeuille.
+     * @param portefeuille le portefeuille dans lequel vendre l'action
+     * @param actionToSell l'action à vendre
+     * @param quantityToSell la quantité à vendre
      */
     public void vendreActionSimple(Portefeuille portefeuille, Action actionToSell, int quantityToSell) {
         if (portefeuille != null && actionToSell != null && quantityToSell > 0) {
@@ -173,9 +180,9 @@ public class ActionSimple extends Action {
             if (action != null) {
                 int totalQuantity = portefeuille.getQuantite(action);
                 if (quantityToSell <= totalQuantity) {
-                    System.out.println("Quantité de " + action.getLibelle() + " dans mon portefeuille avant  la vente : " + portefeuille.getQuantite(action));
+                    System.out.println("Quantité de " + action.getLibelle() + " dans mon portefeuille avant la vente : " + portefeuille.getQuantite(action));
                     portefeuille.vendre(action, quantityToSell);
-                    System.out.println("Quantité de " + action.getLibelle() + " dans mon portefeuille après  la vente : " + portefeuille.getQuantite(action));
+                    System.out.println("Quantité de " + action.getLibelle() + " dans mon portefeuille après la vente : " + portefeuille.getQuantite(action));
                     System.out.println("Vente réussie : " + quantityToSell + " actions de " + actionToSell.getLibelle() + " vendues.");
                     portfolio.setAvailableActions(availableActions);
                     updateQuantiteDisponible(actionToSell, quantityToSell);
@@ -191,9 +198,9 @@ public class ActionSimple extends Action {
     }
 
     /**
-     * Méthode privée pour mettre à jour la quantité disponible de cette action après une vente
-     * @param action
-     * @param quantitySold 
+     * Méthode privée pour mettre à jour la quantité disponible de cette action après une vente.
+     * @param action l'action vendue
+     * @param quantitySold la quantité vendue
      */
     private void updateQuantiteDisponible(Action action, int quantitySold) {
         if (action instanceof ActionSimple) {

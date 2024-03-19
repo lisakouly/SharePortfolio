@@ -15,14 +15,29 @@
  */
 package tp04.metier;
 
+/**
+ * Cette classe représente un client.
+ * @author mazhu
+ */
 public class Client {
     
-    String nom;
+    // Variables d'instance
+    private String nom;
     
+    // Constructeur
+    /**
+     * Constructeur de la classe Client.
+     * @param nom le nom du client
+     */
     public Client(String nom) {
         this.nom = nom;
     }
     
+    // Méthodes
+    /**
+     * Méthode pour obtenir le nom du client.
+     * @return le nom du client
+     */
     public String getNom() {
         return this.nom;
     }
