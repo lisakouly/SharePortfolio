@@ -1,0 +1,45 @@
+@options
+@packages
+-encoding
+'UTF-8'
+-protected
+-source
+'17'
+-sourcepath
+'C:/Users/Imane/OneDrive/Bureau/ProjetCommunNFA032/SharePortfolio/src/main/java'
+-author
+-bottom
+'Copyright &#169; 2024. All rights reserved.'
+-charset
+'UTF-8'
+-d
+'C:/Users/Imane/OneDrive/Bureau/ProjetCommunNFA032/SharePortfolio/target/site/apidocs'
+-docencoding
+'UTF-8'
+-doctitle
+'fr.utc.miage.forge.shareportfolio:sharePortfolio 1.0-SNAPSHOT API'
+-use
+-version
+-windowtitle
+'fr.utc.miage.forge.shareportfolio:sharePortfolio 1.0-SNAPSHOT API'
+tp04.metier
+C:\Users\Imane\OneDrive\Bureau\ProjetCommunNFA032\SharePortfolio\src\main\java = 1710172250140
+C:\Users\Imane\OneDrive\Bureau\ProjetCommunNFA032\SharePortfolio\target\site\apidocs\allclasses-index.html = 1710232955924
+C:\Users\Imane\OneDrive\Bureau\ProjetCommunNFA032\SharePortfolio\target\site\apidocs\allpackages-index.html = 1710232955961
+C:\Users\Imane\OneDrive\Bureau\ProjetCommunNFA032\SharePortfolio\target\site\apidocs\copy.svg = 1710232956097
+C:\Users\Imane\OneDrive\Bureau\ProjetCommunNFA032\SharePortfolio\target\site\apidocs\element-list = 1710232955391
+C:\Users\Imane\OneDrive\Bureau\ProjetCommunNFA032\SharePortfolio\target\site\apidocs\help-doc.html = 1710232956077
+C:\Users\Imane\OneDrive\Bureau\ProjetCommunNFA032\SharePortfolio\target\site\apidocs\index-all.html = 1710232956042
+C:\Users\Imane\OneDrive\Bureau\ProjetCommunNFA032\SharePortfolio\target\site\apidocs\index.html = 1710232956060
+C:\Users\Imane\OneDrive\Bureau\ProjetCommunNFA032\SharePortfolio\target\site\apidocs\link.svg = 1710232956101
+C:\Users\Imane\OneDrive\Bureau\ProjetCommunNFA032\SharePortfolio\target\site\apidocs\member-search-index.js = 1710232955984
+C:\Users\Imane\OneDrive\Bureau\ProjetCommunNFA032\SharePortfolio\target\site\apidocs\module-search-index.js = 1710232955967
+C:\Users\Imane\OneDrive\Bureau\ProjetCommunNFA032\SharePortfolio\target\site\apidocs\overview-tree.html = 1710232955824
+C:\Users\Imane\OneDrive\Bureau\ProjetCommunNFA032\SharePortfolio\target\site\apidocs\package-search-index.js = 1710232955973
+C:\Users\Imane\OneDrive\Bureau\ProjetCommunNFA032\SharePortfolio\target\site\apidocs\script.js = 1710232956093
+C:\Users\Imane\OneDrive\Bureau\ProjetCommunNFA032\SharePortfolio\target\site\apidocs\search-page.js = 1710232956117
+C:\Users\Imane\OneDrive\Bureau\ProjetCommunNFA032\SharePortfolio\target\site\apidocs\search.html = 1710232956052
+C:\Users\Imane\OneDrive\Bureau\ProjetCommunNFA032\SharePortfolio\target\site\apidocs\search.js = 1710232956111
+C:\Users\Imane\OneDrive\Bureau\ProjetCommunNFA032\SharePortfolio\target\site\apidocs\stylesheet.css = 1710232956087
+C:\Users\Imane\OneDrive\Bureau\ProjetCommunNFA032\SharePortfolio\target\site\apidocs\tag-search-index.js = 1710232955988
+C:\Users\Imane\OneDrive\Bureau\ProjetCommunNFA032\SharePortfolio\target\site\apidocs\type-search-index.js = 1710232955979
