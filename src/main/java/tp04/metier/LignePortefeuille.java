@@ -28,29 +28,53 @@ public class LignePortefeuille {
         private int qte;
         private double prix;
         
-        //Imane +++
         private List<Client> clients;
 
+        /**
+         * Constructeur de la classe LignePortefeuille
+         * @return 
+         */
         public int getQte() {
             return qte;
         }
 
+        /**
+         * Méthode pour obtenir la quantité de l'action détenue dans le portefeuille
+         * @param qte 
+         */
         public void setQte(int qte) {
             this.qte = qte;
         }
         
+        /**
+         * Méthode pour définir la quantité de l'action détenue dans le portefeuille
+         * @return 
+         */
         public double getPrix() {
             return prix;
         }
 
+        /**
+         * Méthode pour obtenir le prix associé à cette ligne de portefeuille
+         * @param prix 
+         */
         public void setPrix(double prix) {
             this.prix = prix;
         }
 
+        /**
+         * Méthode pour obtenir l'action associée à cette ligne de portefeuille
+         * @return 
+         */
         public Action getAction() {
             return action;
         }
 
+        /**
+         * 
+         * @param action
+         * @param qte 
+         */
         public LignePortefeuille(Action action, int qte) {
             this.action = action;
             this.qte = qte;
@@ -58,13 +82,19 @@ public class LignePortefeuille {
 
         }
           
-    // Méthode pour ajouter un client à cette ligne de portefeuille
-    public void addClient(Client client) {
+    /**
+     * Méthode pour ajouter un client à cette ligne de portefeuille
+     * @param client 
+     */
+        public void addClient(Client client) {
         clients.add(client);
     }
      
-    // Méthode pour récupérer la liste des clients associés à cette ligne de portefeuille
-    public List<Client> getClients() {
+    /**
+     * Méthode pour récupérer la liste des clients associés à cette ligne de portefeuille
+     * @return 
+     */
+        public List<Client> getClients() {
         return clients;
     }
 
