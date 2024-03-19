@@ -103,9 +103,11 @@ public class Client {
         }
         
         if (age >= 18) {
+            System.out.println("Client majeur");
             return true;
         }
         else {
+            System.out.println("Client mineur");
             return false;
         }
     }
@@ -118,6 +120,10 @@ public class Client {
      * @return true si la date de naissance est valide et false si invalide
      */
     public boolean dateNaissanceConforme(int year, int month, int day) {
+        if (year < 1900) {
+            System.out.println("Le client doit avoir une année de naissance valide");
+            return false;
+        }
         if ((month > 12) || (month < 1)) {
             System.out.println("Le client doit avoir un mois de naissance valide");
             return false;
@@ -126,10 +132,29 @@ public class Client {
             System.out.println("Le client doit avoir un jour de naissance valide");
             return false;
         }
-        if (year < 1900) {
-            System.out.println("Le client doit avoir une année de naissance valide");
-            return false;
-        }
+        System.out.println("Synthaxe de la date de naissance valide");
         return true;
     }
+    
+    /**
+     * @author Lisa
+     * Récuperation de la date de naissance d'un client donné
+     * @return LocalDate
+     */
+    public LocalDate getBirthDate() {
+        return birthDate;
+    }
+    
+    /**
+     * @author Lisa
+     * Modification de la date de naissance d'un client donné
+     */
+    public void setBirthDate(LocalDate birthDate) {
+        this.birthDate = birthDate;
+    }
+
+    @Override
+    public String toString() {
+        return "Client{" + "birthDate=" + birthDate + '}';
+    }    
 }
