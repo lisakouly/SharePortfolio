@@ -18,7 +18,7 @@ public class Portefeuille {
     
     Map<Action, LignePortefeuille> mapLignes;
 
-    private class LignePortefeuille {
+    public class LignePortefeuille {
 
         private Action action;
 
