@@ -14,11 +14,16 @@ import java.util.Map;
  */
 public class ActionSimple extends Action {
 
-    // attribut lien
+    /** attribut lien*/
     private Map<Jour, Cours> mapCours;
     
     private int quantite;
     private double prix;
+    
+    /**l'attribut pour stocker le pourcentage maximal d'actions 
+     * disponibles à la vente
+    */
+    private double pourcentageMaxVente;
 
     // constructeur
     public ActionSimple(String libelle) {
@@ -26,6 +31,8 @@ public class ActionSimple extends Action {
         super(libelle);
         // init spécifique
         this.mapCours = new HashMap();
+        /* Par défaut, 100% des actions sont disponibles à la vente**/
+        this.pourcentageMaxVente = 100;
     }
 
     /**
@@ -56,7 +63,36 @@ public class ActionSimple extends Action {
             this.prix = prix;
     }
     
+    /**
+    * Retourne le pourcentage maximal d'actions pouvant être vendues.
+    * <p>
+    * Ce pourcentage indique la limite supérieure des actions de la compagnie qui peuvent être mises en vente.
+    * Par défaut, ce pourcentage est fixé à 100%, signifiant que toutes les actions peuvent être vendues.
+    * </p>
+    * 
+    * @return le pourcentage maximal d'actions vendables.
+    */
+    public double getPourcentageMaxVente() {
+        return pourcentageMaxVente;
+    }
     
+    /**
+    * Définit le pourcentage maximal d'actions pouvant être vendues.
+    * <p>
+    * Cette méthode permet de limiter la quantité d'actions qui peuvent être vendues.
+    * Si la valeur spécifiée n'est pas dans cet intervalle, une IllegalArgumentException est levée.
+    * </p>
+    * 
+    * @param pourcentageMaxVente le pourcentage maximal de vente, entre 0 et 100.
+    * @throws IllegalArgumentException si le pourcentage spécifié n'est pas entre 0 et 100.
+    */
+    public void setPourcentageMaxVente(double pourcentageMaxVente) {
+        if (pourcentageMaxVente >= 0 && pourcentageMaxVente <= 100) {
+            this.pourcentageMaxVente = pourcentageMaxVente;
+        } else {
+            throw new IllegalArgumentException("Le pourcentage doit être compris entre 0 et 100");
+        }
+    }
     
     public Map<Jour, Cours> getMapCours() {
             return mapCours;

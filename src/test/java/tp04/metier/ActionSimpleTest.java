@@ -26,10 +26,21 @@ import java.util.HashMap;
  */
 public class ActionSimpleTest {
     
-    @Test
+    ActionSimple france2 = new ActionSimple("France 2");
+    
+    /**
+    * Teste la méthode enrgCours() pour vérifier si elle enregistre correctement les cours des actions à des dates spécifiques.
+    * <p>
+    * Ce test suit plusieurs étapes :
+    * 1. Enregistrement d'un premier cours pour une date donnée
+    * 2. Tentative d'enregistrement d'un nouveau cours pour la même date, vérifiant qu'il n'écrase pas le cours existant.
+    * 3. Enregistrement d'un cours pour une nouvelle date et vérification de ce nouvel enregistrement.
+    * </p>
+    */
+    @Test 
     void testEnrgCours() {
+        
         /**Arrange*/
-        ActionSimple france2 = new ActionSimple("France 2");
         Jour jour1 = new Jour(2024, 3); 
         /**Enregistrer le premier prix pour le jour1*/
         france2.enrgCours(jour1, 10.5f);
@@ -55,5 +66,25 @@ public class ActionSimpleTest {
         /**Vérifiez si la carte mapCours contient le prix du nouvel enregistrement*/
         Assertions.assertTrue(france2.getMapCours().containsKey(jour2));
         Assertions.assertEquals(12.5f, france2.getMapCours().get(jour2).getValeur(),"La valeur doit être 12.5f");
+    }
+    
+    @Test
+    void testSetPourcentageMaxVente() {
+        
+        /** 1. Définissez un pourcentage de vente valide et vérifiez que la configuration a réussi */
+        france2.setPourcentageMaxVente(66.6);
+        Assertions.assertEquals(66.6, france2.getPourcentageMaxVente(), "Le pourcentage maximal de vente devrait être 66.6");
+        
+        /** 2. Essayez de définir un pourcentage des ventes inférieur à 0 et d’intercepter les exceptions */
+        Exception exception1 = Assertions.assertThrows(IllegalArgumentException.class, () -> {
+            france2.setPourcentageMaxVente(-1.1);
+        });
+        Assertions.assertEquals("Le pourcentage doit être compris entre 0 et 100", exception1.getMessage(), "IllegalArgumentException : le message correct");
+        
+        /** 3. Essayez de définir un pourcentage de ventes supérieur à 100 et d’intercepter les exceptions */
+        Exception exception2 = Assertions.assertThrows(IllegalArgumentException.class, () -> {
+            france2.setPourcentageMaxVente(101.0);
+        });
+        Assertions.assertEquals("Le pourcentage doit être compris entre 0 et 100", exception2.getMessage(), "IllegalArgumentException : le message correct");
     }
 }
