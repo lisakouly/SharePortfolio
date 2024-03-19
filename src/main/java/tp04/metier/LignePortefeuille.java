@@ -15,6 +15,9 @@
  */
 package tp04.metier;
 
+import java.util.ArrayList;
+import java.util.List;
+
 /**
  *
  * @author Imane
@@ -24,6 +27,9 @@ public class LignePortefeuille {
         private Action action;
         private int qte;
         private double prix;
+        
+        //Imane +++
+        private List<Client> clients;
 
         public int getQte() {
             return qte;
@@ -48,7 +54,20 @@ public class LignePortefeuille {
         public LignePortefeuille(Action action, int qte) {
             this.action = action;
             this.qte = qte;
+            this.clients = new ArrayList<>();
+
         }
+          
+    // Méthode pour ajouter un client à cette ligne de portefeuille
+    public void addClient(Client client) {
+        clients.add(client);
+    }
+     
+    // Méthode pour récupérer la liste des clients associés à cette ligne de portefeuille
+    public List<Client> getClients() {
+        return clients;
+    }
+
 
         @Override
         public String toString() {

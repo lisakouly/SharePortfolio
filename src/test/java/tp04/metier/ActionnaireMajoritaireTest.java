@@ -1,5 +1,5 @@
 /*
- * Copyright 2024 mazhu.
+ * Copyright 2024 Imane.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -15,15 +15,7 @@
  */
 package tp04.metier;
 
-public class Client {
-    
-    String nom;
-    
-    public Client(String nom) {
-        this.nom = nom;
-    }
-    
-    public String getNom() {
-        return this.nom;
-    }
+
+public class ActionnaireMajoritaireTest {
+        
 }
