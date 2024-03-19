@@ -21,21 +21,16 @@ import java.util.ArrayList;
 import java.util.List;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
-/**
- *
- * @author Imane
- */
-
 public class VenteActionsTest {
     private Portefeuille portefeuille;
 
     @BeforeEach
     public void setUp() {
         portefeuille = new Portefeuille();
+        // Ajouter des actions au portefeuille
         ActionSimple action1 = new ActionSimple("Action 1", 10, 100.00);
-        ActionSimple action2 = new ActionSimple("Action 2", 20, 250.00);
-        portefeuille.acheter(action1, 5);
-        portefeuille.acheter(action2, 10);
+        portefeuille.acheter(action1, 10);
+        // Vous pouvez ajouter d'autres actions au besoin
     }
 
     @Test
@@ -47,14 +42,12 @@ public class VenteActionsTest {
 
         // Mise à jour de la liste des actions disponibles dans le portefeuille
         portefeuille.setAvailableActions(availableActions);
-        
+
         // Appel de la méthode vendreActionSimple de la classe ActionSimple
-        action1.vendreActionSimple(portefeuille, action1, 5);
-
-        // Vérification que la quantité disponible a été mise à jour dans l'action
-        //assertEquals(5, action1.getQuantite());
-
+        action1.vendreActionSimple(portefeuille, action1, 10);
         // Vérification que la quantité disponible a été mise à jour dans le portefeuille
-        //assertEquals(5, portefeuille.getAvailableActions().get(0).getQuantite());
+        assertEquals(0, portefeuille.getQuantite(action1));
+        // Vérification que la quantité disponible a été mise à jour dans l'action
+        assertEquals(20, action1.getQuantite());
     }
 }
