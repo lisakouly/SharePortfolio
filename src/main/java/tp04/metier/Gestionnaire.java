@@ -17,6 +17,7 @@ package tp04.metier;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Map;
 
 /**
  *
@@ -44,7 +45,7 @@ public class Gestionnaire {
          /*Check if the client is solvable*/
          return client.getCapital() >= (totalInvestissements + prixTotalAction);
      }
-}
+
     /**
      * Méthode pour consulter les actions achetées par les clients et les quantités détenues dans un portefeuille.
      * 

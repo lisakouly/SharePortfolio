@@ -28,16 +28,16 @@ public class ConsulterPortefeuille {
      * @param portefeuille 
      */
     public static void consulterPortefeuille(Portefeuille portefeuille) {
-        Map<Action, Portefeuille.LignePortefeuille > mapLignes = portefeuille.getMapLignes();
+        Map<Action, LignePortefeuille > mapLignes = portefeuille.getMapLignes();
 
         if (mapLignes.isEmpty()) {
             System.out.println("Le portefeuille est vide.");
         } else {
             System.out.println("Résumé du contenu du portefeuille :");
 
-            for (Map.Entry<Action, Portefeuille.LignePortefeuille> entry : mapLignes.entrySet()) {
+            for (Map.Entry<Action, LignePortefeuille> entry : mapLignes.entrySet()) {
                 Action action = entry.getKey();
-                Portefeuille.LignePortefeuille lignePortefeuille = entry.getValue();
+                LignePortefeuille lignePortefeuille = entry.getValue();
                 int quantite = lignePortefeuille.getQte();
                 float valeur = quantite * action.valeur(new Jour());
 

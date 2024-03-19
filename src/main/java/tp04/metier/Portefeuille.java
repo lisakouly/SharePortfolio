@@ -31,7 +31,7 @@ public class Portefeuille {
     private List<Action> availableActions;
     private Map<ActionSimple, Map<Client, Integer>> actionsClient;
     
-    public class LignePortefeuille {
+    /*public class LignePortefeuille {
 
         private Action action;
 
@@ -57,7 +57,11 @@ public class Portefeuille {
         public String toString() {
             return Integer.toString(qte);
         }
-    }
+
+        public Object getPrix() {
+            throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+        }
+    }*/
      public Portefeuille(String nomPortefeuille) {
         this.mapLignes = new HashMap();
         this.nomPortefeuille = nomPortefeuille;
@@ -155,6 +159,15 @@ public class Portefeuille {
         return total;
     }
 
+    // DOUBLE
+    /*public float valeur(Jour j) {
+        float total = 0;
+        for (LignePortefeuille lp : this.mapLignes.values()) {
+            total = total + (lp.getQte() * lp.getAction().valeur(j));
+        }
+        return total;
+    }*/
+    
     /**
      * Méthode pour obtenir la quantité détenue d'une action donnée dans le portefeuille.
      * @param action l'action dont on veut connaître la quantité
@@ -165,8 +178,7 @@ public class Portefeuille {
     }
 
     /**
-     * Méthode pour obtenir la liste des lignes de portefeuille.
-     * @return la liste des lignes de portefeuille
+     * @return
      */
     public Map<Action, LignePortefeuille> getMapLignes() {
         return mapLignes;
@@ -255,17 +267,6 @@ public class Portefeuille {
     @Override
     public String toString() {
         return this.mapLignes.toString();
-    }
-
-    public float valeur(Jour j) {
-        float total = 0;
-        for (LignePortefeuille lp : this.mapLignes.values()) {
-            total = total + (lp.getQte() * lp.getAction().valeur(j));
-        }
-        return total;
-    }
-    public Map<Action, LignePortefeuille> getMapLignes() {
-		return mapLignes;
     }
 
     public void setMapLignes(Map<Action, LignePortefeuille> mapLignes) {

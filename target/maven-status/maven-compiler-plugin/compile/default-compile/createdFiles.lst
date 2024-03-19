@@ -3,6 +3,7 @@ tp04\metier\Client.class
 tp04\metier\Action.class
 tp04\Interfaces\PortefeuilleInterface$1.class
 tp04\Interfaces\ActionsSimplesInterface$1.class
+tp04\metier\ConsulterPortefeuille.class
 tp04\Interfaces\ActionsSimplesInterface.class
 tp04\metier\LignePortefeuille.class
 tp04\Interfaces\PortefeuilleInterface.class

@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="https://maven.apache.org/surefire/maven-surefire-plugin/xsd/surefire-test-report-3.0.xsd" version="3.0" name="tp04.metier.GestionnaireTest" time="0.353" tests="1" errors="1" skipped="0" failures="0">
+<testsuite xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="https://maven.apache.org/surefire/maven-surefire-plugin/xsd/surefire-test-report-3.0.xsd" version="3.0" name="tp04.metier.ClientTest" time="0.151" tests="2" errors="1" skipped="0" failures="1">
   <properties>
     <property name="java.specification.version" value="21"/>
     <property name="sun.cpu.isalist" value="amd64"/>
@@ -15,9 +15,9 @@
     <property name="user.country" value="FR"/>
     <property name="sun.java.launcher" value="SUN_STANDARD"/>
     <property name="sun.boot.library.path" value="C:\Program Files\Java\jdk-21\bin"/>
-    <property name="sun.java.command" value="C:\Users\Imane\AppData\Local\Temp\surefire10628514919079136813\surefirebooter-20240319134551876_3.jar C:\Users\Imane\AppData\Local\Temp\surefire10628514919079136813 2024-03-19T13-45-51_452-jvmRun1 surefire-20240319134551876_1tmp surefire_0-20240319134551876_2tmp"/>
+    <property name="sun.java.command" value="C:\Users\Imane\AppData\Local\Temp\surefire8027888534412696324\surefirebooter-20240319134435371_3.jar C:\Users\Imane\AppData\Local\Temp\surefire8027888534412696324 2024-03-19T13-44-35_238-jvmRun1 surefire-20240319134435371_1tmp surefire_0-20240319134435371_2tmp"/>
     <property name="jdk.debug" value="release"/>
-    <property name="test" value="tp04.metier.GestionnaireTest"/>
+    <property name="test" value="tp04.metier.ClientTest"/>
     <property name="surefire.test.class.path" value="C:\Users\Imane\OneDrive\Bureau\ProjetCommunNFA032\SharePortfolio\target\test-classes;C:\Users\Imane\OneDrive\Bureau\ProjetCommunNFA032\SharePortfolio\target\classes;C:\Users\Imane\.m2\repository\org\junit\jupiter\junit-jupiter-api\5.10.2\junit-jupiter-api-5.10.2.jar;C:\Users\Imane\.m2\repository\org\opentest4j\opentest4j\1.3.0\opentest4j-1.3.0.jar;C:\Users\Imane\.m2\repository\org\junit\platform\junit-platform-commons\1.10.2\junit-platform-commons-1.10.2.jar;C:\Users\Imane\.m2\repository\org\apiguardian\apiguardian-api\1.1.2\apiguardian-api-1.1.2.jar;C:\Users\Imane\.m2\repository\org\junit\jupiter\junit-jupiter-params\5.10.2\junit-jupiter-params-5.10.2.jar;C:\Users\Imane\.m2\repository\org\junit\jupiter\junit-jupiter-engine\5.10.2\junit-jupiter-engine-5.10.2.jar;C:\Users\Imane\.m2\repository\org\junit\platform\junit-platform-engine\1.10.2\junit-platform-engine-1.10.2.jar;"/>
     <property name="sun.cpu.endian" value="little"/>
     <property name="user.home" value="C:\Users\Imane"/>
@@ -31,7 +31,7 @@
     <property name="line.separator" value="&#10;"/>
     <property name="java.vm.specification.vendor" value="Oracle Corporation"/>
     <property name="java.specification.name" value="Java Platform API Specification"/>
-    <property name="surefire.real.class.path" value="C:\Users\Imane\AppData\Local\Temp\surefire10628514919079136813\surefirebooter-20240319134551876_3.jar"/>
+    <property name="surefire.real.class.path" value="C:\Users\Imane\AppData\Local\Temp\surefire8027888534412696324\surefirebooter-20240319134435371_3.jar"/>
     <property name="user.script" value=""/>
     <property name="sun.management.compiler" value="HotSpot 64-Bit Tiered Compilers"/>
     <property name="java.runtime.version" value="21.0.2+13-LTS-58"/>
@@ -60,11 +60,28 @@
     <property name="sun.io.unicode.encoding" value="UnicodeLittle"/>
     <property name="java.class.version" value="65.0"/>
   </properties>
-  <testcase name="testEstClientSolvable" classname="tp04.metier.GestionnaireTest" time="0.223">
+  <testcase name="testAddPortefeuilleAndGetTotalPortfolioValue" classname="tp04.metier.ClientTest" time="0.093">
+    <failure message="expected: &lt;2&gt; but was: &lt;0&gt;" type="org.opentest4j.AssertionFailedError"><![CDATA[org.opentest4j.AssertionFailedError: expected: <2> but was: <0>
+	at org.junit.jupiter.api.AssertionFailureBuilder.build(AssertionFailureBuilder.java:151)
+	at org.junit.jupiter.api.AssertionFailureBuilder.buildAndThrow(AssertionFailureBuilder.java:132)
+	at org.junit.jupiter.api.AssertEquals.failNotEqual(AssertEquals.java:197)
+	at org.junit.jupiter.api.AssertEquals.assertEquals(AssertEquals.java:150)
+	at org.junit.jupiter.api.AssertEquals.assertEquals(AssertEquals.java:145)
+	at org.junit.jupiter.api.Assertions.assertEquals(Assertions.java:531)
+	at tp04.metier.ClientTest.testAddPortefeuilleAndGetTotalPortfolioValue(ClientTest.java:49)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:580)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1596)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1596)
+]]></failure>
+    <system-out><![CDATA[79 2024
+79 2024
+]]></system-out>
+  </testcase>
+  <testcase name="testGetAccountBalance" classname="tp04.metier.ClientTest" time="0.002">
     <error message="Cannot invoke &quot;java.util.Map.containsKey(Object)&quot; because &quot;this.mapCours&quot; is null" type="java.lang.NullPointerException"><![CDATA[java.lang.NullPointerException: Cannot invoke "java.util.Map.containsKey(Object)" because "this.mapCours" is null
 	at tp04.metier.ActionSimple.valeur(ActionSimple.java:162)
-	at tp04.metier.Gestionnaire.estClientSolvable(Gestionnaire.java:44)
-	at tp04.metier.GestionnaireTest.testEstClientSolvable(GestionnaireTest.java:48)
+	at tp04.metier.Portefeuille.valeur(Portefeuille.java:157)
+	at tp04.metier.ClientTest.testGetAccountBalance(ClientTest.java:75)
 	at java.base/java.lang.reflect.Method.invoke(Method.java:580)
 	at java.base/java.util.ArrayList.forEach(ArrayList.java:1596)
 	at java.base/java.util.ArrayList.forEach(ArrayList.java:1596)
