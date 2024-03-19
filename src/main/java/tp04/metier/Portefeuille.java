@@ -51,6 +51,25 @@ public class Portefeuille {
             }
         }
     }
+    
+   public void vendreEntreprise(ActionSimple action, int quantite) {
+    if (action != null && mapLignes.containsKey(action)) {
+        int palierBlocage = action.getEntreprise().getPalierBlocage();
+        if (quantite <= palierBlocage) {
+            int currentQuantity = mapLignes.get(action).getQte();
+            if (currentQuantity >= quantite) {
+                mapLignes.get(action).setQte(currentQuantity - quantite);
+                System.out.println("La vente a été realisée");
+            } else {
+                System.out.println("La vente de cette quantité est bloquée.");
+            }
+        } else {
+            System.out.println("La vente de cette quantité est bloquée.");
+        }
+    } else {
+        System.out.println("Action non trouvée dans le portefeuille.");
+    }
+}
 
     public String toString() {
         return this.mapLignes.toString();
@@ -86,6 +105,8 @@ public class Portefeuille {
         return mapLignes;
     }
 
+    
+    
     /**
      * 
      * @return 

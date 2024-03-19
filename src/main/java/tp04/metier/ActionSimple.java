@@ -36,6 +36,13 @@ public class ActionSimple extends Action {
         this.availableActions = new ArrayList<>();
     }
     
+      public ActionSimple(String libelle, int quantite, double prix, Entreprise entreprise) {
+        super(libelle);
+        this.quantite = quantite;
+        this.prix = prix;
+        this.entreprise = entreprise;
+    }
+    
     public ActionSimple() {
         super(null);
     }

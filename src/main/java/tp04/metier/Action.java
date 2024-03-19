@@ -14,6 +14,8 @@ import java.util.Objects;
 public abstract class Action {
 
     private String libelle;
+    protected Entreprise entreprise;
+
 
     /**
      * Get the value of libelle
@@ -28,6 +30,14 @@ public abstract class Action {
 
     public String getLibelle() {
         return libelle;
+    }
+    
+     public Entreprise getEntreprise() {
+        return entreprise;
+    }
+
+    public void setEntreprise(Entreprise entreprise) {
+        this.entreprise = entreprise;
     }
 
     public Action(String libelle) {
