@@ -174,4 +174,24 @@ public class Client {
     public String toString() {
         return "Client{" + "birthDate=" + birthDate + '}';
     }    
+    // Variables d'instance
+    private String nom;
+    
+    // Constructeur
+    /**
+     * Constructeur de la classe Client.
+     * @param nom le nom du client
+     */
+    public Client(String nom) {
+        this.nom = nom;
+    }
+    
+    // Méthodes
+    /**
+     * Méthode pour obtenir le nom du client.
+     * @return le nom du client
+     */
+    public String getNom() {
+        return this.nom;
+    }
 }

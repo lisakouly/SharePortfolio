@@ -21,6 +21,13 @@ import java.util.List;
 /**
  *
  * @author zhuo, yaning 
+import java.util.Map;
+
+/**
+ * Cette classe représente un gestionnaire qui permet de consulter les actions achetées par les clients
+ * et les quantités détenues dans un portefeuille.
+ * 
+ * @author mazhu
  */
 public class Gestionnaire {
    
@@ -37,4 +44,22 @@ public class Gestionnaire {
          /*Check if the client is solvable*/
          return client.getCapital() >= (totalInvestissements + prixTotalAction);
      }
+}
+    /**
+     * Méthode pour consulter les actions achetées par les clients et les quantités détenues dans un portefeuille.
+     * 
+     * @param portefeuille
+     */
+    public void consulterActionsAchetees(Portefeuille portefeuille) {
+        Map<Action, LignePortefeuille> mapLignes = portefeuille.getMapLignes();
+        
+        for (Map.Entry<Action, LignePortefeuille> entry : mapLignes.entrySet()) {
+            Action action = entry.getKey();
+            LignePortefeuille lignePortefeuille = entry.getValue();
+            
+            System.out.println("Action : " + action.getLibelle());
+            System.out.println("Quantité détenue : " + lignePortefeuille.getQte());
+            System.out.println("---------------------------------------");
+        }
+    }
 }
