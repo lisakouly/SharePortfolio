@@ -21,9 +21,9 @@ import org.junit.jupiter.api.Test;
 
 /**
  *
- * @author mazhuo
+ * @author zhuo,Yaning
  */
-public class ConsulterTousLesActionsComposees {
+public class ConsulterTousActComTest {
      /**
      * Represents a composite action for "France télévision" comprising multiple simple actions.
      */
@@ -33,7 +33,7 @@ public class ConsulterTousLesActionsComposees {
      * Vérifie que les actions composées sont correctement récupérées et contiennent les propriétés attendues.
      */
     @Test
-    protected void testGetAllActionsComposees() {
+    void testGetAllActionsComposees() {
         // Arrange
         franceTelevision.enrgComposition(ActionSimpleTest.france2, 0.35f);
         franceTelevision.enrgComposition(ActionSimpleTest.france3, 0.50f);

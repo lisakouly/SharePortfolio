@@ -28,7 +28,12 @@ public class ActionSimple extends Action {
         this.mapCours = new HashMap();
     }
 
-    // enrg possible si pas de cours pour ce jour
+    /**
+     * Enregistrement de la valeur d'une action à une date donnée
+     * 
+     * @param j une date donnée
+     * @param v valeur
+     */
     public void enrgCours(Jour j, float v) {
         if (this.mapCours.containsKey(j) == false) {
             this.mapCours.put(j, new Cours(j, v));
@@ -51,12 +56,13 @@ public class ActionSimple extends Action {
             this.prix = prix;
     }
     
+    
     @Override
     public float valeur(Jour j) {
         if (this.mapCours.containsKey(j) == true) {
             return this.mapCours.get(j).getValeur();
         } else {
-            return 0; // definition d'une constante possible
+            return 0; 
         }
     }
 }

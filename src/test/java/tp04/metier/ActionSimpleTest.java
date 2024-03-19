@@ -14,13 +14,21 @@
  * limitations under the License.
  */
 package tp04.metier;
+import org.junit.jupiter.api.Assertions;
+import org.junit.jupiter.api.Test;
 
 /**
- *
- * @author mazhu
+ *Test class for the ActionSimple class.
+ * @author zhuo
  */
 public class ActionSimpleTest {
-    protected static final ActionSimple france2 = new ActionSimple("France 2");
-    protected static final ActionSimple france3 = new ActionSimple("France 3");
-    protected static final ActionSimple france5 = new ActionSimple("France 5");
+    ActionSimple france2 = new ActionSimple("France 2");
+    ActionSimple france3 = new ActionSimple("France 3");
+    ActionSimple france5 = new ActionSimple("France 5");
+    
+    @Test
+    void testEnrgCours() {
+        /** */
+       Jour j1 = new Jour(2024,3);
+    }
 }

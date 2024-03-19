@@ -36,18 +36,18 @@ public class VendrePortefeuilleTest {
     */
     @Test
     protected void testVendrePortefeuille(){
-        // Arrange
+        /**Arrange*/
         int a1Qte = a1.getQuantite();
         int a2Qte = a2.getQuantite();
         por.acheter(a1, 10); 
         por.acheter(a2, 20); 
         
-        // Act
+        /** Act */
         por.vendrePortefeuille("p1");
         int a1QteAfter = a1.getQuantite();
         int a2QteAfter = a2.getQuantite();
         
-        // Assert
+         /** Assert*/
         Assertions.assertEquals(a1Qte + 10, a1QteAfter, "Le nombre d'a1 augmenté");
         Assertions.assertEquals(a2Qte + 20, a2QteAfter, "Le nombre d'a2 devrait être augmenté");
         Assertions.assertTrue(por.getMapLignes().isEmpty(), "MapLignes doivent être vidées");

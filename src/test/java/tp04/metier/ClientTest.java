@@ -1,5 +1,5 @@
 /*
- * Copyright 2024 mazhu.
+ * Copyright 2024 mazhuo.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -22,43 +22,42 @@ import static org.junit.jupiter.api.Assertions.assertFalse;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
 /**
- *
- * @author mazhu
+ * Cette classe contient les tests unitaires pour la classe Client.
+ * @author zhuo,Yaning
  */
 public class ClientTest {
     
+    /**
+     * Teste la méthode addPortefeuille()
+     */
     @Test
     void testAddPortefeuilleAndGetTotalPortfolioValue() {
 
         Client client = new Client();
-
-
+        
         Portefeuille portefeuille1 = new Portefeuille();
         Portefeuille portefeuille2 = new Portefeuille();
 
-
         client.addPortefeuille(portefeuille1);
         client.addPortefeuille(portefeuille2);
-
-
+        
         Jour j = new Jour();
 
-
-        portefeuille1.acheter(new ActionSimple("pll"), 10); // Assume 10 actions are added
-        portefeuille2.acheter(new ActionComposee("CJS"), 20); // Assume 20 actions are added
+        portefeuille1.acheter(new ActionSimple("pll"), 10); 
+        portefeuille2.acheter(new ActionComposee("CJS"), 20);
 
         assertEquals(2, client.getPortefeuilles().size());
 
-
         float totalValueActionSimple = 10 * new ActionSimple("ActionSimple").valeur(j);
-
         float totalValueActionComposee = 20 * new ActionComposee("ActionComposee").valeur(j);
-
         float expectedTotalValue = totalValueActionSimple + totalValueActionComposee;
 
         assertEquals(expectedTotalValue, client.getTotalPortfolioValue(j), 0.01);
     }
-
+    
+    /**
+     * Teste la méthode getTotalPortfolioValue().
+     */
     @Test
     void testGetAccountBalance() {
 

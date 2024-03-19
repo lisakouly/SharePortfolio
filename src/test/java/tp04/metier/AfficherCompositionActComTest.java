@@ -28,18 +28,18 @@ public class AfficherCompositionActComTest {
     
     @Test
     protected void testGetAllActionsComposees() {
-        // Arrange
+        /**Arrange*/
         ActionSimple as1 = new ActionSimple("Action 1");
         ActionSimple as2 = new ActionSimple("Action 2");
 
         ActionComposee ac1 = new ActionComposee("Composed Action 1");
-        ac1.enrgComposition(as1, 0.6f); // 60%的Action 1
-        ac1.enrgComposition(as2, 0.4f); // 40%的Action 2
+        ac1.enrgComposition(as1, 0.6f); 
+        ac1.enrgComposition(as2, 0.4f); 
 
-        // Act
+        /** Act */
         Map<String, Float> composition = ActionComposee.getComposition("Composed Action 1");
 
-        // Assert
+        /** Assert*/
         Assertions.assertNotNull(composition, "La composition doit être présente");
         Assertions.assertEquals(2, composition.size(), "Il doit y avoir deux comportements");
         Assertions.assertEquals(0.6f, composition.get("Action 1"), 0.0001, "Action 1，0.6");
