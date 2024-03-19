@@ -13,30 +13,40 @@ import java.util.Map;
  *
  * @author somebody
  */
+
 public class Portefeuille {
 
-    Map<Action, LignePortefeuille> mapLignes;
+    private Map<Action, LignePortefeuille> mapLignes;
     private List<Action> availableActions;
 
-
     public Portefeuille() {
-        this.mapLignes = new HashMap();
+        this.mapLignes = new HashMap<>();
     }
 
+    /**
+     * 
+     * @param a
+     * @param q 
+     */
     public void acheter(Action a, int q) {
-        if (this.mapLignes.containsKey(a) == false) {
+        if (!this.mapLignes.containsKey(a)) {
             this.mapLignes.put(a, new LignePortefeuille(a, q));
         } else {
             this.mapLignes.get(a).setQte(this.mapLignes.get(a).getQte() + q);
         }
     }
 
-public void vendre(Action a, int q) {
-    if (this.mapLignes.containsKey(a)) {
-        int currentQuantity = this.mapLignes.get(a).getQte();
-        if (currentQuantity >= q) {
-            this.mapLignes.get(a).setQte(currentQuantity - q);
-        } else  if (this.mapLignes.get(a).getQte() == q) {
+    /**
+     * 
+     * @param a
+     * @param q 
+     */
+    public void vendre(Action a, int q) {
+        if (this.mapLignes.containsKey(a)) {
+            int currentQuantity = this.mapLignes.get(a).getQte();
+            if (currentQuantity >= q) {
+                this.mapLignes.get(a).setQte(currentQuantity - q);
+            } else if (currentQuantity == q) {
                 this.mapLignes.remove(a);
             }
         }
@@ -46,29 +56,73 @@ public void vendre(Action a, int q) {
         return this.mapLignes.toString();
     }
 
+    /**
+     * 
+     * @param j
+     * @return 
+     */
     public float valeur(Jour j) {
         float total = 0;
         for (LignePortefeuille lp : this.mapLignes.values()) {
-            total = total + (lp.getQte() * lp.getAction().valeur(j));
+            total += lp.getQte() * lp.getAction().valeur(j);
         }
         return total;
     }
-    
-     public int getQuantite(Action action) {
+
+    /**
+     * 
+     * @param action
+     * @return 
+     */
+    public int getQuantite(Action action) {
         return mapLignes.containsKey(action) ? mapLignes.get(action).getQte() : 0;
     }
 
-    
+    /**
+     * 
+     * @return 
+     */
     public Map<Action, LignePortefeuille> getMapLignes() {
         return mapLignes;
     }
-    
-      public List<Action> getAvailableActions() {
+
+    /**
+     * 
+     * @return 
+     */
+    public List<Action> getAvailableActions() {
         return availableActions;
     }
-    
-     public void setAvailableActions(List<Action> availableActions) {
+
+    /**
+     * 
+     * @param availableActions 
+     */
+    public void setAvailableActions(List<Action> availableActions) {
         this.availableActions = availableActions;
     }
-}
 
+    /**
+     * 
+     * @param action
+     * @param quantity 
+     */
+    public void soustraire(Action action, int quantity) {
+        LignePortefeuille ligne = mapLignes.get(action);
+        if (ligne != null) {
+            ligne.setQte(ligne.getQte() - quantity);
+        }
+    }
+
+    /**
+     * 
+     * @param action
+     * @param quantity 
+     */
+    public void ajouter(Action action, int quantity) {
+        LignePortefeuille ligne = mapLignes.get(action);
+        if (ligne != null) {
+            ligne.setQte(ligne.getQte() + quantity);
+        }
+    }
+}

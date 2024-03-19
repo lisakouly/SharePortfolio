@@ -16,7 +16,6 @@ import java.util.Map;
  */
 public class ActionSimple extends Action {
 
-    // attribut lien
     private Map<Jour, Cours> mapCours;
     private int quantite;
     private double prix;
@@ -29,94 +28,115 @@ public class ActionSimple extends Action {
      * @param quantite
      * @param prix 
      */
-
     public ActionSimple(String libelle, int quantite, double prix) {
-        // Action simple initialisée comme 1 action
         super(libelle);
         this.quantite = quantite;
         this.prix = prix;
-        // init spécifique
-        this.mapCours = new HashMap();
+        this.mapCours = new HashMap<>();
         this.availableActions = new ArrayList<>();
     }
     
-        public ActionSimple() {
+    public ActionSimple() {
         super(null);
     }
     
-    /**
-     * Redéfinition de la méthode pour obtenir la quantité disponible 
-     * @return 
-     */
+
+    public void addToAvailableActions() {
+        this.availableActions.add(this);
+    }
+
     @Override
     public int getQuantite() {
         return quantite;
     }
- 
-    // Implémentation de la méthode soustraireQuantite IMANE
+
+    /**
+     * 
+     * @param quantite
+     * @return 
+     */
     @Override
     public int soustraireQuantite(int quantite) {
         this.quantite -= quantite;
         return quantite;
     }
-    
-     // Méthode pour ajouter une quantité à l'action après vente WIDAD
+
+    /**
+     * 
+     * @param quantite 
+     */
     public void ajouterQuantite(int quantite) {
         this.quantite += quantite;
     }
-    /**
-     * Redéfinition de la méthode pour obtenir le prix de l'action simple
-     * @return 
-     */
+
     @Override
     public double getPrixAction() {
         return prix;
     }
-    // enrg possible si pas de cours pour ce jour
+
+    /**
+     * 
+     * @param j
+     * @param v 
+     */
     public void enrgCours(Jour j, float v) {
-        if (this.mapCours.containsKey(j) == false) {
+        if (!this.mapCours.containsKey(j)) {
             this.mapCours.put(j, new Cours(j, v));
         }
     }
 
+    /**
+     * 
+     * @param j
+     * @return 
+     */
     @Override
     public float valeur(Jour j) {
-        if (this.mapCours.containsKey(j) == true) {
+        if (this.mapCours.containsKey(j)) {
             return this.mapCours.get(j).getValeur();
         } else {
-            return 0; // definition d'une constante possible
+            return 0;
         }
     }
-    
+
     /**
-     * Méthode pour afficher les actions disponibles.
+     * 
+     * @param availableActions 
      */
-    public void afficherActionsSimples( List<Action> availableActions) {
+    public void afficherActionsSimples(List<Action> availableActions) {
         System.out.println("Actions disponibles :");
         for (Action action : availableActions) {
             System.out.println(action);
         }
     }
-    
+
     /**
-     * Méthode pour acheter une action.
+     * 
+     * @param portfolio
      * @param selectedAction
      * @param quantity 
      */
-      public void acheterActionSimple(Action selectedAction, int quantity) {
-        if (availableActions.contains(selectedAction)) {
-            portfolio.acheter(selectedAction, quantity);
-            selectedAction.soustraireQuantite(quantity);
-            portfolio.setAvailableActions(availableActions);
-
-            System.out.println("Vous avez acheté " + quantity + " actions de " + selectedAction.getLibelle());
+    public void acheterActionSimple(Portefeuille portfolio, Action selectedAction, int quantity) {
+        if (selectedAction instanceof ActionSimple) {
+            ActionSimple selectedActionSimple = (ActionSimple) selectedAction;
+            if (availableActions.contains(selectedActionSimple)) {
+                portfolio.acheter(selectedActionSimple, quantity);
+                availableActions = portfolio.getAvailableActions();
+                selectedActionSimple.soustraireQuantite(quantity);
+                System.out.println("Vous avez acheté " + quantity + " actions de " + selectedActionSimple.getLibelle());
+                System.out.println("Quantité de " + selectedActionSimple.getLibelle() + " dans le portefeuille : " + portfolio.getQuantite(selectedActionSimple));
+                System.out.println("Quantité de " + selectedActionSimple.getLibelle() + " disponible : " + selectedActionSimple.getQuantite());
+            } else {
+                System.out.println("Action non disponible.");
+            }
         } else {
-            System.out.println("Action non disponible.");
+            System.out.println("La sélection n'est pas une action simple.");
         }
-      }
-     
+    }
+
     /**
      * 
+     * @param portefeuille
      * @param actionToSell
      * @param quantityToSell 
      */
@@ -133,12 +153,12 @@ public class ActionSimple extends Action {
             if (action != null) {
                 int totalQuantity = portefeuille.getQuantite(action);
                 if (quantityToSell <= totalQuantity) {
+                    System.out.println("Quantité de " + action.getLibelle() + " dans mon portefeuille avant  la vente : " + portefeuille.getQuantite(action));
                     portefeuille.vendre(action, quantityToSell);
+                    System.out.println("Quantité de " + action.getLibelle() + " dans mon portefeuille après  la vente : " + portefeuille.getQuantite(action));
                     System.out.println("Vente réussie : " + quantityToSell + " actions de " + actionToSell.getLibelle() + " vendues.");
                     portfolio.setAvailableActions(availableActions);
-
-                    // Mettre à jour les actions disponibles
-                    updateQuantiteDisponible(action, quantityToSell);
+                    updateQuantiteDisponible(actionToSell, quantityToSell);
                 } else {
                     System.out.println("La quantité à vendre dépasse la quantité disponible dans le portefeuille.");
                 }
@@ -148,26 +168,20 @@ public class ActionSimple extends Action {
         } else {
             System.out.println("Paramètres invalides pour la vente d'une action.");
         }
-        
-
     }
 
     /**
-     * Méthode pour mettre à jour la quantité disponible d'une action.
+     * 
+     * @param action
+     * @param quantitySold 
      */
     private void updateQuantiteDisponible(Action action, int quantitySold) {
-        // Assurez-vous que l'action est une instance d'ActionSimple
         if (action instanceof ActionSimple) {
-            // Cast l'action en ActionSimple
             ActionSimple actionSimple = (ActionSimple) action;
-            
-            // Mettre à jour la quantité disponible en ajoutant la quantité vendue
             actionSimple.ajouterQuantite(quantitySold);
-            
-            // Affichez un message pour indiquer que la quantité disponible a été mise à jour
+            portfolio.soustraire(actionSimple, quantitySold);
             System.out.println("Quantité de " + actionSimple.getLibelle() + " mise à jour : " + actionSimple.getQuantite());
         } else {
-            // Si l'action n'est pas une instance d'ActionSimple, affichez un message d'erreur
             System.out.println("Action non disponible.");
         }
     }
