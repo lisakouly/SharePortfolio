@@ -16,47 +16,74 @@
 package tp04.metier;
 
 /**
- *
+ * Cette classe représente une entreprise.
  * @author widad
  */
 public class Entreprise {
+    // Variables d'instance
     private String nom;
     private int nombreActionsTotal;
     private int palierBlocage;
 
-
-   public Entreprise(String nom, int nombreActionsTotal, int palierBlocage) {
+    // Constructeur
+    /**
+     * Constructeur de la classe Entreprise.
+     * @param nom le nom de l'entreprise
+     * @param nombreActionsTotal le nombre total d'actions de l'entreprise
+     * @param palierBlocage le palier de blocage des actions de l'entreprise
+     */
+    public Entreprise(String nom, int nombreActionsTotal, int palierBlocage) {
         this.nom = nom;
         this.nombreActionsTotal = nombreActionsTotal;
         this.palierBlocage = palierBlocage;
     }
 
-
-    // Getters et setters pour les attributs de l'entreprise
-
+    // Getters et setters
+    /**
+     * Méthode pour obtenir le nom de l'entreprise.
+     * @return le nom de l'entreprise
+     */
     public String getNom() {
         return nom;
     }
 
+    /**
+     * Méthode pour définir le nom de l'entreprise.
+     * @param nom le nom de l'entreprise
+     */
     public void setNom(String nom) {
         this.nom = nom;
     }
 
+    /**
+     * Méthode pour obtenir le nombre total d'actions de l'entreprise.
+     * @return le nombre total d'actions de l'entreprise
+     */
     public int getNombreActionsTotal() {
         return nombreActionsTotal;
     }
 
+    /**
+     * Méthode pour définir le nombre total d'actions de l'entreprise.
+     * @param nombreActionsTotal le nombre total d'actions de l'entreprise
+     */
     public void setNombreActionsTotal(int nombreActionsTotal) {
         this.nombreActionsTotal = nombreActionsTotal;
     }
-    
-     public int getPalierBlocage() {
+
+    /**
+     * Méthode pour obtenir le palier de blocage des actions de l'entreprise.
+     * @return le palier de blocage des actions de l'entreprise
+     */
+    public int getPalierBlocage() {
         return palierBlocage;
     }
 
+    /**
+     * Méthode pour définir le palier de blocage des actions de l'entreprise.
+     * @param palierBlocage le palier de blocage des actions de l'entreprise
+     */
     public void setPalierBlocage(int palierBlocage) {
         this.palierBlocage = palierBlocage;
-    }
-
-    
+    }  
 }
