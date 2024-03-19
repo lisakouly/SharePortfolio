@@ -76,6 +76,10 @@ public class Client {
      * @return true si la date de naissance est valide et false si invalide
      */
     public boolean dateNaissanceConforme(int year, int month, int day) {
+        if (year < 1900) {
+            System.out.println("Le client doit avoir une année de naissance valide");
+            return false;
+        }
         if ((month > 12) || (month < 1)) {
             System.out.println("Le client doit avoir un mois de naissance valide");
             return false;
@@ -84,10 +88,7 @@ public class Client {
             System.out.println("Le client doit avoir un jour de naissance valide");
             return false;
         }
-        if (year < 1900) {
-            System.out.println("Le client doit avoir une année de naissance valide");
-            return false;
-        }
+        System.out.println("Client créé avec succès");
         return true;
     }
     
