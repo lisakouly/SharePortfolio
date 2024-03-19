@@ -53,7 +53,7 @@ public class ActionnaireMajoritaireTest {
 
         System.out.println("ActionnaireMajoritaire : "+ actionnaireMajoritaire.getNom());
         
-        // Vérifier que le client retourné n'est pas null
+        // Vérifier que le client n'est pas null
         assertNotNull(actionnaireMajoritaire, "Le client actionnaire majoritaire ne doit pas être null.");
 
         // Vérifier que le client retourné est bien celui qui détient le maximum d'actions
