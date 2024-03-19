@@ -132,4 +132,26 @@ public class Client {
         }
         return true;
     }
+    
+    /**
+     * @author Lisa
+     * Récuperation de la date de naissance d'un client donné
+     * @return LocalDate
+     */
+    public LocalDate getBirthDate() {
+        return birthDate;
+    }
+    
+    /**
+     * @author Lisa
+     * Modification de la date de naissance d'un client donné
+     */
+    public void setBirthDate(LocalDate birthDate) {
+        this.birthDate = birthDate;
+    }
+
+    @Override
+    public String toString() {
+        return "Client{" + "birthDate=" + birthDate + '}';
+    }    
 }
