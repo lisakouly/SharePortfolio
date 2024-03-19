@@ -21,13 +21,19 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 import org.junit.jupiter.api.Test;
 
 /**
- *
+ * Cette classe teste le processus d'achat d'une action simple.
+ * Elle vérifie que la quantité disponible a été mise à jour correctement
+ * dans l'action, dans le portefeuille et dans la liste des actions disponibles.
+ * 
  * @author widad
  */
 public class AcheterActionSimpleTest {
     private Portefeuille portefeuille;
 
-     @Test
+    /**
+     * Test de la méthode acheterActionSimple.
+     */
+    @Test
     public void testAcheterAction() {
         portefeuille = new Portefeuille();
 
@@ -39,43 +45,18 @@ public class AcheterActionSimpleTest {
         availableActions.add(action2);
         action1.addToAvailableActions();
 
-        // Création d'un portefeuille
-        //Portefeuille portfolio = new Portefeuille();
-        
-        
-       // Mise à jour de la liste des actions disponibles dans le portefeuille
-    portefeuille.setAvailableActions(availableActions);
-    // Acheter l'action
-    action1.acheterActionSimple(portefeuille,action1, 5);
-
-    // Vérifier que la quantité disponible a été mise à jour dans l'action
-    assertEquals(15, action1.getQuantite());
-    
-    // Vérifier que la quantité disponible a été mise à jour dans le portefeuille
-    assertEquals(5, portefeuille.getQuantite(action1));
-
-    // Vérifier que la quantité disponible a été mise à jour dans la liste availableActions
-    assertEquals(15, portefeuille.getAvailableActions().get(0).getQuantite());
-}}
         // Mise à jour de la liste des actions disponibles dans le portefeuille
-      /*  portfolio.setAvailableActions(availableActions);
+        portefeuille.setAvailableActions(availableActions);
         // Acheter l'action
-        action1.acheterActionSimple(action1, 5);
-        
-        // Vérifier que la quantité disponible a été mise à jour dans la liste availableActions
-        System.out.println (action1.getQuantite());
-        
-        int quantite = action1.getQuantite(); 
-        
-         System.out.println ("la soustraction  "+action1.soustraireQuantite(5));
+        action1.acheterActionSimple(portefeuille, action1, 5);
 
         // Vérifier que la quantité disponible a été mise à jour dans l'action
-        assertEquals(10, action1.getQuantite());
+        assertEquals(15, action1.getQuantite());
         
+        // Vérifier que la quantité disponible a été mise à jour dans le portefeuille
+        assertEquals(5, portefeuille.getQuantite(action1));
+
         // Vérifier que la quantité disponible a été mise à jour dans la liste availableActions
-
-        assertEquals(10, portfolio.getAvailableActions().get(0).getQuantite());
-
-        
-        
-    }*/
+        assertEquals(15, portefeuille.getAvailableActions().get(0).getQuantite());
+    }
+}

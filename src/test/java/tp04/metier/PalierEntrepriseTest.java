@@ -20,12 +20,13 @@ import org.junit.jupiter.api.Test;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
 /**
- *
+ * Cette classe teste le blocage de la vente d'actions en fonction du palier de blocage de l'entreprise.
+ * Elle vérifie si la vente d'une quantité supérieure au palier de blocage est bloquée.
+ * 
  * @author Imane
  */
-
 public class PalierEntrepriseTest {
-      private Portefeuille portefeuille;
+    private Portefeuille portefeuille;
     private Entreprise entreprise;
 
     @BeforeEach
@@ -38,17 +39,19 @@ public class PalierEntrepriseTest {
         portefeuille.acheter(action2, 10);
     }
 
+    /**
+     * Test de la méthode de blocage de la vente d'actions.
+     */
     @Test
     public void testBlocageVenteAction() {
         // Vérifier que la vente d'une quantité inférieure ou égale au palier de blocage est autorisée
         ActionSimple action1 = new ActionSimple("Action 1", 10, 100.00, entreprise);
         portefeuille.vendreEntreprise(action1, 10);
         assertEquals(0, portefeuille.getQuantite(action1));
- 
 
         // Vérifier que la vente d'une quantité supérieure au palier de blocage est bloquée
         ActionSimple action2 = new ActionSimple("Action 2", 20, 250.00, entreprise);
         portefeuille.vendreEntreprise(action2, 50); // Tentative de vente de 30 actions
-        assertEquals(10, portefeuille.getQuantite(action2)); // La quantité de vente est bloquée à 20
+        assertEquals(10, portefeuille.getQuantite(action2)); // La quantité de vente est bloquée à 20
     }
 }

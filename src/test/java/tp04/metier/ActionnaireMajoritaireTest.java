@@ -22,10 +22,21 @@ import java.util.List;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertNotNull;
 
+/**
+ * Cette classe réalise des tests unitaires pour la méthode `actionnaireMajoritaire` de la classe `Portefeuille`.
+ * Elle vérifie si la méthode retourne correctement l'actionnaire majoritaire pour une action donnée.
+ * 
+ * @author Imane
+ */
 public class ActionnaireMajoritaireTest {
         
     private ActionSimple action;
     private Portefeuille portefeuille;
+    
+    /**
+     * Méthode exécutée avant chaque test.
+     * 
+     */
     
     @BeforeEach
     public void setUp() {
@@ -46,17 +57,21 @@ public class ActionnaireMajoritaireTest {
         portefeuille.acheter(action, 5, client3);
     }
 
+    /**
+     * Test unitaire pour vérifier si la méthode `actionnaireMajoritaire` retourne correctement l'actionnaire majoritaire pour une action donnée.
+     */
     @Test
     public void testActionnaireMajoritaire() {
         // Appel de la méthode à tester
         Client actionnaireMajoritaire = portefeuille.actionnaireMajoritaire(action);
 
+        // Affichage du nom de l'actionnaire majoritaire
         System.out.println("ActionnaireMajoritaire : "+ actionnaireMajoritaire.getNom());
         
-        // Vérifier que le client n'est pas null
+        // Vérification que le client n'est pas null
         assertNotNull(actionnaireMajoritaire, "Le client actionnaire majoritaire ne doit pas être null.");
 
-        // Vérifier que le client retourné est bien celui qui détient le maximum d'actions
+        // Vérification que le client retourné est bien celui qui détient le maximum d'actions
         assertEquals("Client 2", actionnaireMajoritaire.getNom());
     }
 }

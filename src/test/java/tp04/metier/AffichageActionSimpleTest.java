@@ -20,10 +20,17 @@ import java.util.List;
 import org.junit.jupiter.api.Test;
 
 /**
- *
+ * Cette classe teste la méthode d'affichage des actions simples.
+ * Elle crée une liste d'actions disponibles, affiche les actions
+ * simples et vérifie si l'affichage est correct.
+ * 
  * @author widad
  */
 public class AffichageActionSimpleTest {
+    
+    /**
+     * Test de la méthode afficherActionsSimples.
+     */
     @Test
     public void testAfficherActionsSimples() {
         // Création d'une liste d'actions disponibles
@@ -32,11 +39,8 @@ public class AffichageActionSimpleTest {
         availableActions.add(new ActionSimple("Action 2", 20, 250.00));
         availableActions.add(new ActionSimple("Action 3", 30, 320.00));
 
-        ActionSimple actionSimple=new ActionSimple();
+        ActionSimple actionSimple = new ActionSimple();
         System.out.println("Test afficherActionsSimples :");
         actionSimple.afficherActionsSimples(availableActions);
-        
-        
     }
-
 }

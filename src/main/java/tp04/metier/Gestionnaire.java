@@ -18,20 +18,17 @@ package tp04.metier;
 import java.util.Map;
 
 /**
- *
+ * Cette classe représente un gestionnaire qui permet de consulter les actions achetées par les clients
+ * et les quantités détenues dans un portefeuille.
+ * 
  * @author mazhu
  */
-
-
-
- 
-
 public class Gestionnaire {
-    
     
     /**
      * Méthode pour consulter les actions achetées par les clients et les quantités détenues dans un portefeuille.
-     * @param portefeuille 
+     * 
+     * @param portefeuille
      */
     public void consulterActionsAchetees(Portefeuille portefeuille) {
         Map<Action, LignePortefeuille> mapLignes = portefeuille.getMapLignes();
@@ -45,5 +42,4 @@ public class Gestionnaire {
             System.out.println("---------------------------------------");
         }
     }
-    
 }

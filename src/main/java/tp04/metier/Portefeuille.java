@@ -34,6 +34,8 @@ public class Portefeuille {
      * @param a
      * @param q 
      */
+    
+   
     public void acheter(Action a, int q) {
         if (!this.mapLignes.containsKey(a)) {
             this.mapLignes.put(a, new LignePortefeuille(a, q));

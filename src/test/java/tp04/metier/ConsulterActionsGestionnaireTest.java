@@ -24,7 +24,9 @@ import org.junit.jupiter.api.Test;
 
 
 /**
- *
+ * Cette classe teste la méthode de consultation des actions achetées par le gestionnaire.
+ * Elle vérifie si les actions et les quantités détenues correspondent aux attentes après consultation.
+ * 
  * @author Imane
  */
 public class ConsulterActionsGestionnaireTest {
@@ -45,6 +47,9 @@ public class ConsulterActionsGestionnaireTest {
         portefeuille.acheter(action2, 5);
     }
 
+    /**
+     * Test de la méthode consulterActionsAchetees.
+     */
     @Test
     public void testConsulterActionsAchetees() {
         // Créer une map d'actions attendues avec leurs quantités détenues
@@ -67,4 +72,3 @@ public class ConsulterActionsGestionnaireTest {
     }
     
 }
-
