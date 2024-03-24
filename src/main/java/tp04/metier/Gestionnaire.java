@@ -28,7 +28,7 @@ import java.util.Map;
  * Cette classe représente un gestionnaire qui permet de consulter les actions achetées par les clients
  * et les quantités détenues dans un portefeuille.
  * 
- * @author mazhu
+ * @author mazhuo
  */
 public class Gestionnaire {
    
