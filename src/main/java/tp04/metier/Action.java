@@ -17,8 +17,6 @@ public abstract class Action {
 
     // Variables d'instance
     private String libelle;
-
-    public abstract float valeur(Jour j);
     
     protected Entreprise entreprise;
     private List<Client> clients;

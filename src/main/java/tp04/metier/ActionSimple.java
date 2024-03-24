@@ -62,6 +62,15 @@ public class ActionSimple extends Action {
         this.entreprise = entreprise;
     }
 
+    ActionSimple(String libelle) {
+        
+        super(libelle);
+    }
+
+    public ActionSimple() {
+        super(null);
+    }
+    
     /**
      * Enregistrement de la valeur d'une action à une date donnée
      * 
@@ -122,13 +131,13 @@ public class ActionSimple extends Action {
      * @param v la valeur du cours
      */
     public void enrgCours(Jour j, float v) {
+        if (this.mapCours == null) {
+            // Si mapCours est null, initialiser un nouveau HashMap
+            this.mapCours = new HashMap<>();
+        }
         if (!this.mapCours.containsKey(j)) {
             this.mapCours.put(j, new Cours(j, v));
         }
-    }
-    
-     public int getQuantite() {
-            return quantite;
     }
 
     public void setQuantite(int quantite) {
