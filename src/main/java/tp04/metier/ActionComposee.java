@@ -49,6 +49,12 @@ public class ActionComposee extends Action {
     public static List<ActionComposee> getAllActionsComposees() {
         return allActionsComposees;
     }
+    /**
+    * Fonction permettant d’effacer toutes les actions composées disponibles.
+    */
+    public static void clearAllActionsComposees() {
+        allActionsComposees.clear();
+    }
     
     /**
      * Fonction pour obtenir  la composition de la action composée.
