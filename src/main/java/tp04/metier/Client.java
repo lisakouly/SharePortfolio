@@ -53,10 +53,10 @@ public class Client {
         Jour j = new Jour(annee, noJour);
         if (getTotalPortfolioValue(j) > 0) {
             this.portefeuilles.add(portefeuille);
-            return false;
+            return true;
         }
         else {
-            return true;
+            return false;
         }
     }
 

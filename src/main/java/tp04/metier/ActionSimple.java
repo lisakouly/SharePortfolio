@@ -63,8 +63,8 @@ public class ActionSimple extends Action {
     }
 
     ActionSimple(String libelle) {
-        
         super(libelle);
+        this.mapCours = new HashMap<>();
     }
 
     public ActionSimple() {
@@ -198,7 +198,7 @@ public class ActionSimple extends Action {
      */
     @Override
     public float valeur(Jour j) {
-        if (this.mapCours.containsKey(j)) {
+        if (this.mapCours != null && this.mapCours.containsKey(j)) {
             return this.mapCours.get(j).getValeur();
         } else {
             return 0;
