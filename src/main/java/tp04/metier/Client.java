@@ -59,7 +59,14 @@ public class Client {
             return false;
         }
     }
-
+    
+    /**
+    * Calcule la valeur totale du portefeuille d'actions pour un jour donné.
+    * Parcourt tous les portefeuilles et additionne leur valeur individuelle pour obtenir la valeur totale.
+    * @author yaning
+    * @param j L'objet Jour représentant la date 
+    * @return La valeur totale du portefeuille d'actions à la date spécifiée.
+    */
     public float getTotalPortfolioValue(Jour j) {
         float totalValue = 0;
         for (Portefeuille portefeuille : portefeuilles) {
@@ -67,7 +74,8 @@ public class Client {
         }
         return totalValue;
     }
-     public List<Portefeuille> getPortefeuilles() {
+    
+    public List<Portefeuille> getPortefeuilles() {
         return portefeuilles;
     }
      
