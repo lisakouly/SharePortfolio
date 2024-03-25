@@ -20,8 +20,9 @@ import java.util.List;
 import java.util.Map;
 
 /**
- *
- * @author Zhuo,Yaning
+ * Représente un portefeuille d'actions.
+ * Un portefeuille contient une liste d'actions avec leurs quantités respectives.
+ * @author Somebody
  */
 public class Portefeuille {
     
@@ -64,14 +65,18 @@ public class Portefeuille {
     }*/
     
     /**
-     * 
-     * @param nomPortefeuille 
+     * Constructeur de Portefeuille avec un nom spécifié.
+     * @param nomPortefeuille le nom du portefeuille
      */
      public Portefeuille(String nomPortefeuille) {
         this.mapLignes = new HashMap();
         this.nomPortefeuille = nomPortefeuille;
     }
-
+    
+    /**
+     * Constructeur de Portefeuille sans nom spécifié.
+     * Initialise les structures de données internes.
+     */
     public Portefeuille() {
         this.mapLignes = new HashMap<>();
         this.actionsClient = new HashMap<>();
@@ -82,6 +87,7 @@ public class Portefeuille {
 
     /**
      * Méthode pour acheter une certaine quantité d'une action donnée et l'ajouter au portefeuille.
+     * Si l'action est déjà présente dans le portefeuille, la quantité est mise à jour.
      * @param a l'action à acheter
      * @param q la quantité à acheter
      */
@@ -97,6 +103,7 @@ public class Portefeuille {
     
     /**
      * Méthode pour acheter une certaine quantité d'une action simple pour un client spécifique.
+     * Si l'action est déjà présente pour ce client, la quantité est mise à jour.
      * @param action l'action simple à acheter
      * @param nombreActions le nombre d'actions à acheter
      * @param client le client effectuant l'achat
@@ -152,9 +159,9 @@ public class Portefeuille {
     }
 
     /**
-     * Méthode pour obtenir la valeur totale du portefeuille pour un jour donné.
-     * @param j le jour pour lequel calculer la valeur
-     * @return la valeur totale du portefeuille
+     * Méthode pour obtenir la quantité détenue d'une action donnée dans le portefeuille.
+     * @param action l'action dont on veut connaître la quantité
+     * @return la quantité détenue
      */
     public float valeur(Jour j) {
         float total = 0;
@@ -174,9 +181,9 @@ public class Portefeuille {
     }*/
     
     /**
-     * Méthode pour obtenir la quantité détenue d'une action donnée dans le portefeuille.
-     * @param action l'action dont on veut connaître la quantité
-     * @return la quantité détenue
+     * Méthode pour déterminer l'actionnaire majoritaire d'une action simple dans le portefeuille.
+     * @param action l'action simple dont on veut déterminer l'actionnaire majoritaire
+     * @return le client actionnaire majoritaire ou null s'il n'y a pas d'actionnaire majoritaire
      */
     public int getQuantite(Action action) {
         return mapLignes.containsKey(action) ? mapLignes.get(action).getQte() : 0;
@@ -252,7 +259,7 @@ public class Portefeuille {
 
         return actionnaireMajoritaire;
     }
-
+    
     /**
      * Méthode pour obtenir la quantité détenue par un client pour une action donnée.
      * @param action l'action concernée
@@ -274,14 +281,17 @@ public class Portefeuille {
         return this.mapLignes.toString();
     }
 
+    /**
+     * Méthode pour définir les lignes du portefeuille.
+     * @param mapLignes le map contenant les lignes du portefeuille
+     */
     public void setMapLignes(Map<Action, LignePortefeuille> mapLignes) {
             this.mapLignes = mapLignes;
     }
     /**
-    * Function pour vendre la totalité de portefeuille
-    * 
-    * @param nomPortefeuille Nom du portefeuille à vendre
-    */
+     * Méthode pour vendre la totalité du portefeuille.
+     * @param nomPortefeuille le nom du portefeuille à vendre
+     */
     public void vendrePortefeuille(String nomPortefeuille){
         
         for (LignePortefeuille lp : this.mapLignes.values()){
