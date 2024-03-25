@@ -2,6 +2,7 @@ tp04\metier\ConsulterPortefeuilleTest$1.class
 tp04\metier\ConsulterActionsGestionnaireTest.class
 tp04\metier\ClientBirthTest.class
 tp04\metier\ClientTest.class
+tp04\metier\EntrepriseTest.class
 tp04\metier\AcheterActionSimpleTest.class
 tp04\metier\AjouterPortefeuilleTest.class
 tp04\metier\ConsulterPortefeuilleTest.class
@@ -11,7 +12,14 @@ tp04\metier\ConsulterTousActComTest.class
 tp04\metier\AfficherCompositionActComTest.class
 tp04\metier\JourTest.class
 tp04\metier\PalierEntrepriseTest.class
+tp04\metier\CoursTest.class
+tp04\metier\ActionSimpleTest.class
+tp04\metier\GestionnaireTest.class
 tp04\metier\ActionnaireMajoritaireTest.class
 tp04\metier\ConsulterPortefeuilleTest$2.class
 tp04\metier\ActionSimpleTest.class
+tp04\metier\RechercherParNomTest.class
+tp04\metier\AffichageActionSimpleTest.class
+tp04\metier\JourTest.class
+tp04\metier\LignePortefeuilleTest.class
 tp04\metier\VenteActionsTest.class

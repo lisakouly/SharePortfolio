@@ -31,7 +31,8 @@ import java.util.Map;
  * @author mazhuo
  */
 public class Gestionnaire {
-   
+    private String nom;
+    private String prenom;
     
     
      public boolean estClientSolvable(Client client, Jour j, Action action, int quantity) {
@@ -46,6 +47,60 @@ public class Gestionnaire {
          return client.getCapital() >= (totalInvestissements + prixTotalAction);
      }
 
+    /**
+     * Constructeur par défaut.
+     */
+    public Gestionnaire() {
+    }
+    
+    
+    /**
+     * Constructeur avec paramètres
+     * @param nom
+     * @param prenom 
+     */
+    
+    public Gestionnaire(String nom, String prenom) {
+    this.nom = nom;
+    this.prenom = prenom;
+    }
+
+    // Getters et setters
+    
+    /**
+     * Getter pour l'attribut nom.
+     * @return Le nom du gestionnaire.
+     */
+    public String getNom() {
+        return nom;
+    }
+
+    /**
+     * Setter pour l'attribut nom.
+     * @param nom Le nom du gestionnaire à définir.
+     */
+    public void setNom(String nom) {
+        this.nom = nom;
+    }
+
+    /**
+     * Getter pour l'attribut prenom.
+     * @return Le prénom du gestionnaire.
+     */
+    public String getPrenom() {
+        return prenom;
+    }
+
+    /**
+     * Setter pour l'attribut prenom.
+     * @param prenom Le prénom du gestionnaire à définir.
+     */
+    public void setPrenom(String prenom) {
+        this.prenom = prenom;
+    }
+
+    
+     
     /**
      * Méthode pour consulter les actions achetées par les clients et les quantités détenues dans un portefeuille.
      * 

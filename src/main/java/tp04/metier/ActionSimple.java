@@ -87,6 +87,14 @@ public class ActionSimple extends Action {
     public void addToAvailableActions() {
         this.availableActions.add(this);
     }
+    
+    public Map<Jour, Cours> getMapCours() {
+    return mapCours;
+}
+
+    public List<Action> getAvailableActions() {
+        return availableActions;
+    }
 
     /**
      * Méthode pour obtenir la quantité disponible de cette action.
@@ -123,6 +131,14 @@ public class ActionSimple extends Action {
     @Override
     public double getPrixAction() {
         return prix;
+    }
+    
+    /**
+     * 
+     * @param availableActions 
+     */  
+    public void setAvailableActions(List<Action> availableActions) {
+    this.availableActions = availableActions;
     }
 
     /**
@@ -291,4 +307,25 @@ public class ActionSimple extends Action {
             System.out.println("Action non disponible.");
         }
     }
+    
+    /**
+     * Méthode pour faire une recherche en fonction du libelle (une partie ou le nom en entier)
+     * @param nom
+     * @return 
+     */
+     public List<ActionSimple> rechercherParNom(String nom) {
+        System.out.println("Recherche par nom, nom recherché : " + nom);
+        List<ActionSimple> resultats = new ArrayList<>();
+        for (Action action : availableActions) {
+            if (action instanceof ActionSimple) {
+                ActionSimple actionSimple = (ActionSimple) action;
+                if (actionSimple.getLibelle().toLowerCase().contains(nom.toLowerCase())) {
+                    resultats.add(actionSimple);
+                }
+            }
+        }
+        return resultats;
+    }
+     
+   
 }

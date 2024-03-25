@@ -70,6 +70,7 @@ public abstract class Action {
         return libelle;
     }
     
+    
     /**
      * Méthode pour récupérer l'entreprise associée à cette action.
      * @return l'entreprise associée à cette action
