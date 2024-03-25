@@ -33,12 +33,21 @@ public class Jour {
         return noJour;
     }
 
+    /**
+     * 
+     * @param annee
+     * @param noJour 
+     */
     public Jour(int annee, int noJour) {
         this.annee = annee;
         this.noJour = noJour;
     }
     public Jour(){}
 
+    /**
+     * 
+     * @return 
+     */
     @Override
     public int hashCode() {
         int hash = 7;
@@ -46,7 +55,11 @@ public class Jour {
         hash = 61 * hash + this.noJour;
         return hash;
     }
-
+    /**
+     * 
+     * @param obj
+     * @return 
+     */
     @Override
     public boolean equals(Object obj) {
         if (obj == null) {
@@ -65,6 +78,10 @@ public class Jour {
         return true;
     }
 
+    /**
+     * 
+     * @return 
+     */
     @Override
     public String toString() {
         return "Jour{" + "annee=" + annee + ", noJour=" + noJour + '}';

@@ -62,11 +62,16 @@ public class Portefeuille {
             throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
         }
     }*/
+    
+    /**
+     * 
+     * @param nomPortefeuille 
+     */
      public Portefeuille(String nomPortefeuille) {
         this.mapLignes = new HashMap();
         this.nomPortefeuille = nomPortefeuille;
     }
-    
+
     public Portefeuille() {
         this.mapLignes = new HashMap<>();
         this.actionsClient = new HashMap<>();
