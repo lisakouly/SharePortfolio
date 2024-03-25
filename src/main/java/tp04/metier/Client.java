@@ -194,9 +194,9 @@ public class Client {
         this.nom = nom;
     }
 
-    Client(int i, int i0, int i1) {
+    /*Client(int i, int i0, int i1) {
         throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
-    }
+    }*/
     
     // Méthodes
     /**

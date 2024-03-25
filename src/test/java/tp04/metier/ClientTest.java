@@ -95,7 +95,7 @@ public class ClientTest {
         Float actualBalance = client.getAccountBalance(j);
         
         // Vérification que le solde réel correspond au solde attendu avec une marge d'erreur de 0.01
- *
+ /*
  * @author mazhu
  */
 /*public class ClientTest {
@@ -158,4 +158,4 @@ public class ClientTest {
         Assertions.assertEquals(expectedBalance, actualBalance, 0.01f);
     }*/
     
-}
+}}

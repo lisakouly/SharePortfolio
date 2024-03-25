@@ -27,6 +27,8 @@ public class ActionComposee extends Action {
         this.mapPanier = new HashMap();
         allActionsComposees.add(this);
     }
+    
+   
 
     public void enrgComposition(ActionSimple as, float pourcentage) {
         this.mapPanier.put(as, pourcentage);

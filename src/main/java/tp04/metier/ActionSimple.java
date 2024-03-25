@@ -198,10 +198,7 @@ public class ActionSimple extends Action {
             throw new IllegalArgumentException("Le pourcentage doit être compris entre 0 et 100");
         }
     }
-    
-    public Map<Jour, Cours> getMapCours() {
-            return mapCours;
-    }
+
 
     public void setMapCours(Map<Jour, Cours> mapCours) {
             this.mapCours = mapCours;

@@ -18,6 +18,7 @@ package tp04.metier;
 import org.junit.jupiter.api.Test;
 
 import org.junit.jupiter.api.Assertions;
+import static org.junit.jupiter.api.Assertions.assertEquals;
 /**
  *
  * @author zhuo,yaning
