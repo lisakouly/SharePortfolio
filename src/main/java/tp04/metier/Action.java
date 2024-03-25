@@ -10,12 +10,9 @@ import java.util.List;
 import java.util.Objects;
 
 /**
-<<<<<<< HEAD
  * Cette classe abstraite représente une action générique.
-=======
  * Classe représentant une action 
  * Attributs : libellé (string) et valeur (float)
->>>>>>> Yassine/Nathan/Lisa
  * @author somebody
  * 
  */
@@ -23,7 +20,10 @@ public abstract class Action {
 
     // Variables d'instance
     private String libelle;
-    
+    /**
+    * L'entreprise associée à cette action.
+    */
+
     protected Entreprise entreprise;
     private List<Client> clients;
 
@@ -69,15 +69,10 @@ public abstract class Action {
     }
 
     /**
-<<<<<<< HEAD
-     * Méthode pour récupérer le libellé de cette action.
-     * @return le libellé de l'action
-=======
-     * Recupérer la valeur du libellé d'une action
-     *
-     * @return string (libelle)
->>>>>>> Yassine/Nathan/Lisa
-     */
+    * Méthode pour récupérer le libellé de cette action.
+    * @return le libellé de l'action
+    */
+
     public String getLibelle() {
         return libelle;
     }

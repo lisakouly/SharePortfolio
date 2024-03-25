@@ -11,7 +11,7 @@ import java.util.List;
 import java.util.ArrayList;
 
 /**
- * Clesse représentant les actions composées 
+ * Classe représentant les actions composées.
  * Classe parente : Action
  * Attributs : mapPanier(Map), quantité(int), prix(double), allActionsComposees(list d'actions composées)
  * @author Zhuo
@@ -27,7 +27,7 @@ public class ActionComposee extends Action {
 
     /**
      * Constructeur d'une ActionComposee
-     * @param libelle 
+     * @param libelle le libellé de l'action composée
      */
     public ActionComposee(String libelle) {
         super(libelle);
@@ -39,16 +39,16 @@ public class ActionComposee extends Action {
 
     /**
      * Fonction pour ajouter une action simple à une action composée
-     * @param as
-     * @param pourcentage 
+     * @param as l'action simple à ajouter
+     * @param pourcentage le pourcentage de l'action simple dans l'action composée
      */
     public void enrgComposition(ActionSimple as, float pourcentage) {
         this.mapPanier.put(as, pourcentage);
     }
     
     /**
-     * Fonction pour récuperer la quantité d'actions composées 
-     * @return 
+     * Fonction pour récupérer la quantité d'actions composées 
+     * @return la quantité d'actions composées
      */
     public int getQuantite() {
             return quantite;
@@ -56,16 +56,17 @@ public class ActionComposee extends Action {
 
     /**
      * Fonction pour mettre à jour le nombre d'actions composées
-     * @param quantite 
+     * @param quantite la nouvelle quantité d'actions composées
      */
     public void setQuantite(int quantite) {
             this.quantite = quantite;
     }
 
 
+    
     /**
      * Fonction pour récupérer le prix d'une action composée
-     * @return 
+     * @return le prix d'une action composée
      */
     public double getPrix() {
             return prix;
@@ -73,7 +74,7 @@ public class ActionComposee extends Action {
 
     /**
      * Fonction pour mettre à jour le prix d'une action composée
-     * @param prix 
+     * @param prix le nouveau prix de l'action composée
      */
     public void setPrix(double prix) {
             this.prix = prix;
@@ -81,7 +82,7 @@ public class ActionComposee extends Action {
     
     /**
     *
-    * function pour connaitre toutes les actions composées disponibles
+    * Fonction pour obtenir toutes les actions composées disponibles
     * @return une list de toutes Les Actions Composees
     */
     public static List<ActionComposee> getAllActionsComposees() {
@@ -95,11 +96,9 @@ public class ActionComposee extends Action {
     }
     
     /**
-     * Fonction pour obtenir  la composition de la action composée.
-     * @author Zhuo,Yaning
-     * @param libelle d'une action composée
-     * @return la composition de la action composée,
-     * contenant les Action Simple et son pourcentage.
+     * Fonction pour obtenir la composition d'une action composée.
+     * @param libelle le libellé de l'action composée
+     * @return la composition de l'action composée, contenant les actions simples et leur pourcentage
      */
     public static Map<String, Float> getComposition(String libelle) {
         for (ActionComposee ac : allActionsComposees) {
@@ -116,30 +115,22 @@ public class ActionComposee extends Action {
     
     @Override
     public float valeur(Jour j) {
-        float valeur;
-
-        valeur = 0;
+        float valeur = 0;
         for (ActionSimple as : this.mapPanier.keySet()) {
-            valeur = valeur + (as.valeur(j) * this.mapPanier.get(as));
+            valeur += (as.valeur(j) * this.mapPanier.get(as));
         }
-
         return valeur;
     }
 
-    /*@Override
-    public int getQuantite() {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
-    }*/
-
     @Override
     public double getPrixAction() {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+        // À implémenter
+        return 0;
     }
 
     @Override
     public int soustraireQuantite(int quantite) {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+        // À implémenter
+        return 0;
     }
-
-
 }

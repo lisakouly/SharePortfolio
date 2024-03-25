@@ -19,17 +19,15 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
 
-/**
- *
- * @author zhuo, yaning 
-import java.util.Map;
 
-/**
+
+/*
  * Cette classe représente un gestionnaire qui permet de consulter les actions achetées par les clients
  * et les quantités détenues dans un portefeuille.
  * 
  * @author mazhuo
  */
+
 public class Gestionnaire {
     private String nom;
     private String prenom;

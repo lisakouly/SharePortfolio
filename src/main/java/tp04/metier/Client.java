@@ -13,28 +13,38 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
+
+
 package tp04.metier;
 import java.util.*;
 
 import java.time.LocalDate;
 
 /**
- *
+ *Classe client
  * @author Zhuo,Yaning
  */
 public class Client {
       private List<Portefeuille> portefeuilles;
       private Float capital;
-
+/**
+ * Constructeur vide
+ */
 
      public Client() {
         this.portefeuilles = new ArrayList<>();
     }
-     
+     /**
+      * methode pour obtenir le capital
+      * @return 
+      */
     public Float getCapital() {
             return capital;
         }
-
+    /**
+     * methode pour modifier le capital
+     * @param capital 
+     */
     public void setCapital(Float capital) {
         this.capital = capital;
     }
@@ -74,6 +84,11 @@ public class Client {
         }
         return totalValue;
     }
+    
+    /**
+     * methode pour obtenir portefeuille
+     * @return 
+     */
     
     public List<Portefeuille> getPortefeuilles() {
         return portefeuilles;

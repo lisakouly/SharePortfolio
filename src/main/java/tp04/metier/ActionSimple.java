@@ -10,14 +10,16 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
+
 /**
  * Cette classe représente une action simple, qui est un type spécifique d'action.
  * @author somebody
  */
 public class ActionSimple extends Action {
 
-    /** attribut lien*/
-    // Variables d'instance
+    /** 
+     * attributs 
+     */
     private Map<Jour, Cours> mapCours;
     private int quantite;
     private double prix;
@@ -29,7 +31,6 @@ public class ActionSimple extends Action {
     private List<Action> availableActions;
     private Portefeuille portfolio = new Portefeuille();
 
-    // Constructeurs
     /**
      * Constructeur de la classe ActionSimple.
      * @param libelle le libellé de l'action simple
@@ -38,9 +39,7 @@ public class ActionSimple extends Action {
      */
     public ActionSimple(String libelle, int quantite, double prix) {
         super(libelle);
-        // init spécifique
         this.mapCours = new HashMap();
-        /* Par défaut, 100% des actions sont disponibles à la vente**/
         this.pourcentageMaxVente = 100;
         this.quantite = quantite;
         this.prix = prix;
@@ -71,14 +70,6 @@ public class ActionSimple extends Action {
         super(null);
     }
     
-    /**
-     * Enregistrement de la valeur d'une action à une date donnée
-     * 
-     * @param j une date donnée
-     * @param v valeur
-    public ActionSimple() {
-        super(null);
-    }
     
     // Méthodes
     /**
@@ -96,14 +87,7 @@ public class ActionSimple extends Action {
         return availableActions;
     }
 
-    /**
-     * Méthode pour obtenir la quantité disponible de cette action.
-     * @return la quantité disponible de l'action
-     */
-    @Override
-    public int getQuantite() {
-        return quantite;
-    }
+   
 
     /**
      * Méthode pour soustraire une quantité donnée de la quantité disponible de cette action.
@@ -142,9 +126,10 @@ public class ActionSimple extends Action {
     }
 
     /**
-     * Méthode pour enregistrer un cours pour cette action pour un jour donné.
-     * @param j le jour pour lequel enregistrer le cours
-     * @param v la valeur du cours
+     * Enregistrement de la valeur d'une action à une date donnée
+     * 
+     * @param j une date donnée
+     * @param v valeur
      */
     public void enrgCours(Jour j, float v) {
         if (this.mapCours == null) {
@@ -154,6 +139,15 @@ public class ActionSimple extends Action {
         if (!this.mapCours.containsKey(j)) {
             this.mapCours.put(j, new Cours(j, v));
         }
+    }
+    
+      /**
+     * Méthode pour obtenir la quantité disponible de cette action.
+     * @return la quantité disponible de l'action
+     */
+    @Override
+    public int getQuantite() {
+        return quantite;
     }
 
     public void setQuantite(int quantite) {
@@ -168,7 +162,7 @@ public class ActionSimple extends Action {
             this.prix = prix;
     }
     
-    /**
+     /**
     * Retourne le pourcentage maximal d'actions pouvant être vendues.
     * <p>
     * Ce pourcentage indique la limite supérieure des actions de la compagnie qui peuvent être mises en vente.

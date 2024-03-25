@@ -5,10 +5,12 @@
  */
 package tp04.metier;
 
-/**
- *
+/*
+ * Cette classe représente un jour dans le système.
+ * 
  * @author somebody
  */
+
 public class Jour {
 
     private int annee;

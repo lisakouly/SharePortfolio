@@ -19,8 +19,10 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
+
 /**
- *
+ * Représente un portefeuille contenant différentes actions et leurs quantités.
+ * Cette classe fournit des méthodes pour acheter et vendre des actions, calculer la valeur totale du portefeuille, etc.
  * @author Zhuo,Yaning
  */
 public class Portefeuille {
