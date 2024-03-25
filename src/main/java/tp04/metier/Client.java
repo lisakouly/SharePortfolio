@@ -17,66 +17,69 @@
 
 package tp04.metier;
 import java.util.*;
-
 import java.time.LocalDate;
 
 /**
- *Classe client
+ * Représente un client qui possède un ou plusieurs portefeuilles d'actions.
+ * Un client peut acheter, vendre et gérer des actions dans ses portefeuilles.
+ * Le client peut également consulter son capital et son solde de compte pour une journée donnée.
  * @author Zhuo,Yaning
  */
 public class Client {
-      private List<Portefeuille> portefeuilles;
-      private Float capital;
-/**
- * Constructeur vide
- */
+    private List<Portefeuille> portefeuilles;
+    private Float capital;
+    private LocalDate birthDate;
+    private String nom;
 
-     public Client() {
+    /**
+     * Constructeur par défaut de la classe Client.
+     * Initialise la liste des portefeuilles du client.
+     */
+    public Client() {
         this.portefeuilles = new ArrayList<>();
     }
-     /**
-      * methode pour obtenir le capital
-      * @return 
-      */
-    public Float getCapital() {
-            return capital;
-        }
+
     /**
-     * methode pour modifier le capital
-     * @param capital 
+     * Obtient le capital du client.
+     * @return le capital du client
+     */
+    public Float getCapital() {
+        return capital;
+    }
+
+    /**
+     * Définit le capital du client.
+     * @param capital le capital du client à définir
      */
     public void setCapital(Float capital) {
         this.capital = capital;
     }
-     
+
     /**
-     * @Author Nathan / Lisa
-     * Fonction pour ajouter une action à une liste d'action (portefeuille client)
-     * @param portefeuille
-     * @param j 
-     */ 
+     * Ajoute un portefeuille à la liste des portefeuilles du client.
+     * Vérifie d'abord si la valeur totale des portefeuilles est supérieure à zéro.
+     * @param portefeuille le portefeuille à ajouter
+     * @return true si le portefeuille est ajouté avec succès, sinon false
+     */
     public boolean addPortefeuille(Portefeuille portefeuille) {
         LocalDate dateDuJour = LocalDate.now();
         int noJour = dateDuJour.getDayOfYear();
         int annee = dateDuJour.getYear();
-        System.out.println(noJour+" "+annee);
         Jour j = new Jour(annee, noJour);
         if (getTotalPortfolioValue(j) > 0) {
             this.portefeuilles.add(portefeuille);
             return true;
-        }
-        else {
+        } else {
             return false;
         }
     }
-    
+
     /**
-    * Calcule la valeur totale du portefeuille d'actions pour un jour donné.
-    * Parcourt tous les portefeuilles et additionne leur valeur individuelle pour obtenir la valeur totale.
-    * @author yaning
-    * @param j L'objet Jour représentant la date 
-    * @return La valeur totale du portefeuille d'actions à la date spécifiée.
-    */
+     * Calcule la valeur totale du portefeuille d'actions du client pour un jour donné.
+     * Parcourt tous les portefeuilles et additionne leur valeur individuelle pour obtenir la valeur totale.
+     * @param j l'objet Jour représentant la date
+     * @return la valeur totale du portefeuille d'actions à la date spécifiée
+     */
     public float getTotalPortfolioValue(Jour j) {
         float totalValue = 0;
         for (Portefeuille portefeuille : portefeuilles) {
@@ -84,51 +87,48 @@ public class Client {
         }
         return totalValue;
     }
-    
+
     /**
-     * methode pour obtenir portefeuille
-     * @return 
+     * Obtient la liste des portefeuilles du client.
+     * @return la liste des portefeuilles du client
      */
-    
     public List<Portefeuille> getPortefeuilles() {
         return portefeuilles;
     }
-     
+
+    /**
+     * Obtient le solde du compte du client pour un jour donné.
+     * Calcule la différence entre le capital du client et la valeur totale de son portefeuille d'actions.
+     * @param j l'objet Jour représentant la date
+     * @return le solde du compte du client pour la date spécifiée
+     */
     public Float getAccountBalance(Jour j) {
         float totalPortfolioValue = 0;
         for (Portefeuille portefeuille : portefeuilles) {
-            totalPortfolioValue += portefeuille.valeur(j); 
+            totalPortfolioValue += portefeuille.valeur(j);
         }
-        return capital - totalPortfolioValue; 
+        return capital - totalPortfolioValue;
     }
-    
-
-     /**
-    * @author Lisa, Nathan, Yassine
-    * Date de naissance du client
-    */
-   private LocalDate birthDate;
 
     /**
-     * @author Lisa, Nathan, Yassine
-     * @param year
-     * @param month
-     * @param day 
-     * Constructeur de client, retourne un client avec comme attribut une date de naissance
+     * Constructeur de la classe Client avec une date de naissance.
+     * @param year l'année de naissance du client
+     * @param month le mois de naissance du client
+     * @param day le jour de naissance du client
      */
-   public Client(int year, int month, int day) {
-       if (dateNaissanceConforme(year,month,day) == true) {
-           LocalDate birthdate = LocalDate.of(year, month, day); 
-           if (estMajeur(birthdate) == true) {
-               this.birthDate = birthdate;
-           }
-       }
+    public Client(int year, int month, int day) {
+        if (dateNaissanceConforme(year, month, day)) {
+            LocalDate birthdate = LocalDate.of(year, month, day);
+            if (estMajeur(birthdate)) {
+                this.birthDate = birthdate;
+            }
+        }
     }
    
     /**
-     * Fonction pour vérifier si le client est majeur ou non
-     * @param birthDate
-     * @return 
+     * Vérifie si le client est majeur.
+     * @param birthDate la date de naissance du client
+     * @return true si le client est majeur, sinon false
      */
     public boolean estMajeur(LocalDate birthDate) {
         LocalDate todayDate = LocalDate.now();
@@ -153,11 +153,12 @@ public class Client {
     }
     
     /**
-     * Fonction pour vérifier si la date de naissance est valide ou non
-     * @param year
-     * @param month
-     * @param day
-     * @return true si la date de naissance est valide et false si invalide
+     * Fonction pour vérifier si la date de naissance est conforme.
+     * Vérifie si l'année est supérieure à 1900, si le mois est entre 1 et 12, et si le jour est entre 1 et 31.
+     * @param year l'année de naissance
+     * @param month le mois de naissance
+     * @param day le jour de naissance
+     * @return true si la date de naissance est valide, sinon false
      */
     public boolean dateNaissanceConforme(int year, int month, int day) {
         if (year < 1900) {
@@ -172,22 +173,21 @@ public class Client {
             System.out.println("Le client doit avoir un jour de naissance valide");
             return false;
         }
-        System.out.println("Synthaxe de la date de naissance valide");
+        System.out.println("Syntaxe de la date de naissance valide");
         return true;
     }
     
     /**
-     * @author Lisa
-     * Récuperation de la date de naissance d'un client donné
-     * @return LocalDate
+     * Obtient la date de naissance du client.
+     * @return la date de naissance du client
      */
     public LocalDate getBirthDate() {
         return birthDate;
     }
     
     /**
-     * @author Lisa
-     * Modification de la date de naissance d'un client donné
+     * Modifie la date de naissance du client.
+     * @param birthDate la nouvelle date de naissance à définir
      */
     public void setBirthDate(LocalDate birthDate) {
         this.birthDate = birthDate;
@@ -197,8 +197,6 @@ public class Client {
     public String toString() {
         return "Client{" + "birthDate=" + birthDate + '}';
     }    
-    // Variables d'instance
-    private String nom;
     
     // Constructeur
     /**
@@ -209,16 +207,14 @@ public class Client {
         this.nom = nom;
     }
 
-    /*Client(int i, int i0, int i1) {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
-    }*/
-    
     // Méthodes
     /**
-     * Méthode pour obtenir le nom du client.
+     * Obtient le nom du client.
      * @return le nom du client
      */
     public String getNom() {
         return this.nom;
     }
 }
+
+
