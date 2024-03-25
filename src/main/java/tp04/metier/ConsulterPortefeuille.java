@@ -14,18 +14,19 @@
  * limitations under the License.
  */
 package tp04.metier;
-
-/**
- *
- * @author Yassine Alouini
- */
 import java.util.Map;
 
+/**
+ * Cette classe permet de consulter les actions contenues dans un portefeuille.
+ * 
+ * @author Yassine Alouini
+ */
 public class ConsulterPortefeuille {
     
     /**
-     * Fonction pour consulter les actions contenues dans un portefeuille
-     * @param portefeuille 
+     * Fonction pour consulter les actions contenues dans un portefeuille.
+     * 
+     * @param portefeuille Le portefeuille à consulter.
      */
     public static void consulterPortefeuille(Portefeuille portefeuille) {
         Map<Action, LignePortefeuille > mapLignes = portefeuille.getMapLignes();
