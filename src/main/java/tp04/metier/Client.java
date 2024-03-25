@@ -53,13 +53,20 @@ public class Client {
         Jour j = new Jour(annee, noJour);
         if (getTotalPortfolioValue(j) > 0) {
             this.portefeuilles.add(portefeuille);
-            return false;
-        }
-        else {
             return true;
         }
+        else {
+            return false;
+        }
     }
-
+    
+    /**
+    * Calcule la valeur totale du portefeuille d'actions pour un jour donné.
+    * Parcourt tous les portefeuilles et additionne leur valeur individuelle pour obtenir la valeur totale.
+    * @author yaning
+    * @param j L'objet Jour représentant la date 
+    * @return La valeur totale du portefeuille d'actions à la date spécifiée.
+    */
     public float getTotalPortfolioValue(Jour j) {
         float totalValue = 0;
         for (Portefeuille portefeuille : portefeuilles) {
@@ -67,7 +74,8 @@ public class Client {
         }
         return totalValue;
     }
-     public List<Portefeuille> getPortefeuilles() {
+    
+    public List<Portefeuille> getPortefeuilles() {
         return portefeuilles;
     }
      
@@ -185,6 +193,10 @@ public class Client {
     public Client(String nom) {
         this.nom = nom;
     }
+
+    /*Client(int i, int i0, int i1) {
+        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+    }*/
     
     // Méthodes
     /**

@@ -16,10 +16,16 @@ import java.util.Map;
  */
 public class ActionSimple extends Action {
 
+    /** attribut lien*/
     // Variables d'instance
     private Map<Jour, Cours> mapCours;
     private int quantite;
     private double prix;
+    
+    /**l'attribut pour stocker le pourcentage maximal d'actions 
+     * disponibles à la vente
+    */
+    private double pourcentageMaxVente;
     private List<Action> availableActions;
     private Portefeuille portfolio = new Portefeuille();
 
@@ -32,6 +38,10 @@ public class ActionSimple extends Action {
      */
     public ActionSimple(String libelle, int quantite, double prix) {
         super(libelle);
+        // init spécifique
+        this.mapCours = new HashMap();
+        /* Par défaut, 100% des actions sont disponibles à la vente**/
+        this.pourcentageMaxVente = 100;
         this.quantite = quantite;
         this.prix = prix;
         this.mapCours = new HashMap<>();
@@ -53,8 +63,8 @@ public class ActionSimple extends Action {
     }
 
     ActionSimple(String libelle) {
-        
         super(libelle);
+        this.mapCours = new HashMap<>();
     }
 
     public ActionSimple() {
@@ -76,6 +86,14 @@ public class ActionSimple extends Action {
      */
     public void addToAvailableActions() {
         this.availableActions.add(this);
+    }
+    
+    public Map<Jour, Cours> getMapCours() {
+    return mapCours;
+}
+
+    public List<Action> getAvailableActions() {
+        return availableActions;
     }
 
     /**
@@ -114,6 +132,14 @@ public class ActionSimple extends Action {
     public double getPrixAction() {
         return prix;
     }
+    
+    /**
+     * 
+     * @param availableActions 
+     */  
+    public void setAvailableActions(List<Action> availableActions) {
+    this.availableActions = availableActions;
+    }
 
     /**
      * Méthode pour enregistrer un cours pour cette action pour un jour donné.
@@ -142,11 +168,37 @@ public class ActionSimple extends Action {
             this.prix = prix;
     }
     
-    
-    
-    public Map<Jour, Cours> getMapCours() {
-            return mapCours;
+    /**
+    * Retourne le pourcentage maximal d'actions pouvant être vendues.
+    * <p>
+    * Ce pourcentage indique la limite supérieure des actions de la compagnie qui peuvent être mises en vente.
+    * Par défaut, ce pourcentage est fixé à 100%, signifiant que toutes les actions peuvent être vendues.
+    * </p>
+    * 
+    * @return le pourcentage maximal d'actions vendables.
+    */
+    public double getPourcentageMaxVente() {
+        return pourcentageMaxVente;
     }
+    
+    /**
+    * Définit le pourcentage maximal d'actions pouvant être vendues.
+    * <p>
+    * Cette méthode permet de limiter la quantité d'actions qui peuvent être vendues.
+    * Si la valeur spécifiée n'est pas dans cet intervalle, une IllegalArgumentException est levée.
+    * </p>
+    * 
+    * @param pourcentageMaxVente le pourcentage maximal de vente, entre 0 et 100.
+    * @throws IllegalArgumentException si le pourcentage spécifié n'est pas entre 0 et 100.
+    */
+    public void setPourcentageMaxVente(double pourcentageMaxVente) {
+        if (pourcentageMaxVente >= 0 && pourcentageMaxVente <= 100) {
+            this.pourcentageMaxVente = pourcentageMaxVente;
+        } else {
+            throw new IllegalArgumentException("Le pourcentage doit être compris entre 0 et 100");
+        }
+    }
+
 
     public void setMapCours(Map<Jour, Cours> mapCours) {
             this.mapCours = mapCours;
@@ -159,7 +211,7 @@ public class ActionSimple extends Action {
      */
     @Override
     public float valeur(Jour j) {
-        if (this.mapCours.containsKey(j)) {
+        if (this.mapCours != null && this.mapCours.containsKey(j)) {
             return this.mapCours.get(j).getValeur();
         } else {
             return 0;
@@ -252,4 +304,25 @@ public class ActionSimple extends Action {
             System.out.println("Action non disponible.");
         }
     }
+    
+    /**
+     * Méthode pour faire une recherche en fonction du libelle (une partie ou le nom en entier)
+     * @param nom
+     * @return 
+     */
+     public List<ActionSimple> rechercherParNom(String nom) {
+        System.out.println("Recherche par nom, nom recherché : " + nom);
+        List<ActionSimple> resultats = new ArrayList<>();
+        for (Action action : availableActions) {
+            if (action instanceof ActionSimple) {
+                ActionSimple actionSimple = (ActionSimple) action;
+                if (actionSimple.getLibelle().toLowerCase().contains(nom.toLowerCase())) {
+                    resultats.add(actionSimple);
+                }
+            }
+        }
+        return resultats;
+    }
+     
+   
 }

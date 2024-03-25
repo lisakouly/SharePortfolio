@@ -33,6 +33,8 @@ public class ActionComposee extends Action {
         this.mapPanier = new HashMap();
         allActionsComposees.add(this);
     }
+    
+   
 
     /**
      * Fonction pour ajouter une action simple à une action composée
@@ -85,6 +87,12 @@ public class ActionComposee extends Action {
     */
     public static List<ActionComposee> getAllActionsComposees() {
         return allActionsComposees;
+    }
+    /**
+    * Fonction permettant d’effacer toutes les actions composées disponibles.
+    */
+    public static void clearAllActionsComposees() {
+        allActionsComposees.clear();
     }
     
     /**

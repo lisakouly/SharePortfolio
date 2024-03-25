@@ -1,26 +1,4 @@
 -------------------------------------------------------------------------------
 Test set: tp04.metier.ClientTest
 -------------------------------------------------------------------------------
-Tests run: 2, Failures: 1, Errors: 1, Skipped: 0, Time elapsed: 0.151 s <<< FAILURE! -- in tp04.metier.ClientTest
-tp04.metier.ClientTest.testAddPortefeuilleAndGetTotalPortfolioValue -- Time elapsed: 0.093 s <<< FAILURE!
-org.opentest4j.AssertionFailedError: expected: <2> but was: <0>
-	at org.junit.jupiter.api.AssertionFailureBuilder.build(AssertionFailureBuilder.java:151)
-	at org.junit.jupiter.api.AssertionFailureBuilder.buildAndThrow(AssertionFailureBuilder.java:132)
-	at org.junit.jupiter.api.AssertEquals.failNotEqual(AssertEquals.java:197)
-	at org.junit.jupiter.api.AssertEquals.assertEquals(AssertEquals.java:150)
-	at org.junit.jupiter.api.AssertEquals.assertEquals(AssertEquals.java:145)
-	at org.junit.jupiter.api.Assertions.assertEquals(Assertions.java:531)
-	at tp04.metier.ClientTest.testAddPortefeuilleAndGetTotalPortfolioValue(ClientTest.java:49)
-	at java.base/java.lang.reflect.Method.invoke(Method.java:580)
-	at java.base/java.util.ArrayList.forEach(ArrayList.java:1596)
-	at java.base/java.util.ArrayList.forEach(ArrayList.java:1596)
-
-tp04.metier.ClientTest.testGetAccountBalance -- Time elapsed: 0.002 s <<< ERROR!
-java.lang.NullPointerException: Cannot invoke "java.util.Map.containsKey(Object)" because "this.mapCours" is null
-	at tp04.metier.ActionSimple.valeur(ActionSimple.java:162)
-	at tp04.metier.Portefeuille.valeur(Portefeuille.java:157)
-	at tp04.metier.ClientTest.testGetAccountBalance(ClientTest.java:75)
-	at java.base/java.lang.reflect.Method.invoke(Method.java:580)
-	at java.base/java.util.ArrayList.forEach(ArrayList.java:1596)
-	at java.base/java.util.ArrayList.forEach(ArrayList.java:1596)
-
+Tests run: 2, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.010 s -- in tp04.metier.ClientTest

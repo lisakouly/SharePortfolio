@@ -14,6 +14,10 @@ public class Jour {
     private int annee;
     private int noJour;
 
+    Jour(int i, int i0, int i1) {
+        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+    }
+
     /**
      * Get the value of annee
      *

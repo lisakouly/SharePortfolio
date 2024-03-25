@@ -1,13 +1,4 @@
 -------------------------------------------------------------------------------
 Test set: tp04.metier.GestionnaireTest
 -------------------------------------------------------------------------------
-Tests run: 1, Failures: 0, Errors: 1, Skipped: 0, Time elapsed: 0.353 s <<< FAILURE! -- in tp04.metier.GestionnaireTest
-tp04.metier.GestionnaireTest.testEstClientSolvable -- Time elapsed: 0.223 s <<< ERROR!
-java.lang.NullPointerException: Cannot invoke "java.util.Map.containsKey(Object)" because "this.mapCours" is null
-	at tp04.metier.ActionSimple.valeur(ActionSimple.java:162)
-	at tp04.metier.Gestionnaire.estClientSolvable(Gestionnaire.java:44)
-	at tp04.metier.GestionnaireTest.testEstClientSolvable(GestionnaireTest.java:48)
-	at java.base/java.lang.reflect.Method.invoke(Method.java:580)
-	at java.base/java.util.ArrayList.forEach(ArrayList.java:1596)
-	at java.base/java.util.ArrayList.forEach(ArrayList.java:1596)
-
+Tests run: 4, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.016 s -- in tp04.metier.GestionnaireTest

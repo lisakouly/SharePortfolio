@@ -15,7 +15,6 @@
  */
 package tp04.metier;
 
-import java.util.List;
 import java.util.Map;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
@@ -40,8 +39,11 @@ public class AfficherCompositionActComTest {
         Map<String, Float> composition = ActionComposee.getComposition("Composed Action 1");
 
         /** Assert*/
+        // Vérification que la composition n'est pas nulle
         Assertions.assertNotNull(composition, "La composition doit être présente");
+        // Vérification du nombre d'ActionSimple dans la composition
         Assertions.assertEquals(2, composition.size(), "Il doit y avoir deux comportements");
+        // Vérification de la proportion de chaque ActionSimple
         Assertions.assertEquals(0.6f, composition.get("Action 1"), 0.0001, "Action 1，0.6");
         Assertions.assertEquals(0.4f, composition.get("Action 2"), 0.0001, "Action 2，0.4");
 

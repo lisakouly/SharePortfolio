@@ -20,7 +20,8 @@ import org.junit.jupiter.api.Test;
 
 /**
  *
- * @author mazhuo
+ * @author zhuo,yaning
+ * 
  */
 public class VendrePortefeuilleTest {
     
@@ -48,8 +49,11 @@ public class VendrePortefeuilleTest {
         int a2QteAfter = a2.getQuantite();
         
          /** Assert*/
+        // Vérifie que la quantité de l'action simple a1 a augmenté de 10 après la vente.
         Assertions.assertEquals(a1Qte + 10, a1QteAfter, "Le nombre d'a1 augmenté");
+        // Vérifie que la quantité de l'action composée a2 a augmenté de 20 après la vente.
         Assertions.assertEquals(a2Qte + 20, a2QteAfter, "Le nombre d'a2 devrait être augmenté");
+        // Vérifie que le portefeuille est vide après avoir vendu toutes les actions.
         Assertions.assertTrue(por.getMapLignes().isEmpty(), "MapLignes doivent être vidées");
     
     }

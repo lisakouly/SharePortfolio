@@ -1,5 +1,6 @@
 /*
  * Copyright 2024 mazhu.
+ * Copyright 2024 widad.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -17,9 +18,17 @@ package tp04.metier;
 import org.junit.jupiter.api.Test;
 
 import org.junit.jupiter.api.Assertions;
+import static org.junit.jupiter.api.Assertions.assertEquals;
 /**
  *
  * @author zhuo,yaning
+
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import org.junit.jupiter.api.Test;
+
+/**
+ *
+ * @author widad
  */
 public class GestionnaireTest {
     
@@ -52,4 +61,49 @@ public class GestionnaireTest {
           */
         Assertions.assertTrue(solvable);
     }
+    void testConstructeurParDefaut() {
+        Gestionnaire gestionnaire = new Gestionnaire();
+
+        // Verifie que les attributs sont initialisés à null
+        assertEquals(null, gestionnaire.getNom());
+        assertEquals(null, gestionnaire.getPrenom());
+    }
+
+    @Test
+    void testConstructeurAvecParametres() {
+        // Arrange
+        String nom = "Nom";
+        String prenom = "Prénom";
+        
+        // Act
+        Gestionnaire gestionnaire = new Gestionnaire(nom, prenom);
+
+        // Assert
+        assertEquals(nom, gestionnaire.getNom());
+        assertEquals(prenom, gestionnaire.getPrenom());
+    }
+    
+    @Test
+    void testGetterSetterNom() {
+        // Arrange
+        Gestionnaire gestionnaire = new Gestionnaire();
+        String nom = "NomTest";
+        
+        // Act
+        gestionnaire.setNom(nom);
+
+        // Assert
+        assertEquals(nom, gestionnaire.getNom());
+    }
+    
+    @Test
+    void testGetterSetterPrenom() {
+        Gestionnaire gestionnaire = new Gestionnaire();
+        String prenom = "PrénomTest";
+        
+        gestionnaire.setPrenom(prenom);
+
+        assertEquals(prenom, gestionnaire.getPrenom());
+    }
+    
 }
