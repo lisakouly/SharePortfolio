@@ -8,8 +8,10 @@ package tp04.metier;
 import java.util.Objects;
 
 /**
- *
+ * Classe représentant une action 
+ * Attributs : libellé (string) et valeur (float)
  * @author somebody
+ * 
  */
 public abstract class Action {
 
@@ -21,9 +23,9 @@ public abstract class Action {
     }
 
     /**
-     * Get the value of libelle
+     * Recupérer la valeur du libellé d'une action
      *
-     * @return the value of libelle
+     * @return string (libelle)
      */
     public String getLibelle() {
         return libelle;
@@ -51,6 +53,10 @@ public abstract class Action {
         return true;
     }
 
+    /** 
+     * Fonction permettant d'afficher le libellé d'un action
+     * @return String
+     */
     public String toString() {
         return this.getLibelle();
     }
