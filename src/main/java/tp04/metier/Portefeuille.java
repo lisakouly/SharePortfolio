@@ -293,4 +293,8 @@ public class Portefeuille {
         }
         mapLignes.clear();
     }
+
+    Object getQuantite(ActionSimple actionSimple, Client client) {
+        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+    }
 }

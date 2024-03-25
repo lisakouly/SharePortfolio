@@ -23,19 +23,23 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
 
+
 /**
  *
  * @author Imane
  */
+
 public class PortefeuilleTest {
 
     private Portefeuille portefeuille;
     private ActionSimple actionSimple;
+    private Client client;
 
     @Before
     public void setUp() {
         portefeuille = new Portefeuille();
         actionSimple = new ActionSimple("ActionTest", 100, 50.0);
+        client = new Client("John Doe", "john.doe@example.com");
     }
 
     @Test
@@ -49,6 +53,41 @@ public class PortefeuilleTest {
         portefeuille.acheter(actionSimple, 100);
         portefeuille.vendre(actionSimple, 50);
         assertEquals(50, portefeuille.getQuantite(actionSimple));
+    }
+
+    @Test
+    public void testAcheterPourClient() {
+        portefeuille.acheter(actionSimple, 100);
+        portefeuille.acheter(actionSimple, 50, client);
+        assertEquals(50, portefeuille.getQuantite(actionSimple, client));
+    }
+
+    @Test
+    public void testVendreEntreprise() {
+        portefeuille.acheter(actionSimple, 100);
+        portefeuille.vendreEntreprise(actionSimple, 30);
+        assertEquals(70, portefeuille.getQuantite(actionSimple));
+    }
+
+    @Test
+    public void testValeur() {
+        portefeuille.acheter(actionSimple, 100);
+        float expectedValue = 100 * actionSimple.valeur(new Jour()); // Assuming Jour is properly implemented
+        assertEquals(expectedValue, portefeuille.valeur(new Jour()), 0.001);
+    }
+
+    @Test
+    public void testActionnaireMajoritaire() {
+        portefeuille.acheter(actionSimple, 100);
+        portefeuille.acheter(actionSimple, 50, client);
+        assertEquals(client, portefeuille.actionnaireMajoritaire(actionSimple));
+    }
+
+    @Test
+    public void testVendrePortefeuille() {
+        portefeuille.acheter(actionSimple, 100);
+        portefeuille.vendrePortefeuille("PortefeuilleTest");
+        assertEquals(0, portefeuille.getQuantite(actionSimple));
     }
 
     @Test
