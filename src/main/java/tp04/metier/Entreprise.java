@@ -38,6 +38,7 @@ public class Entreprise {
         this.palierBlocage = palierBlocage;
     }
 
+    
     // Getters et setters
     /**
      * Méthode pour obtenir le nom de l'entreprise.

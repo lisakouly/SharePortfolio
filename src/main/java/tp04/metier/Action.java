@@ -144,18 +144,17 @@ public abstract class Action {
         return true;
     }
 
-<<<<<<< HEAD
+
     /**
      * Redéfinition de la méthode toString pour la classe Action.
      * @return une représentation sous forme de chaîne de caractères de l'action
      */
     @Override
-=======
+
     /** 
      * Fonction permettant d'afficher le libellé d'un action
      * @return String
      */
->>>>>>> Yassine/Nathan/Lisa
     public String toString() {
         return this.getLibelle();
     }

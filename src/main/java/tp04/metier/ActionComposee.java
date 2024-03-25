@@ -21,6 +21,7 @@ public class ActionComposee extends Action {
     // attribut lien
     Map<ActionSimple, Float> mapPanier;
     private int quantite;
+    private double prix;
     
     private static final List<ActionComposee> allActionsComposees = new ArrayList<>();
 
@@ -61,8 +62,7 @@ public class ActionComposee extends Action {
             this.quantite = quantite;
     }
 
-<<<<<<< HEAD
-=======
+
     /**
      * Fonction pour récupérer le prix d'une action composée
      * @return 
@@ -78,7 +78,6 @@ public class ActionComposee extends Action {
     public void setPrix(double prix) {
             this.prix = prix;
     }
->>>>>>> Yassine/Nathan/Lisa
     
     /**
     *
