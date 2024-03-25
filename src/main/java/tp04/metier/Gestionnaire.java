@@ -28,13 +28,21 @@ import java.util.Map;
  * Cette classe représente un gestionnaire qui permet de consulter les actions achetées par les clients
  * et les quantités détenues dans un portefeuille.
  * 
- * @author mazhuo
+ * @author zhuo, yaning
  */
 public class Gestionnaire {
     private String nom;
     private String prenom;
     
-    
+    /**
+     * Vérifie si le client est solvable pour l'achat d'une action donnée.
+     * 
+     * @param client Le client qui souhaite acheter l'action.
+     * @param j Le jour auquel l'achat est effectué.
+     * @param action L'action à acheter.
+     * @param quantity La quantité d'actions à acheter.
+     * @return True si le client est solvable, sinon false.
+     */
      public boolean estClientSolvable(Client client, Jour j, Action action, int quantity) {
          /* Calculate total investments*/
          float totalInvestissements = 0.0f;
@@ -55,17 +63,16 @@ public class Gestionnaire {
     
     
     /**
-     * Constructeur avec paramètres
-     * @param nom
-     * @param prenom 
+     * Constructeur avec paramètres.
+     * 
+     * @param nom Le nom du gestionnaire.
+     * @param prenom Le prénom du gestionnaire.
      */
-    
     public Gestionnaire(String nom, String prenom) {
     this.nom = nom;
     this.prenom = prenom;
     }
 
-    // Getters et setters
     
     /**
      * Getter pour l'attribut nom.
@@ -101,10 +108,10 @@ public class Gestionnaire {
 
     
      
-    /**
+     /**
      * Méthode pour consulter les actions achetées par les clients et les quantités détenues dans un portefeuille.
      * 
-     * @param portefeuille
+     * @param portefeuille Le portefeuille du client.
      */
     public void consulterActionsAchetees(Portefeuille portefeuille) {
         Map<Action, LignePortefeuille> mapLignes = portefeuille.getMapLignes();
