@@ -30,10 +30,6 @@ public class Client {
      public Client() {
         this.portefeuilles = new ArrayList<>();
     }
-
-    Client(String john_Doe, String johndoeexamplecom) {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
-    }
      
     public Float getCapital() {
             return capital;

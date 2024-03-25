@@ -26,7 +26,7 @@ public class CoursTest {
 
     @Test
     public void testGetValeur() {
-        Jour jour = new Jour(2024, 3, 19);
+        Jour jour = new Jour(2024, 3);
         float valeur = 2.3F;
         Cours cours = new Cours(jour, valeur);
         assertEquals(valeur, cours.getValeur(), 0.001);
@@ -34,7 +34,7 @@ public class CoursTest {
 
     @Test
     public void testGetJour() {
-        Jour jour = new Jour(2024, 3, 19);
+        Jour jour = new Jour(2024, 3);
         float valeur = 2.3F;
         Cours cours = new Cours(jour, valeur);
         assertEquals(jour, cours.getJour());
@@ -42,7 +42,7 @@ public class CoursTest {
 
     @Test
     public void testToString() {
-        Jour jour = new Jour(2024, 3, 19);
+        Jour jour = new Jour(2024, 3);
         float valeur = 2.3F;
         Cours cours = new Cours(jour, valeur);
         String expected = "Cours{jour=" + jour + ", valeur=" + valeur + '}';
