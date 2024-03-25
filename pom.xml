@@ -23,7 +23,7 @@ limitations under the License.
     <packaging>jar</packaging>
     <name>${project.groupId}:${project.artifactId}</name>
     <description>This library allows the creation and handling of shares both simple or complex.</description>
-    <url>https://github.com/DavidNavarreICS/SharePortfolio</url>
+    <url>https://github.com/lisakouly/SharePortfolio</url>
 
 
     <licenses>
