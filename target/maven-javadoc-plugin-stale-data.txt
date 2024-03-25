@@ -1,0 +1,50 @@
+-J-Dhttp.proxyHost=193.49.48.244
+-J-Dhttp.proxyPort=3128
+-J-Dhttps.proxyHost=193.49.48.244
+-J-Dhttps.proxyPort=3128
+@options
+@packages
+-encoding
+'UTF-8'
+-protected
+-source
+'17'
+-sourcepath
+'C:/Users/widad/OneDrive/Bureau/SharePortfolio/src/main/java'
+-author
+-bottom
+'Copyright &#169; 2024. All rights reserved.'
+-charset
+'UTF-8'
+-d
+'C:/Users/widad/OneDrive/Bureau/SharePortfolio/target/site/apidocs'
+-docencoding
+'UTF-8'
+-doctitle
+'fr.utc.miage.forge.shareportfolio:sharePortfolio 1.0-SNAPSHOT API'
+-use
+-version
+-windowtitle
+'fr.utc.miage.forge.shareportfolio:sharePortfolio 1.0-SNAPSHOT API'
+tp04.metier
+C:\Users\widad\OneDrive\Bureau\SharePortfolio\src\main\java = 1710592078312
+C:\Users\widad\OneDrive\Bureau\SharePortfolio\target\site\apidocs\allclasses-index.html = 1711368219075
+C:\Users\widad\OneDrive\Bureau\SharePortfolio\target\site\apidocs\allpackages-index.html = 1711368219081
+C:\Users\widad\OneDrive\Bureau\SharePortfolio\target\site\apidocs\copy.svg = 1711368219155
+C:\Users\widad\OneDrive\Bureau\SharePortfolio\target\site\apidocs\element-list = 1711368218890
+C:\Users\widad\OneDrive\Bureau\SharePortfolio\target\site\apidocs\help-doc.html = 1711368219146
+C:\Users\widad\OneDrive\Bureau\SharePortfolio\target\site\apidocs\index-all.html = 1711368219131
+C:\Users\widad\OneDrive\Bureau\SharePortfolio\target\site\apidocs\index.html = 1711368219138
+C:\Users\widad\OneDrive\Bureau\SharePortfolio\target\site\apidocs\javadoc.bat = 1711367918504
+C:\Users\widad\OneDrive\Bureau\SharePortfolio\target\site\apidocs\link.svg = 1711368219157
+C:\Users\widad\OneDrive\Bureau\SharePortfolio\target\site\apidocs\member-search-index.js = 1711368219090
+C:\Users\widad\OneDrive\Bureau\SharePortfolio\target\site\apidocs\module-search-index.js = 1711368219084
+C:\Users\widad\OneDrive\Bureau\SharePortfolio\target\site\apidocs\overview-tree.html = 1711368219016
+C:\Users\widad\OneDrive\Bureau\SharePortfolio\target\site\apidocs\package-search-index.js = 1711368219087
+C:\Users\widad\OneDrive\Bureau\SharePortfolio\target\site\apidocs\script.js = 1711368219153
+C:\Users\widad\OneDrive\Bureau\SharePortfolio\target\site\apidocs\search-page.js = 1711368219162
+C:\Users\widad\OneDrive\Bureau\SharePortfolio\target\site\apidocs\search.html = 1711368219135
+C:\Users\widad\OneDrive\Bureau\SharePortfolio\target\site\apidocs\search.js = 1711368219159
+C:\Users\widad\OneDrive\Bureau\SharePortfolio\target\site\apidocs\stylesheet.css = 1711368219150
+C:\Users\widad\OneDrive\Bureau\SharePortfolio\target\site\apidocs\tag-search-index.js = 1711368219090
+C:\Users\widad\OneDrive\Bureau\SharePortfolio\target\site\apidocs\type-search-index.js = 1711368219088

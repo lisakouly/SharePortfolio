@@ -5,12 +5,13 @@
  */
 package tp04.metier;
 
-/*
+/**
  * Cette classe représente un jour dans le système.
  * 
- * @author somebody
+ * Elle contient l'année et le numéro du jour.
+ * 
+ * Auteur : somebody
  */
-
 public class Jour {
 
     private int annee;
@@ -36,19 +37,24 @@ public class Jour {
     }
 
     /**
+     * Constructeur avec paramètres de la classe Jour.
      * 
-     * @param annee
-     * @param noJour 
+     * @param annee L'année du jour.
+     * @param noJour Le numéro du jour.
      */
     public Jour(int annee, int noJour) {
         this.annee = annee;
         this.noJour = noJour;
     }
+    /**
+     * Constructeur par défaut de la classe Jour.
+     */
     public Jour(){}
 
     /**
+     * Calcule le code de hachage pour cet objet.
      * 
-     * @return 
+     * @return Le code de hachage calculé.
      */
     @Override
     public int hashCode() {
@@ -57,10 +63,11 @@ public class Jour {
         hash = 61 * hash + this.noJour;
         return hash;
     }
-    /**
+      /**
+     * Indique si un autre objet est "égal" à celui-ci.
      * 
-     * @param obj
-     * @return 
+     * @param obj L'objet à comparer avec celui-ci.
+     * @return true si les objets sont égaux, false sinon.
      */
     @Override
     public boolean equals(Object obj) {
@@ -80,9 +87,10 @@ public class Jour {
         return true;
     }
 
-    /**
+   /**
+     * Retourne une chaîne de caractères représentant cet objet.
      * 
-     * @return 
+     * @return Une chaîne de caractères représentant cet objet.
      */
     @Override
     public String toString() {

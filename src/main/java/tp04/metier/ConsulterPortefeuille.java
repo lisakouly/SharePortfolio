@@ -17,9 +17,7 @@ package tp04.metier;
 import java.util.Map;
 
 /**
- * Cette classe permet de consulter les actions contenues dans un portefeuille.
- * 
- * @author Yassine Alouini
+ * Construit une nouvelle instance de ConsulterPortefeuille avec des valeurs par défaut.
  */
 public class ConsulterPortefeuille {
     

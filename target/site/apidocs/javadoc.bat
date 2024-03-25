@@ -1,1 +1,0 @@
-cmd.exe /X /C ""C:\Program Files\Java\jdk-21\bin\javadoc.exe" -J-Dhttp.proxyHost=193.49.48.244 -J-Dhttp.proxyPort=3128 -J-Dhttps.proxyHost=193.49.48.244 -J-Dhttps.proxyPort=3128 @options @packages"

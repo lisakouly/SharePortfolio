@@ -22,8 +22,10 @@ import java.util.Map;
 
 /**
  * Représente un portefeuille d'actions.
+ * 
  * Un portefeuille contient une liste d'actions avec leurs quantités respectives.
- * @author Somebody
+ * 
+ * Auteur : Somebody
  */
 public class Portefeuille {
     
@@ -33,38 +35,7 @@ public class Portefeuille {
     private List<Action> availableActions;
     private Map<ActionSimple, Map<Client, Integer>> actionsClient;
     
-    /*public class LignePortefeuille {
-
-        private Action action;
-
-        private int qte;
-
-        public int getQte() {
-            return qte;
-        }
-
-        public void setQte(int qte) {
-            this.qte = qte;
-        }
-
-        public Action getAction() {
-            return this.action;
-        }
-
-        public LignePortefeuille(Action action, int qte) {
-            this.action = action;
-            this.qte = qte;
-        }
-
-        public String toString() {
-            return Integer.toString(qte);
-        }
-
-        public Object getPrix() {
-            throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
-        }
-    }*/
-    
+   
     /**
      * Constructeur de Portefeuille avec un nom spécifié.
      * @param nomPortefeuille le nom du portefeuille
@@ -89,11 +60,10 @@ public class Portefeuille {
     /**
      * Méthode pour acheter une certaine quantité d'une action donnée et l'ajouter au portefeuille.
      * Si l'action est déjà présente dans le portefeuille, la quantité est mise à jour.
-     * @param a l'action à acheter
-     * @param q la quantité à acheter
+     * 
+     * @param a L'action à acheter.
+     * @param q La quantité à acheter.
      */
-    
-   
     public void acheter(Action a, int q) {
         if (!this.mapLignes.containsKey(a)) {
             this.mapLignes.put(a, new LignePortefeuille(a, q));
@@ -102,12 +72,13 @@ public class Portefeuille {
         }
     }
     
-    /**
+   /**
      * Méthode pour acheter une certaine quantité d'une action simple pour un client spécifique.
      * Si l'action est déjà présente pour ce client, la quantité est mise à jour.
-     * @param action l'action simple à acheter
-     * @param nombreActions le nombre d'actions à acheter
-     * @param client le client effectuant l'achat
+     * 
+     * @param action L'action simple à acheter.
+     * @param nombreActions Le nombre d'actions à acheter.
+     * @param client Le client effectuant l'achat.
      */
     public void acheter(ActionSimple action, int nombreActions, Client client) {
         if (!actionsClient.containsKey(action)) {
@@ -121,8 +92,9 @@ public class Portefeuille {
      * Méthode pour vendre une certaine quantité d'une action donnée du portefeuille.
      * Si la quantité à vendre est supérieure à la quantité détenue dans le portefeuille,
      * l'action est retirée du portefeuille.
-     * @param a l'action à vendre
-     * @param q la quantité à vendre
+     * 
+     * @param a L'action à vendre.
+     * @param q La quantité à vendre.
      */
     public void vendre(Action a, int q) {
         if (this.mapLignes.containsKey(a)) {
@@ -137,8 +109,9 @@ public class Portefeuille {
 
     /**
      * Méthode pour vendre une certaine quantité d'une action simple d'une entreprise.
-     * @param action l'action simple à vendre
-     * @param quantite la quantité à vendre
+     * 
+     * @param action L'action simple à vendre.
+     * @param quantite La quantité à vendre.
      */
     public void vendreEntreprise(ActionSimple action, int quantite) {
         if (action != null && mapLignes.containsKey(action)) {
@@ -160,9 +133,10 @@ public class Portefeuille {
     }
 
     /**
-     * Méthode pour obtenir la quantité détenue d'une action donnée dans le portefeuille.
-     * @param action l'action dont on veut connaître la quantité
-     * @return la quantité détenue
+     * Méthode pour obtenir la valeur totale du portefeuille à un jour donné.
+     * 
+     * @param j Le jour pour lequel calculer la valeur du portefeuille.
+     * @return La valeur totale du portefeuille.
      */
     public float valeur(Jour j) {
         float total = 0;
@@ -172,19 +146,13 @@ public class Portefeuille {
         return total;
     }
 
-    // DOUBLE
-    /*public float valeur(Jour j) {
-        float total = 0;
-        for (LignePortefeuille lp : this.mapLignes.values()) {
-            total = total + (lp.getQte() * lp.getAction().valeur(j));
-        }
-        return total;
-    }*/
+   
     
-    /**
-     * Méthode pour déterminer l'actionnaire majoritaire d'une action simple dans le portefeuille.
-     * @param action l'action simple dont on veut déterminer l'actionnaire majoritaire
-     * @return le client actionnaire majoritaire ou null s'il n'y a pas d'actionnaire majoritaire
+     /**
+     * Méthode pour obtenir la quantité détenue d'une action donnée dans le portefeuille.
+     * 
+     * @param action L'action dont on veut connaître la quantité.
+     * @return La quantité détenue.
      */
     public int getQuantite(Action action) {
         return mapLignes.containsKey(action) ? mapLignes.get(action).getQte() : 0;
@@ -197,17 +165,19 @@ public class Portefeuille {
         return mapLignes;
     }
 
-    /**
-     * Méthode pour obtenir la liste des actions disponibles.
-     * @return la liste des actions disponibles
+   /**
+     * Méthode pour obtenir la liste des actions disponibles dans le portefeuille.
+     * 
+     * @return La liste des actions disponibles.
      */
     public List<Action> getAvailableActions() {
         return availableActions;
     }
 
     /**
-     * Méthode pour définir la liste des actions disponibles.
-     * @param availableActions la liste des actions disponibles à définir
+     * Méthode pour définir la liste des actions disponibles dans le portefeuille.
+     * 
+     * @param availableActions La liste des actions disponibles à définir.
      */
     public void setAvailableActions(List<Action> availableActions) {
         this.availableActions = availableActions;
@@ -237,10 +207,11 @@ public class Portefeuille {
         }
     }
 
-    /**
+     /**
      * Méthode pour déterminer l'actionnaire majoritaire d'une action simple dans le portefeuille.
-     * @param action l'action simple dont on veut déterminer l'actionnaire majoritaire
-     * @return le client actionnaire majoritaire ou null s'il n'y a pas d'actionnaire majoritaire
+     * 
+     * @param action L'action simple dont on veut déterminer l'actionnaire majoritaire.
+     * @return Le client actionnaire majoritaire ou null s'il n'y a pas d'actionnaire majoritaire.
      */
     public Client actionnaireMajoritaire(ActionSimple action) {
         if (!actionsClient.containsKey(action)) {
@@ -261,11 +232,12 @@ public class Portefeuille {
         return actionnaireMajoritaire;
     }
     
-    /**
+   /**
      * Méthode pour obtenir la quantité détenue par un client pour une action donnée.
-     * @param action l'action concernée
-     * @param client le client concerné
-     * @return la quantité détenue par le client pour l'action donnée
+     * 
+     * @param action L'action concernée.
+     * @param client Le client concerné.
+     * @return La quantité détenue par le client pour l'action donnée.
      */
     private int getQuantite(Action action, Client client) {
         for (LignePortefeuille lignePortefeuille : mapLignes.values()) {
@@ -284,14 +256,16 @@ public class Portefeuille {
 
     /**
      * Méthode pour définir les lignes du portefeuille.
-     * @param mapLignes le map contenant les lignes du portefeuille
+     * 
+     * @param mapLignes Le map contenant les lignes du portefeuille.
      */
     public void setMapLignes(Map<Action, LignePortefeuille> mapLignes) {
             this.mapLignes = mapLignes;
     }
-    /**
+   /**
      * Méthode pour vendre la totalité du portefeuille.
-     * @param nomPortefeuille le nom du portefeuille à vendre
+     * 
+     * @param nomPortefeuille Le nom du portefeuille à vendre.
      */
     public void vendrePortefeuille(String nomPortefeuille){
         
@@ -310,7 +284,6 @@ public class Portefeuille {
         mapLignes.clear();
     }
 
-    Object getQuantite(ActionSimple actionSimple, Client client) {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
-    }
+    
+    
 }

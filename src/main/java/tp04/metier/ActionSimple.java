@@ -10,7 +10,6 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-
 /**
  * Cette classe représente une action simple, qui est un type spécifique d'action.
  * @author somebody
@@ -39,11 +38,10 @@ public class ActionSimple extends Action {
      */
     public ActionSimple(String libelle, int quantite, double prix) {
         super(libelle);
-        this.mapCours = new HashMap();
+        this.mapCours = new HashMap<>();
         this.pourcentageMaxVente = 100;
         this.quantite = quantite;
         this.prix = prix;
-        this.mapCours = new HashMap<>();
         this.availableActions = new ArrayList<>();
     }
     
@@ -65,7 +63,9 @@ public class ActionSimple extends Action {
         super(libelle);
         this.mapCours = new HashMap<>();
     }
-
+    /**
+    * Construit une nouvelle instance de ActionSimple avec des valeurs par défaut.
+    */
     public ActionSimple() {
         super(null);
     }
@@ -79,15 +79,21 @@ public class ActionSimple extends Action {
         this.availableActions.add(this);
     }
     
+    /**
+     * Getter pour la carte des cours.
+     * @return la carte des cours
+     */
     public Map<Jour, Cours> getMapCours() {
-    return mapCours;
-}
+        return mapCours;
+    }
 
+    /**
+     * Getter pour les actions disponibles.
+     * @return la liste des actions disponibles
+     */
     public List<Action> getAvailableActions() {
         return availableActions;
     }
-
-   
 
     /**
      * Méthode pour soustraire une quantité donnée de la quantité disponible de cette action.
@@ -118,16 +124,15 @@ public class ActionSimple extends Action {
     }
     
     /**
-     * 
-     * @param availableActions 
+     * Setter pour les actions disponibles.
+     * @param availableActions la liste des actions disponibles à définir
      */  
     public void setAvailableActions(List<Action> availableActions) {
-    this.availableActions = availableActions;
+        this.availableActions = availableActions;
     }
 
     /**
-     * Enregistrement de la valeur d'une action à une date donnée
-     * 
+     * Enregistrement de la valeur d'une action à une date donnée.
      * @param j une date donnée
      * @param v valeur
      */
@@ -141,7 +146,7 @@ public class ActionSimple extends Action {
         }
     }
     
-      /**
+    /**
      * Méthode pour obtenir la quantité disponible de cette action.
      * @return la quantité disponible de l'action
      */
@@ -150,41 +155,43 @@ public class ActionSimple extends Action {
         return quantite;
     }
 
+    /**
+     * Setter pour la quantité disponible de cette action.
+     * @param quantite la nouvelle quantité disponible à définir
+     */
     public void setQuantite(int quantite) {
-            this.quantite = quantite;
+        this.quantite = quantite;
     }
 
+    /**
+     * Getter pour le prix de cette action.
+     * @return le prix de l'action
+     */
     public double getPrix() {
-            return prix;
+        return prix;
     }
 
+    /**
+     * Setter pour le prix de cette action.
+     * @param prix le nouveau prix à définir
+     */
     public void setPrix(double prix) {
-            this.prix = prix;
+        this.prix = prix;
     }
     
-     /**
-    * Retourne le pourcentage maximal d'actions pouvant être vendues.
-    * <p>
-    * Ce pourcentage indique la limite supérieure des actions de la compagnie qui peuvent être mises en vente.
-    * Par défaut, ce pourcentage est fixé à 100%, signifiant que toutes les actions peuvent être vendues.
-    * </p>
-    * 
-    * @return le pourcentage maximal d'actions vendables.
-    */
+    /**
+     * Retourne le pourcentage maximal d'actions pouvant être vendues.
+     * @return le pourcentage maximal d'actions vendables
+     */
     public double getPourcentageMaxVente() {
         return pourcentageMaxVente;
     }
     
     /**
-    * Définit le pourcentage maximal d'actions pouvant être vendues.
-    * <p>
-    * Cette méthode permet de limiter la quantité d'actions qui peuvent être vendues.
-    * Si la valeur spécifiée n'est pas dans cet intervalle, une IllegalArgumentException est levée.
-    * </p>
-    * 
-    * @param pourcentageMaxVente le pourcentage maximal de vente, entre 0 et 100.
-    * @throws IllegalArgumentException si le pourcentage spécifié n'est pas entre 0 et 100.
-    */
+     * Définit le pourcentage maximal d'actions pouvant être vendues.
+     * @param pourcentageMaxVente le nouveau pourcentage maximal de vente, entre 0 et 100
+     * @throws IllegalArgumentException si le pourcentage spécifié n'est pas entre 0 et 100
+     */
     public void setPourcentageMaxVente(double pourcentageMaxVente) {
         if (pourcentageMaxVente >= 0 && pourcentageMaxVente <= 100) {
             this.pourcentageMaxVente = pourcentageMaxVente;
@@ -193,9 +200,12 @@ public class ActionSimple extends Action {
         }
     }
 
-
+    /**
+     * Setter pour la carte des cours.
+     * @param mapCours la nouvelle carte des cours à définir
+     */
     public void setMapCours(Map<Jour, Cours> mapCours) {
-            this.mapCours = mapCours;
+        this.mapCours = mapCours;
     }
 
     /**
@@ -203,6 +213,7 @@ public class ActionSimple extends Action {
      * @param j le jour pour lequel calculer la valeur
      * @return la valeur de l'action pour le jour donné
      */
+  
     @Override
     public float valeur(Jour j) {
         if (this.mapCours != null && this.mapCours.containsKey(j)) {
@@ -301,8 +312,8 @@ public class ActionSimple extends Action {
     
     /**
      * Méthode pour faire une recherche en fonction du libelle (une partie ou le nom en entier)
-     * @param nom
-     * @return 
+     * @param nom le nom (ou partie du nom) à rechercher
+     * @return une liste d'actions simples correspondant au critère de recherche
      */
      public List<ActionSimple> rechercherParNom(String nom) {
         System.out.println("Recherche par nom, nom recherché : " + nom);
@@ -318,5 +329,7 @@ public class ActionSimple extends Action {
         return resultats;
     }
      
+   
+
    
 }
